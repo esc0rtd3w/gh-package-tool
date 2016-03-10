@@ -52,6 +52,7 @@ var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_e
 // Set Default Values
 var base = baseZylomGHM;
 var gameNameTitle = "Game Name Title Here";
+var gameNameTitleTemp = "";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";
