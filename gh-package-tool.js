@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.1.7";
+var scriptVer = "0.1.8";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -147,10 +147,10 @@ alert(popupInfo);
 //var btn = document.createElement("BUTTON");
 //document.body.appendChild(btn);
 
-//var ghHook = document.getElementById('div');
+//var ghHook = document.getElementById('right_col');
 //var ghFirstChild = ghHook.firstChild;
 //var ghPackageTool = document.createElement("div");
-//ghHook.insertBefore(ghPackageTool, ghFirstChild);
+//ghHook.appendChild(ghPackageTool);
 
 
 // Create Buttons
