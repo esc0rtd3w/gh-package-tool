@@ -9,14 +9,26 @@
 
 
 
+// Part of the RealArcade Wrapper Killer
+// cRypTiCwaRe 2016
+
+
+
+// This is a side project of mine.
+// I am in no way a Javascript programmer, but more of a curious hacker ;)
+
+// I have been involved with hacking, reverse-engineering, and collecting data from RealArcade, and now GameHouse since 2005.
+
+// My code is probably shit, so do not laugh!!!
+
+
+
+
 
 // Basic Info and Text
 var scriptVer = "0.1.7";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
-
-
-
 
 
 
@@ -52,7 +64,6 @@ var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_e
 // Set Default Values
 var base = baseZylomGHM;
 var gameNameTitle = "Game Name Title Here";
-var gameNameTitleTemp = "";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";
@@ -106,17 +117,17 @@ gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 base = baseExeStub;
 offering = gameNamePackage;
-linkEXE = "Direct Link (EXE Stub):\n" + base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
+linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
 // RFS
 base = baseZylomGHM;
 ext = "rfs";
-linkRFS = "Direct Link (RFS):\n" + base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
+linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
 // RGA
 base = baseZylomMumboDipEN;
 ext = "rga";
-linkRGA = "Direct Link (RGA):\n" + base + gameNamePackage + lang + "." + ext;
+linkRGA = base + gameNamePackage + lang + "." + ext;
 
 
 
@@ -129,3 +140,38 @@ var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + 
 // Popup Game and Package Info
 alert(popupInfo);
 
+
+
+// This crap does not work yet below!!!
+
+//var btn = document.createElement("BUTTON");
+//document.body.appendChild(btn);
+
+//var ghHook = document.getElementById('div');
+//var ghFirstChild = ghHook.firstChild;
+//var ghPackageTool = document.createElement("div");
+//ghHook.insertBefore(ghPackageTool, ghFirstChild);
+
+
+// Create Buttons
+var btnEXE = document.createElement("BUTTON");
+var btnRGA = document.createElement("BUTTON");
+var btnRGS = document.createElement("BUTTON");
+var btnRFS = document.createElement("BUTTON");
+
+// Create Button Text
+var btnTextEXE = document.createTextNode("Download EXE Stub");
+var btnTextRGA = document.createTextNode("Download RGA File");
+var btnTextRGS = document.createTextNode("Download RGS File");
+var btnTextRFS = document.createTextNode("Download RFS File");
+
+// Append Crap
+btnEXE.appendChild(btnTextEXE);
+btnRGA.appendChild(btnTextRGA);
+btnRGS.appendChild(btnTextRGS);
+btnRFS.appendChild(btnTextRFS);
+
+document.body.appendChild(btnEXE);
+document.body.appendChild(btnRGA);
+document.body.appendChild(btnRGS);
+document.body.appendChild(btnRFS);
