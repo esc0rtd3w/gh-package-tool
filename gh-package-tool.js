@@ -91,6 +91,8 @@ function scrollToBottom(height){
 
 // Get Content ID
 function getCID(){
+	// Get 32 Chars Directly Between the Equal Sign "=" and The Next Ampersand "&" From Page Source
+	// Example: gamesetid=6000&contentid=6a95810f4bde20ec4b280aa125cbd491&licensetype=2
 	var cidTemp = document.documentElement.innerHTML.split('contentid=');
 	for(x=0; x<cidTemp.length; x++){
 		if(/\d+&/i.test(cidTemp[x])){
@@ -164,7 +166,7 @@ alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\
 
 
 // Create Buttons
-var newDiv = document.createElement ('div');
+var newDiv = document.createElement('div');
 newDiv.innerHTML = '<button id="btnEXE" type="button">'
                 + 'Download EXE Stub</button>'
 				+ '<button id="btnRGA" type="button">'
@@ -176,44 +178,44 @@ newDiv.innerHTML = '<button id="btnEXE" type="button">'
                 ;
 				
 // Append Buttons
-newDiv.setAttribute ('id', 'modContainer');
-document.body.appendChild (newDiv);
+newDiv.setAttribute('id', 'modContainer');
+document.body.appendChild(newDiv);
 
 // Scroll To Bottom of Page To See Buttons
 scrollToBottom();
 
 // Add Button Listeners
-document.getElementById ("btnEXE").addEventListener (
+document.getElementById("btnEXE").addEventListener(
     "click", btnActionEXE, false
 );
 
-document.getElementById ("btnRGA").addEventListener (
+document.getElementById("btnRGA").addEventListener(
     "click", btnActionRGA, false
 );
 
-document.getElementById ("btnRGS").addEventListener (
+document.getElementById("btnRGS").addEventListener(
     "click", btnActionRGS, false
 );
 
-document.getElementById ("btnRFS").addEventListener (
+document.getElementById("btnRFS").addEventListener(
     "click", btnActionRFS, false
 );
 
 
 // Add Button Actions
-function btnActionEXE (action) {
+function btnActionEXE(action){
 	window.open(linkEXE,"_self");
 }
 
-function btnActionRGA (action) {
+function btnActionRGA(action){
 	window.open(linkRGA,"_self");
 }
 
-function btnActionRGS (action) {
+function btnActionRGS(action){
 	window.open(linkRGS,"_self");
 }
 
-function btnActionRFS (action) {
+function btnActionRFS(action){
 	window.open(linkRFS,"_self");
 }
 
