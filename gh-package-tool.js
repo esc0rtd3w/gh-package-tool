@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.1.9";
+var scriptVer = "0.2.0";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -78,8 +78,9 @@ var gameInfo = "";
 
 // Set Default Link Variables
 var linkEXE = "";
-var linkRFS = "";
 var linkRGA = "";
+var linkRGS = "";
+var linkRFS = "";
 
 
 // Scroll To Bottom of Page
