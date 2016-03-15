@@ -182,7 +182,7 @@ btnPlayNow.insertBefore(spanHijackText, btnPlayNow.nextSibling);
 // Modify Secondary "Play Now" Button Sub Text
 var spanHijackSubText = document.createElement("span");
 spanHijackSubText.setAttribute("class", "secondary");
-spanHijackSubText.innerHTML = "Download RFS Package";
+spanHijackSubText.innerHTML = "Download Full Package";
 btnPlayNow.insertBefore(spanHijackSubText, btnPlayNow.nextSibling);
 
 
@@ -279,5 +279,3 @@ function cleanCSS(dummyFunc){
             ;
     return str;
 }
-
-
