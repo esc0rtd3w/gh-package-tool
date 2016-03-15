@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.1.8";
+var scriptVer = "0.1.9";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -78,6 +78,10 @@ var gameInfo = "";
 var linkEXE = "";
 var linkRFS = "";
 var linkRGA = "";
+
+function scrollToBottom (height) {
+	window.scrollTo(0,document.body.scrollHeight);
+}
 
 
 // Get Content ID
@@ -132,46 +136,105 @@ linkRGA = base + gameNamePackage + lang + "." + ext;
 
 
 
-
 //popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
 var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
 
 
 // Popup Game and Package Info
-alert(popupInfo);
+//alert(popupInfo);
 
 
+// Show an Alert Message To User
+alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
-// This crap does not work yet below!!!
-
-//var btn = document.createElement("BUTTON");
-//document.body.appendChild(btn);
-
-//var ghHook = document.getElementById('right_col');
-//var ghFirstChild = ghHook.firstChild;
-//var ghPackageTool = document.createElement("div");
-//ghHook.appendChild(ghPackageTool);
 
 
 // Create Buttons
-var btnEXE = document.createElement("BUTTON");
-var btnRGA = document.createElement("BUTTON");
-var btnRGS = document.createElement("BUTTON");
-var btnRFS = document.createElement("BUTTON");
+var newDiv = document.createElement ('div');
+newDiv.innerHTML = '<button id="btnEXE" type="button">'
+                + 'Download EXE Stub</button>'
+				+ '<button id="btnRGA" type="button">'
+				+ 'Download RGA File</button>'
+				+ '<button id="btnRGS" type="button">'
+				+ 'Download RGS File</button>'
+				+ '<button id="btnRFS" type="button">'
+				+ 'Download RFS File</button>'
+                ;
+				
+// Append Buttons
+newDiv.setAttribute ('id', 'modContainer');
+document.body.appendChild (newDiv);
 
-// Create Button Text
-var btnTextEXE = document.createTextNode("Download EXE Stub");
-var btnTextRGA = document.createTextNode("Download RGA File");
-var btnTextRGS = document.createTextNode("Download RGS File");
-var btnTextRFS = document.createTextNode("Download RFS File");
+// Scroll To Bottom of Page To See Buttons
+scrollToBottom();
 
-// Append Crap
-btnEXE.appendChild(btnTextEXE);
-btnRGA.appendChild(btnTextRGA);
-btnRGS.appendChild(btnTextRGS);
-btnRFS.appendChild(btnTextRFS);
+// Add Button Listeners
+document.getElementById ("btnEXE").addEventListener (
+    "click", btnActionEXE, false
+);
 
-document.body.appendChild(btnEXE);
-document.body.appendChild(btnRGA);
-document.body.appendChild(btnRGS);
-document.body.appendChild(btnRFS);
+document.getElementById ("btnRGA").addEventListener (
+    "click", btnActionRGA, false
+);
+
+document.getElementById ("btnRGS").addEventListener (
+    "click", btnActionRGS, false
+);
+
+document.getElementById ("btnRFS").addEventListener (
+    "click", btnActionRFS, false
+);
+
+
+// Add Button Actions
+function btnActionEXE (action) {
+	window.open(linkEXE,"_self");
+}
+
+function btnActionRGA (action) {
+	window.open(linkRGA,"_self");
+}
+
+function btnActionRGS (action) {
+	window.open(linkRGS,"_self");
+}
+
+function btnActionRFS (action) {
+	window.open(linkRFS,"_self");
+}
+
+
+// Greasemonkey Style CSS
+// Original Source: http://stackoverflow.com/questions/6480082/add-a-javascript-button-using-greasemonkey-or-tampermonkey
+GM_addStyle ( cleanCSS ( function () {/*!
+    #modContainer {
+        position:               absolute;
+        top:                    0;
+        left:                   0;
+        font-size:              20px;
+        background:             orange;
+        border:                 3px outset black;
+        margin:                 5px;
+        opacity:                0.9;
+        z-index:                222;
+        padding:                5px 20px;
+    }
+    #myButton {
+        cursor:                 pointer;
+    }
+    #modContainer p {
+        color:                  red;
+        background:             white;
+    }
+*/} ) );
+
+function cleanCSS (dummyFunc) {
+    var str = dummyFunc.toString ();
+    str     = str.replace (/^[^\/]+\/\*!?/, '') // Strip function () { /*!
+            .replace (/\s*\*\/\s*\}\s*$/, '')   // Strip */ }
+            .replace (/\/\/.+$/gm, '') // Double-slash comments wreck CSS. Strip them.
+            ;
+    return str;
+}
+
+
