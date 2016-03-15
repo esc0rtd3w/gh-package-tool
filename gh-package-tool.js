@@ -161,7 +161,7 @@ buildNewLinks();
 
 
 // Show an Alert Message To User
-alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
+//alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
 
 
@@ -182,7 +182,7 @@ newDiv.setAttribute('id', 'modContainer');
 document.body.appendChild(newDiv);
 
 // Scroll To Bottom of Page To See Buttons
-scrollToBottom();
+//scrollToBottom();
 
 // Add Button Listeners
 document.getElementById("btnEXE").addEventListener(
