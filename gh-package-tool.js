@@ -61,7 +61,7 @@ var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
 var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
 
 
-// Set Default Values
+// Set Default Game Info Values
 var base = baseZylomGHM;
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
@@ -75,43 +75,52 @@ var channel = "z_syn_gh_g12";
 var gameTitle = "";
 var gameInfo = "";
 
+
+// Set Default Link Variables
 var linkEXE = "";
 var linkRFS = "";
 var linkRGA = "";
 
-function scrollToBottom (height) {
+
+// Scroll To Bottom of Page
+function scrollToBottom(height){
 	window.scrollTo(0,document.body.scrollHeight);
 }
 
 
 // Get Content ID
-var cidTemp = document.documentElement.innerHTML.split('contentid=');
-for(x=0; x<cidTemp.length; x++){
-	if(/\d+&/i.test(cidTemp[x])){
-		cid = cidTemp[x].split('&')[0];
+function getCID(){
+	var cidTemp = document.documentElement.innerHTML.split('contentid=');
+	for(x=0; x<cidTemp.length; x++){
+		if(/\d+&/i.test(cidTemp[x])){
+			cid = cidTemp[x].split('&')[0];
+		}
 	}
 }
 
-// Get Game Name From Title (Same as Install Directory Name)
-gameNameTitleTemp = document.getElementsByTagName("title")[0].innerHTML;
+// Get Game Name
+function getGameName(){
+	// Get Game Name From Title (Same as Install Directory Name)
+	gameNameTitleTemp = document.getElementsByTagName("title")[0].innerHTML;
 
-// Trim " | Gamehouse" From End of Title
-gameNameTitle = gameNameTitleTemp.slice(0, -12);
+	// Trim " | Gamehouse" From End of Title
+	gameNameTitle = gameNameTitleTemp.slice(0, -12);
 
-// Get Game Web Page Link String (With Dashes)
-gameNameWebpage = window.location.href.substring(40);
+	// Get Game Web Page Link String (With Dashes)
+	gameNameWebpage = window.location.href.substring(40);
 
-// Get Game Direct Package Link String (Without Dashes)
-gameNamePackage = gameNameWebpage.split('-').join('');
+	// Get Game Direct Package Link String (Without Dashes)
+	gameNamePackage = gameNameWebpage.split('-').join('');
+}
 	
 
 // Build Game Info
-gameTitle = gameNameTitle + "\n\n\n";
-gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
+//gameTitle = gameNameTitle + "\n\n\n";
+//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
 
 	
 // Build New Download Links
-
+function buildNewLinks(){
 // Post Download Page
 // http://www.gamehouse.com/pc/postdownload/
 
@@ -132,12 +141,16 @@ linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext
 base = baseZylomMumboDipEN;
 ext = "rga";
 linkRGA = base + gameNamePackage + lang + "." + ext;
+}
 
-
+// Do The Dirty Work
+getCID();
+getGameName();
+buildNewLinks();
 
 
 //popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
-var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
+//var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
 
 
 // Popup Game and Package Info
