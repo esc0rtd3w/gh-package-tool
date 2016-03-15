@@ -226,7 +226,17 @@ btnPlayNow.setAttribute("href", linkRFS);
 btnPlayNow.setAttribute("class", "download");
 
 // Hijack "Play Now" Button Text
-btnPlayNow.innerHTML = "RFS";
+btnPlayNow.innerHTML = "";
+
+
+// Insert Span Test
+var spanHijack = document.createElement("span");
+spanHijack.setAttribute("class", "cta");
+spanHijack.innerHTML = "RFS File";
+//var parentDiv = btnPlayNow.parentNode;
+//parentDiv.insertBefore(spanHijack, btnPlayNow);
+btnPlayNow.insertBefore(spanHijack, btnPlayNow.nextSibling);
+
 
 
 // Clone Button Sample
