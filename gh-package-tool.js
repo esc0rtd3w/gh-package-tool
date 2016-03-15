@@ -225,18 +225,20 @@ var btnPlayNow = document.getElementById("dl_now_button button");
 btnPlayNow.setAttribute("href", linkRFS);
 btnPlayNow.setAttribute("class", "download");
 
-// Hijack "Play Now" Button Text
+// Clear Default "Play Now" Button Text
 btnPlayNow.innerHTML = "";
 
+// Modify Main "Play Now" Button Text
+var spanHijackText = document.createElement("span");
+spanHijackText.setAttribute("class", "cta");
+spanHijackText.innerHTML = "RFS File";
+btnPlayNow.insertBefore(spanHijackText, btnPlayNow.nextSibling);
 
-// Insert Span Test
-var spanHijack = document.createElement("span");
-spanHijack.setAttribute("class", "cta");
-spanHijack.innerHTML = "RFS File";
-//var parentDiv = btnPlayNow.parentNode;
-//parentDiv.insertBefore(spanHijack, btnPlayNow);
-btnPlayNow.insertBefore(spanHijack, btnPlayNow.nextSibling);
-
+// Modify Secondary "Play Now" Button Sub Text
+var spanHijackSubText = document.createElement("span");
+spanHijackSubText.setAttribute("class", "secondary");
+spanHijackSubText.innerHTML = "Download RFS Package";
+btnPlayNow.insertBefore(spanHijackSubText, btnPlayNow.nextSibling);
 
 
 // Clone Button Sample
