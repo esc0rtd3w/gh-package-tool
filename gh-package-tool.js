@@ -124,26 +124,26 @@ function getGameName(){
 	
 // Build New Download Links
 function buildNewLinks(){
-// Post Download Page
-// http://www.gamehouse.com/pc/postdownload/
+	// Post Download Page
+	// http://www.gamehouse.com/pc/postdownload/
 
 
-// EXE Stub
-// Sample #1
-// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
-base = baseExeStub;
-offering = gameNamePackage;
-linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
+	// EXE Stub
+	// Sample #1
+	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
+	base = baseExeStub;
+	offering = gameNamePackage;
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
-// RFS
-base = baseZylomGHM;
-ext = "rfs";
-linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
+	// RFS
+	base = baseZylomGHM;
+	ext = "rfs";
+	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
-// RGA
-base = baseZylomMumboDipEN;
-ext = "rga";
-linkRGA = base + gameNamePackage + lang + "." + ext;
+	// RGA
+	base = baseZylomMumboDipEN;
+	ext = "rga";
+	linkRGA = base + gameNamePackage + lang + "." + ext;
 }
 
 // Do The Dirty Work
@@ -244,7 +244,7 @@ GM_addStyle ( cleanCSS ( function () {/*!
     }
 */} ) );
 
-function cleanCSS (dummyFunc) {
+function cleanCSS(dummyFunc){
     var str = dummyFunc.toString ();
     str     = str.replace (/^[^\/]+\/\*!?/, '') // Strip function () { /*!
             .replace (/\s*\*\/\s*\}\s*$/, '')   // Strip */ }
