@@ -220,6 +220,21 @@ function btnActionRFS(action){
 }
 
 
+// Hijack "Play Now" Button Link
+var btnPlayNow = document.getElementById("dl_now_button button");
+btnPlayNow.setAttribute("href", linkRFS);
+btnPlayNow.setAttribute("class", "download");
+
+// Hijack "Play Now" Button Text
+btnPlayNow.innerHTML = "RFS";
+
+
+// Clone Button Sample
+//var btnPlayNow = document.getElementById("dl_now_button button");
+//var btnClone = btnPlayNow.cloneNode(true);
+//document.body.appendChild(btnClone);
+
+
 // Greasemonkey Style CSS
 // Original Source: http://stackoverflow.com/questions/6480082/add-a-javascript-button-using-greasemonkey-or-tampermonkey
 GM_addStyle ( cleanCSS ( function () {/*!
