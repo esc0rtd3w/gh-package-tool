@@ -165,6 +165,33 @@ buildNewLinks();
 
 
 
+// Hijack "Play Now" Button Link
+var btnPlayNow = document.getElementById("dl_now_button button");
+btnPlayNow.setAttribute("href", linkRFS);
+btnPlayNow.setAttribute("class", "download");
+
+// Clear Default "Play Now" Button Text
+btnPlayNow.innerHTML = "";
+
+// Modify Main "Play Now" Button Text
+var spanHijackText = document.createElement("span");
+spanHijackText.setAttribute("class", "cta");
+spanHijackText.innerHTML = "RFS File";
+btnPlayNow.insertBefore(spanHijackText, btnPlayNow.nextSibling);
+
+// Modify Secondary "Play Now" Button Sub Text
+var spanHijackSubText = document.createElement("span");
+spanHijackSubText.setAttribute("class", "secondary");
+spanHijackSubText.innerHTML = "Download RFS Package";
+btnPlayNow.insertBefore(spanHijackSubText, btnPlayNow.nextSibling);
+
+
+// Clone Button Sample
+//var btnPlayNow = document.getElementById("dl_now_button button");
+//var btnClone = btnPlayNow.cloneNode(true);
+//document.body.appendChild(btnClone);
+
+
 // Create Buttons
 var newDiv = document.createElement('div');
 newDiv.innerHTML = '<button id="btnEXE" type="button">'
@@ -218,33 +245,6 @@ function btnActionRGS(action){
 function btnActionRFS(action){
 	window.open(linkRFS,"_self");
 }
-
-
-// Hijack "Play Now" Button Link
-var btnPlayNow = document.getElementById("dl_now_button button");
-btnPlayNow.setAttribute("href", linkRFS);
-btnPlayNow.setAttribute("class", "download");
-
-// Clear Default "Play Now" Button Text
-btnPlayNow.innerHTML = "";
-
-// Modify Main "Play Now" Button Text
-var spanHijackText = document.createElement("span");
-spanHijackText.setAttribute("class", "cta");
-spanHijackText.innerHTML = "RFS File";
-btnPlayNow.insertBefore(spanHijackText, btnPlayNow.nextSibling);
-
-// Modify Secondary "Play Now" Button Sub Text
-var spanHijackSubText = document.createElement("span");
-spanHijackSubText.setAttribute("class", "secondary");
-spanHijackSubText.innerHTML = "Download RFS Package";
-btnPlayNow.insertBefore(spanHijackSubText, btnPlayNow.nextSibling);
-
-
-// Clone Button Sample
-//var btnPlayNow = document.getElementById("dl_now_button button");
-//var btnClone = btnPlayNow.cloneNode(true);
-//document.body.appendChild(btnClone);
 
 
 // Greasemonkey Style CSS
