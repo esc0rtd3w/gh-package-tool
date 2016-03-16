@@ -82,6 +82,16 @@ var linkRGA = "";
 var linkRGS = "";
 var linkRFS = "";
 
+// Default Hijack Element
+var hijackID;
+var hijackMe;
+
+// Default Button Elements
+var btnPlayNow = "dl_now_button button";
+var btnPlayNowElement = document.getElementById("dl_now_button button");
+var btnFunpass = "funpass_btn";
+var btnFunpassElement = document.getElementById("funpass_btn");
+
 
 // Scroll To Bottom of Page
 function scrollToBottom(height){
@@ -146,11 +156,6 @@ function buildNewLinks(){
 	linkRGA = base + gameNamePackage + lang + "." + ext;
 }
 
-// Do The Dirty Work
-getCID();
-getGameName();
-buildNewLinks();
-
 
 //popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
 //var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
@@ -164,32 +169,50 @@ buildNewLinks();
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
 
+// Clone Node
+function cloneNode(zElement, srcNode, destNode){
+	var srcNode = document.getElementById(zElement);
+	var destNode = srcNode.cloneNode(true);
+	document.body.appendChild(destNode);
+}
 
-// Hijack "Play Now" Button Link
-var btnPlayNow = document.getElementById("dl_now_button button");
-btnPlayNow.setAttribute("href", linkRFS);
-btnPlayNow.setAttribute("class", "download");
+// Hijack Links
+function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 
-// Clear Default "Play Now" Button Text
-btnPlayNow.innerHTML = "";
+	// Button Modifier
+	var hijackID = document.getElementById(hjElement);
+	hijackID.setAttribute("href", hjLink);
+	hijackID.setAttribute("class", hjClass);
 
-// Modify Main "Play Now" Button Text
-var spanHijackText = document.createElement("span");
-spanHijackText.setAttribute("class", "cta");
-spanHijackText.innerHTML = "RFS File";
-btnPlayNow.insertBefore(spanHijackText, btnPlayNow.nextSibling);
+	// Clear Original Button Text
+	hijackID.innerHTML = "";
 
-// Modify Secondary "Play Now" Button Sub Text
-var spanHijackSubText = document.createElement("span");
-spanHijackSubText.setAttribute("class", "secondary");
-spanHijackSubText.innerHTML = "Download Full Package";
-btnPlayNow.insertBefore(spanHijackSubText, btnPlayNow.nextSibling);
+	// Text Modifier Main Button Text
+	var spanHijackTextMain = document.createElement(txtElementMain);
+	spanHijackTextMain.setAttribute("class", txtClassMain);
+	spanHijackTextMain.innerHTML = txtMainNew;
+
+	// Text Modifier Sub Button Text
+	var spanHijackTextSub = document.createElement(txtElementSub);
+	spanHijackTextSub.setAttribute("class", txtClassSub);
+	spanHijackTextSub.innerHTML = txtSubNew;
+
+	// Insert New Text Into Current Page
+	hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
+	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
+}
 
 
-// Clone Button Sample
-//var btnPlayNow = document.getElementById("dl_now_button button");
-//var btnClone = btnPlayNow.cloneNode(true);
-//document.body.appendChild(btnClone);
+// Get Some Basic Info
+getCID();
+getGameName();
+
+// Build All Available New Links Based on Content ID and Game Name
+buildNewLinks();
+
+// Hijack Button Links
+hijackLink(btnPlayNow, linkRFS, "download", "span", "span", "cts", "secondary", "RFS File", "Download Full Package");
+//hijackLink(btnFunpass, linkEXE, "download", "span", "span", "cts", "secondary", "EXE File", "Download Game Stub");
 
 
 // Create Buttons
