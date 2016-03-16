@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.2.0";
+var scriptVer = "0.2.1";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
