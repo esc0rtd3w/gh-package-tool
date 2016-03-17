@@ -177,7 +177,7 @@ function cloneNode(zElement, srcNode, destNode){
 }
 
 // Hijack Links
-function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 
 	// Button Modifier
 	var hijackID = document.getElementById(hjElement);
@@ -203,6 +203,41 @@ function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, t
 	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
+function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+
+	// Button Modifier
+	var hijackID = document.getElementById(hjElement);
+	hijackID.setAttribute("href", hjLink);
+	hijackID.setAttribute("class", hjClass);
+
+	// Clear Original Button Text
+	hijackID.innerHTML = "";
+	
+
+	// Text Modifier Main Button Text
+	var spanHijackTextMain = document.createElement(txtElementMain);
+	spanHijackTextMain.setAttribute("class", txtClassMain);
+	spanHijackTextMain.innerHTML = txtMainNew;
+
+	// Text Modifier Sub Button Text
+	var spanHijackTextSub = document.createElement(txtElementSub);
+	spanHijackTextSub.setAttribute("class", txtClassSub);
+	spanHijackTextSub.innerHTML = txtSubNew;
+
+	// Insert New Text Into Current Page
+	hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
+	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
+}
+
+/*
+function createNewButton(){
+	var hijackID = document.getElementById("dl_now_button");
+	var btnTemplate = document.createElement("dl_now_button button");
+	spanHijackTextMain.setAttribute("class", "download");
+	spanHijackTextMain.innerHTML = "cRypTiC;
+	hijackID.insertBefore(btnTemplate, hijackID.nextSibling);
+}
+*/
 
 // Get Some Basic Info
 getCID();
@@ -211,11 +246,12 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
+
 // Hijack Button Links
-hijackLink(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-//hijackLink(btnFunpass, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
-
+/*
 // Create Buttons
 var newDiv = document.createElement('div');
 newDiv.innerHTML = '<button id="btnEXE" type="button">'
@@ -269,7 +305,7 @@ function btnActionRGS(action){
 function btnActionRFS(action){
 	window.open(linkRFS,"_self");
 }
-
+*/
 
 // Greasemonkey Style CSS
 // Original Source: http://stackoverflow.com/questions/6480082/add-a-javascript-button-using-greasemonkey-or-tampermonkey
