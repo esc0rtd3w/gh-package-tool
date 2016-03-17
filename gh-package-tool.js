@@ -206,27 +206,32 @@ function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 
 	// Button Modifier
-	var hijackID = document.getElementById(hjElement);
-	hijackID.setAttribute("href", hjLink);
-	hijackID.setAttribute("class", hjClass);
+	var hijackIDFP = document.getElementById(hjElement);
+	//var hijackClass = document.getElementsByClassName(hjElement);
+	hijackIDFP.setAttribute("href", hjLink);
+	//hijackIDFP.setAttribute("class", "funpass");
+	//hijackIDFP.document.createElement("div");
 
 	// Clear Original Button Text
-	hijackID.innerHTML = "";
+	hijackIDFP.innerHTML = "";
 	
 
 	// Text Modifier Main Button Text
-	var spanHijackTextMain = document.createElement(txtElementMain);
-	spanHijackTextMain.setAttribute("class", txtClassMain);
-	spanHijackTextMain.innerHTML = txtMainNew;
+	var spanHijackTextMainFunpass = document.createElement(txtElementMain);
+	var spanHijackTextMainFunpassLink = document.createElement("a");
+	spanHijackTextMainFunpass.setAttribute("class", txtClassMain);
+	spanHijackTextMainFunpassLink.setAttribute("class", "funpass");
+	spanHijackTextMainFunpass.innerHTML = txtMainNew;
+	spanHijackTextMainFunpassLink.innerHTML = txtMainNew;
 
 	// Text Modifier Sub Button Text
-	var spanHijackTextSub = document.createElement(txtElementSub);
-	spanHijackTextSub.setAttribute("class", txtClassSub);
-	spanHijackTextSub.innerHTML = txtSubNew;
+	//var spanHijackTextSubFunpass = document.createElement(txtElementSub);
+	//spanHijackTextSubFunpass.setAttribute("class", txtClassSub);
+	//spanHijackTextSubFunpass.innerHTML = txtSubNew;
 
 	// Insert New Text Into Current Page
-	hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
-	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
+	//hijackIDFP.insertBefore(spanHijackTextMainFunpass, hijackIDFP.nextSibling);
+	//hijackIDFP.insertBefore(spanHijackTextSubFunpass, hijackIDFP.nextSibling);
 }
 
 /*
