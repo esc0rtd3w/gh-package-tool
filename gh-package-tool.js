@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.2.1";
+var scriptVer = "0.2.2";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -186,6 +186,7 @@ function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, t
 
 	// Clear Original Button Text
 	hijackID.innerHTML = "";
+	
 
 	// Text Modifier Main Button Text
 	var spanHijackTextMain = document.createElement(txtElementMain);
@@ -211,8 +212,8 @@ getGameName();
 buildNewLinks();
 
 // Hijack Button Links
-hijackLink(btnPlayNow, linkRFS, "download", "span", "span", "cts", "secondary", "RFS File", "Download Full Package");
-//hijackLink(btnFunpass, linkEXE, "download", "span", "span", "cts", "secondary", "EXE File", "Download Game Stub");
+hijackLink(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+//hijackLink(btnFunpass, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
 
 // Create Buttons
