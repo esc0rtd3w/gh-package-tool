@@ -311,36 +311,3 @@ function btnActionRFS(action){
 	window.open(linkRFS,"_self");
 }
 */
-
-// Greasemonkey Style CSS
-// Original Source: http://stackoverflow.com/questions/6480082/add-a-javascript-button-using-greasemonkey-or-tampermonkey
-GM_addStyle ( cleanCSS ( function () {/*!
-    #modContainer {
-        position:               absolute;
-        top:                    0;
-        left:                   0;
-        font-size:              20px;
-        background:             orange;
-        border:                 3px outset black;
-        margin:                 5px;
-        opacity:                0.9;
-        z-index:                222;
-        padding:                5px 20px;
-    }
-    #myButton {
-        cursor:                 pointer;
-    }
-    #modContainer p {
-        color:                  red;
-        background:             white;
-    }
-*/} ) );
-
-function cleanCSS(dummyFunc){
-    var str = dummyFunc.toString ();
-    str     = str.replace (/^[^\/]+\/\*!?/, '') // Strip function () { /*!
-            .replace (/\s*\*\/\s*\}\s*$/, '')   // Strip */ }
-            .replace (/\/\/.+$/gm, '') // Double-slash comments wreck CSS. Strip them.
-            ;
-    return str;
-}
