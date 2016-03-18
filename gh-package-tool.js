@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.2.2";
+var scriptVer = "0.2.3";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -93,6 +93,9 @@ var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
 
+
+// BEGIN FUNCTIONS --------------------------------------------------------------------/
+
 // Scroll To Bottom of Page
 function scrollToBottom(height){
 	window.scrollTo(0,document.body.scrollHeight);
@@ -157,27 +160,32 @@ function buildNewLinks(){
 }
 
 
-//popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
-//var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
-
-
-// Popup Game and Package Info
-//alert(popupInfo);
-
-
-// Show an Alert Message To User
-//alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
-
-
 // Clone Node
-function cloneNode(zElement, srcNode, destNode){
-	var srcNode = document.getElementById(zElement);
+function cloneNode(nodeToClone){
+	var srcNode = document.getElementById(nodeToClone);
 	var destNode = srcNode.cloneNode(true);
 	document.body.appendChild(destNode);
 }
 
+// Remove Node
+function removeNode(nodeToRemove){
+	var getElement = document.getElementById(nodeToRemove);
+	var nodeGetParent = getElement.parentNode;
+	nodeGetParent.removeChild(getElement);
+}
+
+/*
+function createNewButton(){
+	var hijackID = document.getElementById("dl_now_button");
+	var btnTemplate = document.createElement("dl_now_button button");
+	spanHijackTextMain.setAttribute("class", "download");
+	spanHijackTextMain.innerHTML = "cRypTiC;
+	hijackID.insertBefore(btnTemplate, hijackID.nextSibling);
+}
+*/
+
 // Hijack Links
-function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 
 	// Button Modifier
 	var hijackID = document.getElementById(hjElement);
@@ -203,6 +211,55 @@ function hijackLink(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, t
 	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
+function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+
+	// Sample Default Funpass Button
+	// <div id="funpass_btn">
+	//<a href="/memberships/funpass/freetrial" class="funpass">
+	//<span class="cta">Unlimited Play</span>
+	//<span class="secondary">With FunPass FREE trial.</span>
+	//</a>
+	//</div>
+	
+	// Button Modifier
+	var hijackIDFP = document.getElementById(hjElement);
+	var hijackClass = document.getElementsByClassName(hjElement);
+	hijackIDFP.setAttribute("href", hjLink);
+	//hijackIDFP.setAttribute("class", hjClass);
+
+	// Clear Original Button Text
+	hijackIDFP.innerHTML = "";
+
+	// Text Modifier Main Button Text
+	var spanHijackTextMainFunpass = document.createElement("funpass2");
+	spanHijackTextMainFunpass.setAttribute("class", "funpass3");
+	spanHijackTextMainFunpass.innerHTML = txtMainNew;
+
+	// Text Modifier Sub Button Text
+	//var spanHijackTextSubFunpass = document.createElement(txtElementSub);
+	//spanHijackTextSubFunpass.setAttribute("class", txtClassSub);
+	//spanHijackTextSubFunpass.innerHTML = txtSubNew;
+
+	// Insert New Text Into Current Page
+	hijackIDFP.insertBefore(spanHijackTextMainFunpass, hijackIDFP.nextSibling);
+	hijackIDFP.insertBefore(spanHijackTextSubFunpass, hijackIDFP.nextSibling);
+}
+
+// END FUNCTIONS ----------------------------------------------------------------------/
+
+
+
+//popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
+//var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
+
+
+// Popup Game and Package Info
+//alert(popupInfo);
+
+
+// Show an Alert Message To User
+//alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
+
 
 // Get Some Basic Info
 getCID();
@@ -211,95 +268,13 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
+// Remove Nodes and Elements
+//removeNode(btnPlayNow);
+removeNode(btnFunpass);
+//removeNode("buy_now_button");
+//removeNode("alreadybought");
+
+
 // Hijack Button Links
-hijackLink(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-//hijackLink(btnFunpass, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
-
-
-// Create Buttons
-var newDiv = document.createElement('div');
-newDiv.innerHTML = '<button id="btnEXE" type="button">'
-                + 'Download EXE Stub</button>'
-				+ '<button id="btnRGA" type="button">'
-				+ 'Download RGA File</button>'
-				+ '<button id="btnRGS" type="button">'
-				+ 'Download RGS File</button>'
-				+ '<button id="btnRFS" type="button">'
-				+ 'Download RFS File</button>'
-                ;
-				
-// Append Buttons
-newDiv.setAttribute('id', 'modContainer');
-document.body.appendChild(newDiv);
-
-// Scroll To Bottom of Page To See Buttons
-//scrollToBottom();
-
-// Add Button Listeners
-document.getElementById("btnEXE").addEventListener(
-    "click", btnActionEXE, false
-);
-
-document.getElementById("btnRGA").addEventListener(
-    "click", btnActionRGA, false
-);
-
-document.getElementById("btnRGS").addEventListener(
-    "click", btnActionRGS, false
-);
-
-document.getElementById("btnRFS").addEventListener(
-    "click", btnActionRFS, false
-);
-
-
-// Add Button Actions
-function btnActionEXE(action){
-	window.open(linkEXE,"_self");
-}
-
-function btnActionRGA(action){
-	window.open(linkRGA,"_self");
-}
-
-function btnActionRGS(action){
-	window.open(linkRGS,"_self");
-}
-
-function btnActionRFS(action){
-	window.open(linkRFS,"_self");
-}
-
-
-// Greasemonkey Style CSS
-// Original Source: http://stackoverflow.com/questions/6480082/add-a-javascript-button-using-greasemonkey-or-tampermonkey
-GM_addStyle ( cleanCSS ( function () {/*!
-    #modContainer {
-        position:               absolute;
-        top:                    0;
-        left:                   0;
-        font-size:              20px;
-        background:             orange;
-        border:                 3px outset black;
-        margin:                 5px;
-        opacity:                0.9;
-        z-index:                222;
-        padding:                5px 20px;
-    }
-    #myButton {
-        cursor:                 pointer;
-    }
-    #modContainer p {
-        color:                  red;
-        background:             white;
-    }
-*/} ) );
-
-function cleanCSS(dummyFunc){
-    var str = dummyFunc.toString ();
-    str     = str.replace (/^[^\/]+\/\*!?/, '') // Strip function () { /*!
-            .replace (/\s*\*\/\s*\}\s*$/, '')   // Strip */ }
-            .replace (/\/\/.+$/gm, '') // Double-slash comments wreck CSS. Strip them.
-            ;
-    return str;
-}
+hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+//hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
