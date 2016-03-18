@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Gamehouse Package Tool
 // @namespace   com.crypticware.ghpkgtool
-// @description Parses Content ID from page to create a direct download link to package
+// @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @version     1
 // @grant       none
@@ -46,6 +46,16 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // RFS
 // http://games-dl.gamehouse.com/zylom/ghmigration/supergloveshero/f86bc49a788ace0058a420899e086139-supergloveshero.rfs
+
+
+// RFS Platinum Edition
+
+// Replace "platinumedition" with "pe"
+// http://games-dl.gamehouse.com/zylom/ghmigration/sablemazesullivanriverpe/5b8ef99d94b4cc0d4be3b7805188522f-sablemazesullivanriverpe.rfs
+
+// Replace Each word after 32 chars with just the first letter??
+// http://games-dl.gamehouse.com/zylom/ghmigration/deathuponanaustriansonataadknpe/af5adab1ea584472a88c2f32b111ec45-deathuponanaustriansonataadknpe.rfs
+
 
 // RGA (With Lang)
 // http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en/MONOPOLY.rga
