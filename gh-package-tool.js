@@ -270,7 +270,7 @@ buildNewLinks();
 
 // Remove Nodes and Elements
 //removeNode(btnPlayNow);
-//removeNode(btnFunpass);
+removeNode(btnFunpass);
 //removeNode("buy_now_button");
 //removeNode("alreadybought");
 
