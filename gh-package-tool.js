@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Gamehouse Package Tool
 // @namespace   com.crypticware.ghpkgtool
-// @description Parses Content ID from page to create a direct download link to package
+// @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @version     1
 // @grant       none
