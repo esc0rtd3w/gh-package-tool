@@ -169,6 +169,20 @@ function buildNewLinks(){
 	linkRGA = base + gameNamePackage + lang + "." + ext;
 }
 
+// Check New Link
+function checkLink(linkToCheck){
+	var request;
+	if(window.XMLHttpRequest)
+		request = new XMLHttpRequest();
+	else
+		request = new ActiveXObject("Microsoft.XMLHTTP");
+	request.open('GET', linkToCheck, false);
+	request.send();
+	if (request.status === 404) {
+		alert("A Dead Link Has Been Created!");
+	}
+}
+
 
 // Clone Node
 function cloneNode(nodeToClone){
@@ -193,6 +207,14 @@ function createNewButton(){
 	hijackID.insertBefore(btnTemplate, hijackID.nextSibling);
 }
 */
+
+function shamelessPlug(){
+	var avatar = document.getElementsByClassName("favoritegame_container")[0].innerHTML;
+	alert(avatar);
+	//avatar.setAttribute("src", "http://ps3dg.com/Images/btn_buynowCC_LG.gif");
+	//avatar.insertBefore(spanHijackTextMain, avatar.nextSibling);
+}
+
 
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
@@ -232,18 +254,18 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 	//</div>
 	
 	// Button Modifier
-	var hijackIDFP = document.getElementById(hjElement);
-	var hijackClass = document.getElementsByClassName(hjElement);
-	hijackIDFP.setAttribute("href", hjLink);
+	var hijackClass = document.getElementsByClassName(hjElement)[0].innerHTML;
+	alert(hijackClass);
+	hijackClass.setAttribute("href", hjLink);
 	//hijackIDFP.setAttribute("class", hjClass);
 
 	// Clear Original Button Text
-	hijackIDFP.innerHTML = "";
+	hijackClass.innerHTML = "";
 
 	// Text Modifier Main Button Text
-	var spanHijackTextMainFunpass = document.createElement("funpass2");
-	spanHijackTextMainFunpass.setAttribute("class", "funpass3");
-	spanHijackTextMainFunpass.innerHTML = txtMainNew;
+	//var spanHijackTextMainFunpass = document.createElement("funpass2");
+	//spanHijackTextMainFunpass.setAttribute("class", "funpass3");
+	//spanHijackTextMainFunpass.innerHTML = txtMainNew;
 
 	// Text Modifier Sub Button Text
 	//var spanHijackTextSubFunpass = document.createElement(txtElementSub);
@@ -251,8 +273,8 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 	//spanHijackTextSubFunpass.innerHTML = txtSubNew;
 
 	// Insert New Text Into Current Page
-	hijackIDFP.insertBefore(spanHijackTextMainFunpass, hijackIDFP.nextSibling);
-	hijackIDFP.insertBefore(spanHijackTextSubFunpass, hijackIDFP.nextSibling);
+	//hijackClass.insertBefore(spanHijackTextMainFunpass, hijackClass.nextSibling);
+	//hijackClass.insertBefore(spanHijackTextSubFunpass, hijackClass.nextSibling);
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
@@ -280,11 +302,14 @@ buildNewLinks();
 
 // Remove Nodes and Elements
 //removeNode(btnPlayNow);
-removeNode(btnFunpass);
+//removeNode(btnFunpass);
 //removeNode("buy_now_button");
 //removeNode("alreadybought");
 
 
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-//hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+
+//checkLink(linkRFS);
+//shamelessPlug();
