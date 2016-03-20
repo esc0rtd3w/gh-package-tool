@@ -26,7 +26,7 @@
 
 
 // Basic Info and Text
-var scriptVer = "0.2.3";
+var scriptVer = "0.2.4";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -34,7 +34,7 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // Sample URLs
 
-// EXE Stub (RFS)
+// EXE Stub
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=f86bc49a788ace0058a420899e086139-supergloveshero.rfs&offering=supergloveshero&channel=z_syn_gh_g12
 
 // EXE Stub (RGA With Lang)
@@ -47,8 +47,10 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 // RFS
 // http://games-dl.gamehouse.com/zylom/ghmigration/supergloveshero/f86bc49a788ace0058a420899e086139-supergloveshero.rfs
 
-
 // RFS Platinum Edition
+
+// Normal filename using "platinumedition" as the string
+// http://games-dl.gamehouse.com/zylom/ghmigration/fantasyquest2platinumedition/bb71c9cc936841399273205d059e405f-fantasyquest2platinumedition.rfs
 
 // Replace "platinumedition" with "pe"
 // http://games-dl.gamehouse.com/zylom/ghmigration/sablemazesullivanriverpe/5b8ef99d94b4cc0d4be3b7805188522f-sablemazesullivanriverpe.rfs
@@ -102,6 +104,9 @@ var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
+// Special Situations (Platinum, Funpass, etc)
+var isPlatinum = "0";
+
 
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
@@ -144,12 +149,30 @@ function getGameName(){
 //gameTitle = gameNameTitle + "\n\n\n";
 //gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
 
+
+
+// Check For Platinum Edition
+function checkPlatinum(){
+	if(isPlatinum.search("platinumedition") != -1) {
+	   isPlatinum = "1";
+	} 
+}
+
 	
 // Build New Download Links
 function buildNewLinks(){
+	
+	// Check For Special Situations
+	//checkPlatinum();
+	if (isPlatinum = "1"){
+		//alert("Platinum Edition");
+		//var fixPlatinum = 'pe'
+		//gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+	}
+	
+	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
-
 
 	// EXE Stub
 	// Sample #1
@@ -218,7 +241,7 @@ function shamelessPlug(){
 
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
-
+	
 	// Button Modifier
 	var hijackID = document.getElementById(hjElement);
 	hijackID.setAttribute("href", hjLink);
