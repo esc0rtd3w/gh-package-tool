@@ -158,11 +158,11 @@ function checkPlatinum(){
 	
 	// Game Links Tested OK (pe)
 	
-	// 9-the-dark-side-of-notre-dame-platinum-edition
-	// lost-lands-the-golden-curse-platinum-edition
-	// mystery-trackers-four-aces-platinum-edition
+	// 9-the-dark-side-of-notre-dame-platinum-edition >> 9thedarksideofnotredameplatinumedition
+	// lost-lands-the-golden-curse-platinum-edition >> lostlandsthegoldencurseplatinumedition
+	// mystery-trackers-four-aces-platinum-edition >> mysterytrackersfouracesplatinumedition
 	
-	// Tested OK (1st Letter Only)
+	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
 	
 	if(isPlatinum.search("platinumedition") != -1) {
@@ -174,8 +174,8 @@ function checkPlatinum(){
 // Check For "Double Pack"
 function checkDoublePack(){
 	
-	// Game Links Tested
-	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack
+	// Game Links Tested OK (No "doublepack" ending and 3 of the words are shortened)
+	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack >> 4elementsiicoatreasuresposeidon
 	
 	if(isDoublePack.search("doublepack") != -1) {
 	   isDoublePack = "1";
@@ -187,22 +187,38 @@ function checkDoublePack(){
 function buildNewLinks(){
 	
 	checkPlatinum();
-	if(isPlatinum = "0") {
-		checkDoublePack();
-	}
+	checkDoublePack();
 	
 	// Check For "Platinum Edition"
 	if (isPlatinum = "1"){
 		//alert("Platinum Edition");
 		var fixPlatinum = 'pe'
-		//gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+		
+		// Individual Game Name Fixes
+		/*
+		if (gameNamePackage = "") {
+			gameNamePackage = "";
+		}
+		else {
+			gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+		}
+		*/
+		
+		gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
 	}
 	
 	// Check For "Double Pack"
 	if (isDoublePack = "1"){
 		//alert("Double Pack");
-		var fixDoublePack = 'dp'
-		//gameNamePackage = gameNamePackage.split('doublepack').join(fixDoublePack);
+		var fixDoublePack = ''
+		
+		// Individual Game Name Fixes
+		if (gameNamePackage = "4elementsiicallofatlantistreasuresofposeidondoublepack") {
+			gameNamePackage = "4elementsiicoatreasuresposeidon";
+		}
+		else {
+			gameNamePackage = gameNamePackage.split('doublepack').join(fixDoublePack);
+		}
 	}
 	
 	
