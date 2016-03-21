@@ -104,8 +104,9 @@ var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
-// Special Situations (Platinum, Funpass, etc)
+// Special Situations (Platinum, Double Pack, Funpass, etc)
 var isPlatinum = "0";
+var isDoublePack = "0";
 
 
 
@@ -152,9 +153,32 @@ function getGameName(){
 
 
 // Check For Platinum Edition
+// Main Webpage Link: http://www.gamehouse.com/platinum-games?platform=pc-games
 function checkPlatinum(){
+	
+	// Game Links Tested OK (pe)
+	
+	// 9-the-dark-side-of-notre-dame-platinum-edition
+	// lost-lands-the-golden-curse-platinum-edition
+	// mystery-trackers-four-aces-platinum-edition
+	
+	// Tested OK (1st Letter Only)
+	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
+	
 	if(isPlatinum.search("platinumedition") != -1) {
 	   isPlatinum = "1";
+	} 
+}
+
+
+// Check For "Double Pack"
+function checkDoublePack(){
+	
+	// Game Links Tested
+	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack
+	
+	if(isDoublePack.search("doublepack") != -1) {
+	   isDoublePack = "1";
 	} 
 }
 
@@ -162,12 +186,23 @@ function checkPlatinum(){
 // Build New Download Links
 function buildNewLinks(){
 	
-	// Check For Special Situations
-	//checkPlatinum();
+	checkPlatinum();
+	if(isPlatinum = "0") {
+		checkDoublePack();
+	}
+	
+	// Check For "Platinum Edition"
 	if (isPlatinum = "1"){
 		//alert("Platinum Edition");
-		//var fixPlatinum = 'pe'
+		var fixPlatinum = 'pe'
 		//gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+	}
+	
+	// Check For "Double Pack"
+	if (isDoublePack = "1"){
+		//alert("Double Pack");
+		var fixDoublePack = 'dp'
+		//gameNamePackage = gameNamePackage.split('doublepack').join(fixDoublePack);
 	}
 	
 	
