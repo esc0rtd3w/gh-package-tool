@@ -165,7 +165,7 @@ function checkPlatinum(){
 	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
 	
-	if(isPlatinum.search("platinumedition") != -1) {
+	if (gameNameTitle.search("platinumedition") != "platinumedition") {
 	   isPlatinum = "1";
 	} 
 }
@@ -177,7 +177,7 @@ function checkDoublePack(){
 	// Game Links Tested OK (No "doublepack" ending and 3 of the words are shortened)
 	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack >> 4elementsiicoatreasuresposeidon
 	
-	if(isDoublePack.search("doublepack") != -1) {
+	if (gameNameTitle.search("doublepack") != "doublepack") {
 	   isDoublePack = "1";
 	} 
 }
@@ -187,16 +187,15 @@ function checkDoublePack(){
 function buildNewLinks(){
 	
 	checkPlatinum();
-	checkDoublePack();
 	
 	// Check For "Platinum Edition"
-	if (isPlatinum = "1"){
+	if (isPlatinum == "1"){
 		//alert("Platinum Edition");
 		var fixPlatinum = 'pe'
 		
 		// Individual Game Name Fixes
 		/*
-		if (gameNamePackage = "") {
+		if (gameNamePackage == "") {
 			gameNamePackage = "";
 		}
 		else {
@@ -207,17 +206,19 @@ function buildNewLinks(){
 		gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
 	}
 	
+	checkDoublePack();
+	
 	// Check For "Double Pack"
-	if (isDoublePack = "1"){
+	if (isDoublePack === "1"){
 		//alert("Double Pack");
-		var fixDoublePack = ''
+		var fixDoublePack = ""
 		
 		// Individual Game Name Fixes
-		if (gameNamePackage = "4elementsiicallofatlantistreasuresofposeidondoublepack") {
+		if (gameNamePackage == "4elementsiicallofatlantistreasuresofposeidondoublepack") {
 			gameNamePackage = "4elementsiicoatreasuresposeidon";
 		}
 		else {
-			gameNamePackage = gameNamePackage.split('doublepack').join(fixDoublePack);
+			gameNamePackage = gameNamePackage.split("doublepack").join(fixDoublePack);
 		}
 	}
 	
@@ -252,7 +253,7 @@ function checkLink(linkToCheck){
 		request = new ActiveXObject("Microsoft.XMLHTTP");
 	request.open('GET', linkToCheck, false);
 	request.send();
-	if (request.status === 404) {
+	if (request.status == 404) {
 		alert("A Dead Link Has Been Created!");
 	}
 }
