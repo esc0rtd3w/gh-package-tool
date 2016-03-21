@@ -165,7 +165,7 @@ function checkPlatinum(){
 	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
 	
-	if (isPlatinum.search("platinumedition") != -1) {
+	if (gameNameTitle.search("platinumedition") != "platinumedition") {
 	   isPlatinum = "1";
 	} 
 }
@@ -177,7 +177,7 @@ function checkDoublePack(){
 	// Game Links Tested OK (No "doublepack" ending and 3 of the words are shortened)
 	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack >> 4elementsiicoatreasuresposeidon
 	
-	if (isDoublePack.search("doublepack") != -1) {
+	if (gameNameTitle.search("doublepack") != "doublepack") {
 	   isDoublePack = "1";
 	} 
 }
