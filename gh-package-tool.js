@@ -98,7 +98,7 @@ var baseDevGHMigration = "ghmigration";
 
 
 // Set Default Game Info Values
-var base = baseServGH + "/" + baseZylomGHM + baseDevGHMigration;
+var base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
@@ -270,12 +270,13 @@ function buildNewLinks(){
 	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
 	// RFS
-	base = baseServGH + "/" + baseZylomGHM + baseDevGHMigration + "/";
+	base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
+	//alert(base);
 	ext = "rfs";
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
 	// RGA
-	base = baseZylomMumboDipEN;
+	base = "";
 	ext = "rga";
 	linkRGA = base + gameNamePackage + lang + "." + ext;
 }
