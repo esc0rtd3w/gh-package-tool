@@ -148,6 +148,7 @@ var btnFunpassElement = document.getElementById("funpass_btn");
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
 var isDoublePack = 0;
+var isFreeplay = 0;
 var isFunpass = 0;
 var isPlatinum = 0;
 
@@ -290,13 +291,34 @@ function checkTrademark(){
 	}
 }
 
+// Check Freeplay Version
+// Example: http://games-dl.gamehouse.com/zylom/ghmigration/amg-texttwist2/amg-texttwist2.rga
+// Src: onclick="window.location.href='/pc/postdownload/texttwist-2';return false;"
+function checkFreeplay(){
 	
+	// Game Links Tested OK (Added "amg-" to beginning of filename)
+	// text-twist-2 >> texttwist2
+	
+	if (gameNamePackage == "texttwist2") {
+	   isFreeplay = 1;
+	} 
+	
+	// Check Names if "Freeplay"
+	if (isFreeplay == 1){
+		//alert("Freeplay");
+		var fixFreeplay = "amg-";
+		gameNamePackage = fixFreeplay += gameNamePackage;
+	}
+}
+
+
 // Build New Download Links
 function buildNewLinks(){
 	
 	checkPlatinum();
 	checkDoublePack();
 	checkTrademark();
+	checkFreeplay();
 	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
