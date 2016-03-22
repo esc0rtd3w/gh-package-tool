@@ -195,12 +195,14 @@ function getGameName(){
 // Main Webpage Link: http://www.gamehouse.com/platinum-games?platform=pc-games
 function checkPlatinum(){
 	
-	// Game Links Tested OK (pe)
-	
-	// 7-wonders-ancient-alien-makeover-platinum-edition
+	// Game Links Tested OK (platinumedition)
 	// 9-the-dark-side-of-notre-dame-platinum-edition >> 9thedarksideofnotredameplatinumedition
+	// gardens-inc-4-blooming-stars-platinum-edition >> gardensinc4bloomingstarsplatinumedition
 	// lost-lands-the-golden-curse-platinum-edition >> lostlandsthegoldencurseplatinumedition
 	// mystery-trackers-four-aces-platinum-edition >> mysterytrackersfouracesplatinumedition
+	
+	// Game Links Tested OK (pe)
+	// gardens-inc-4-blooming-stars-platinum-edition >> gardensinc4bloomingstarsplatinumedition
 	
 	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
@@ -423,7 +425,7 @@ buildNewLinks();
 
 // Remove Nodes and Elements
 //removeNode(btnPlayNow);
-//removeNode(btnFunpass);
+removeNode(btnFunpass);
 //removeNode("buy_now_button");
 //removeNode("alreadybought");
 
