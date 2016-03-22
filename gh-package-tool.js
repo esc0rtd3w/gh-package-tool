@@ -142,6 +142,8 @@ var hijackMe;
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
 var btnPlayNowElement = document.getElementById("dl_now_button button");
+var btnFreePlay = "dl_now_button";
+var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
@@ -390,10 +392,17 @@ function shamelessPlug(){
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 	
 	// Button Modifier
-	var hijackID = document.getElementById(hjElement);
-	hijackID.setAttribute("href", hjLink);
-	hijackID.setAttribute("class", hjClass);
-
+	if (isFreeplay == 1){
+		var hijackID = document.getElementById(btnFreePlay);
+		hijackID.setAttribute("onclick", "window.location.href=\"" + linkRGA);
+		hijackID.setAttribute("class", hjClass);
+	}
+	else {
+		var hijackID = document.getElementById(hjElement);
+		hijackID.setAttribute("href", hjLink);
+		hijackID.setAttribute("class", hjClass);
+	}
+	
 	// Clear Original Button Text
 	hijackID.innerHTML = "";
 	
