@@ -194,14 +194,13 @@ function buildNewLinks(){
 		var fixPlatinum = 'pe'
 		
 		// Individual Game Name Fixes
-		/*
-		if (gameNamePackage == "") {
-			gameNamePackage = "";
+		if (gameNamePackage == "12laboursofherculesivmothernatureplatinumedition") {
+			gameNamePackage = "12laboursofherculesivmnpe";
 		}
 		else {
 			gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
 		}
-		*/
+		
 		
 		gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
 	}
