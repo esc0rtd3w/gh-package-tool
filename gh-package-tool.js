@@ -145,9 +145,11 @@ var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
-// Special Situations (Platinum, Double Pack, Funpass, etc)
-var isPlatinum = 0;
+// Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
+var isDeluxe = 0;
 var isDoublePack = 0;
+var isFunpass = 0;
+var isPlatinum = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -334,10 +336,7 @@ function createNewButton(){
 */
 
 function shamelessPlug(){
-	var avatar = document.getElementsByClassName("favoritegame_container")[0].innerHTML;
-	alert(avatar);
-	//avatar.setAttribute("src", "http://ps3dg.com/Images/btn_buynowCC_LG.gif");
-	//avatar.insertBefore(spanHijackTextMain, avatar.nextSibling);
+	var credits = "esc0rtd3w / cRypTiCwaRe 2016";
 }
 
 
@@ -368,7 +367,7 @@ function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
-function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+function hijackLinkFunpass(hjElement, hjLink){
 
 	// Sample Default Funpass Button
 	// <div id="funpass_btn">
@@ -380,26 +379,11 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 	
 	// Button Modifier
 	var hijackClass = document.getElementsByClassName(hjElement)[0].innerHTML;
-	alert(hijackClass);
+	//alert(hijackClass);
 	hijackClass.setAttribute("href", hjLink);
-	//hijackIDFP.setAttribute("class", hjClass);
 
 	// Clear Original Button Text
 	hijackClass.innerHTML = "";
-
-	// Text Modifier Main Button Text
-	//var spanHijackTextMainFunpass = document.createElement("funpass2");
-	//spanHijackTextMainFunpass.setAttribute("class", "funpass3");
-	//spanHijackTextMainFunpass.innerHTML = txtMainNew;
-
-	// Text Modifier Sub Button Text
-	//var spanHijackTextSubFunpass = document.createElement(txtElementSub);
-	//spanHijackTextSubFunpass.setAttribute("class", txtClassSub);
-	//spanHijackTextSubFunpass.innerHTML = txtSubNew;
-
-	// Insert New Text Into Current Page
-	//hijackClass.insertBefore(spanHijackTextMainFunpass, hijackClass.nextSibling);
-	//hijackClass.insertBefore(spanHijackTextSubFunpass, hijackClass.nextSibling);
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
