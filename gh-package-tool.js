@@ -3,7 +3,7 @@
 // @namespace   com.crypticware.ghpkgtool
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
-// @version     1
+// @version     0.2.5
 // @grant       none
 // ==/UserScript==
 
@@ -341,6 +341,13 @@ function buildNewLinks(){
 	checkCopyright();
 	checkFreeplay();
 	
+	// Members Only Sticker and Link Sample Source
+	// <div class="memberOnlyContainer">
+	// <div class="member_only_sticker">
+	// <img src="//cdn.ghstatic.com/gamehouse/images/members_only.png?20160229.131.2"></div>
+	// <div class="member_only_info">This is a member-only game. <a href="/memberships/funpass/freetrial" style="color:#fff;">Subscribe to FunPass</a> to become a member and get to enjoy all our games.</div>
+	// <div style="display: none;" class="member_only_tooltip">This title will be released for everyone in two weeks or less! Sign up for FunPass to play it today! <a href="/memberships/funpass/freetrial">Click here</a> to learn more.</div></div>
+	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
 
@@ -355,6 +362,7 @@ function buildNewLinks(){
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[3];
 
 	// RGA
+	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = "";
 	linkRGA = base + gameNamePackage + language[0] + "." + ext[2];
 
