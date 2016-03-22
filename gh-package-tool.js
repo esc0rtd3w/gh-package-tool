@@ -68,6 +68,7 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // Set URL Bases For Different Game Types
 var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
+var baseTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
 var basePopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
 var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
 var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
@@ -158,6 +159,7 @@ function checkPlatinum(){
 	
 	// Game Links Tested OK (pe)
 	
+	// 7-wonders-ancient-alien-makeover-platinum-edition
 	// 9-the-dark-side-of-notre-dame-platinum-edition >> 9thedarksideofnotredameplatinumedition
 	// lost-lands-the-golden-curse-platinum-edition >> lostlandsthegoldencurseplatinumedition
 	// mystery-trackers-four-aces-platinum-edition >> mysterytrackersfouracesplatinumedition
@@ -168,6 +170,36 @@ function checkPlatinum(){
 	if (gameNameTitle.search("platinumedition") != "platinumedition") {
 	   isPlatinum = "1";
 	} 
+	
+	// Check Names if "Platinum Edition"
+	if (isPlatinum == "1"){
+		//alert("Platinum Edition");
+		var fixPlatinum = 'pe'
+		
+		// Individual Game Name Fixes
+		if (gameNamePackage == "12laboursofherculesivmothernatureplatinumedition") {
+			gameNamePackage = "12laboursofherculesivmnpe";
+		}
+		// 4 Elements II Platinum Edition
+		// http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en/96c09cc5e16857e20f3e52a109f682fa-dip_nt_zy_en_v3.rfs
+		if (gameNamePackage == "4elementsiiplatinumedition") {
+			gameNamePackage = gameNamePackage;
+		}
+		// 7 Wonders - Ancient Alien Makeover Platinum Edition
+		// http://games-dl.gamehouse.com/zylom/ghmigration/7wondersancientalienmakeoverpremiumedition/7wondersancientalienmakeoverpremiumedition.rga
+		if (gameNamePackage == "7wondersancientalienmakeoverplatinumedition") {
+			gameNamePackage = gameNamePackage;
+		}
+		// Abyss - The Wraiths of Eden Platinum Edition
+		// http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en/176b2706d84b64adce6ebfbff2145eb8-dip_nt_zy_en_v2.rfs
+		if (gameNamePackage == "abyssthewraithsofedenplatinumedition") {
+			gameNamePackage = gameNamePackage;
+		}
+		
+		else {
+			gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+		}
+	}
 }
 
 
@@ -180,34 +212,8 @@ function checkDoublePack(){
 	if (gameNameTitle.search("doublepack") != "doublepack") {
 	   isDoublePack = "1";
 	} 
-}
-
 	
-// Build New Download Links
-function buildNewLinks(){
-	
-	checkPlatinum();
-	
-	// Check For "Platinum Edition"
-	if (isPlatinum == "1"){
-		//alert("Platinum Edition");
-		var fixPlatinum = 'pe'
-		
-		// Individual Game Name Fixes
-		if (gameNamePackage == "12laboursofherculesivmothernatureplatinumedition") {
-			gameNamePackage = "12laboursofherculesivmnpe";
-		}
-		else {
-			gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
-		}
-		
-		
-		gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
-	}
-	
-	checkDoublePack();
-	
-	// Check For "Double Pack"
+	// Check Names if "Double Pack"
 	if (isDoublePack === "1"){
 		//alert("Double Pack");
 		var fixDoublePack = ""
@@ -220,6 +226,14 @@ function buildNewLinks(){
 			gameNamePackage = gameNamePackage.split("doublepack").join(fixDoublePack);
 		}
 	}
+}
+
+	
+// Build New Download Links
+function buildNewLinks(){
+	
+	checkPlatinum();
+	checkDoublePack();
 	
 	
 	// Post Download Page
