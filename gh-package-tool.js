@@ -151,6 +151,10 @@ var isDoublePack = 0;
 var isFunpass = 0;
 var isPlatinum = 0;
 
+// Special Filename Situations
+var isCopyright = 0;
+var isTrademark = 0;
+
 // END DEFAULTS -----------------------------------------------------------------------/
 
 
@@ -268,13 +272,31 @@ function checkDoublePack(){
 	}
 }
 
+// Check Trademark In Name
+function checkTrademark(){
+	
+	// Game Links Tested OK (Added "tm" to end of filename)
+	// plants-vs-zombies >> plantsvszombiestm
+	
+	if (gameNamePackage == "plantsvszombies") {
+	   isTrademark = 1;
+	} 
+	
+	// Check Names if "Trademark"
+	if (isTrademark == 1){
+		//alert("Trademark");
+		var fixTrademark = "tm";
+		gameNamePackage = gameNamePackage += fixTrademark;
+	}
+}
+
 	
 // Build New Download Links
 function buildNewLinks(){
 	
 	checkPlatinum();
 	checkDoublePack();
-	
+	checkTrademark();
 	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
