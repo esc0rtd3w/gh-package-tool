@@ -3,7 +3,7 @@
 // @namespace   com.crypticware.ghpkgtool
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
-// @version     1
+// @version     0.2.5
 // @grant       none
 // ==/UserScript==
 
