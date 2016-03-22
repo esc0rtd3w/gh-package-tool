@@ -80,25 +80,40 @@ var baseRGS = "";
 
 
 // Server Base URLs
-var baseServGH = "http://games-dl.gamehouse.com";
+var server = [];
+server.push("http://games-dl.gamehouse.com");
+server.push("http://origin.gamehouse.com");
+/*
+for (i = 0; i < server.length; i++) {
+	alert(server[i]);
+}
+*/
 
 // Distributor Base URLs
-var baseDistZylom = "zylom";
+var distributor = [];
+distributor.push("zylom");
 
 // Developer Base URLs (Zylom)
-var baseDevZylomArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
-var baseDevTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
-var baseDevPopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
-var baseDevMumboJumbo = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+var developer = [];
+developer.push("ghmigration");
+developer.push("artifex");
+developer.push("terminalstudio");
+developer.push("popcap");
+developer.push("mumbo");
 
-var baseDevGHMigration = "ghmigration";
+//var baseDevZylomArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
+//var baseDevTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
+//var baseDevPopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
+//var baseDevMumboJumbo = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+
+//var baseDevGHMigration = "ghmigration";
 
 // Offering Base URLs
 
 
 
 // Set Default Game Info Values
-var base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
+var base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
@@ -270,8 +285,7 @@ function buildNewLinks(){
 	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
 	// RFS
-	base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
-	//alert(base);
+	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
 	ext = "rfs";
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
