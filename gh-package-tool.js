@@ -25,14 +25,7 @@
 
 
 
-// Basic Info and Text
-var scriptVer = "0.2.4";
-var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
-var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
-
-
-
-// Sample URLs
+// START SAMPLE URLS ---------------------------------------------------------------------/
 
 // EXE Stub
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=f86bc49a788ace0058a420899e086139-supergloveshero.rfs&offering=supergloveshero&channel=z_syn_gh_g12
@@ -64,6 +57,17 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // RGA (No Lang)
 // http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/supergloveshero_EN.rga
+
+// END SAMPLE URLS ---------------------------------------------------------------------/
+
+
+
+// START DEFAULTS ---------------------------------------------------------------------/
+
+// Basic Info and Text
+var scriptVer = "0.2.4";
+var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
+var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Values For Different Game Types
@@ -145,6 +149,8 @@ var btnFunpassElement = document.getElementById("funpass_btn");
 var isPlatinum = 0;
 var isDoublePack = 0;
 
+// END DEFAULTS -----------------------------------------------------------------------/
+
 
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
@@ -182,12 +188,6 @@ function getGameName(){
 	gameNamePackage = gameNameWebpage.split('-').join('');
 }
 	
-
-// Build Game Info
-//gameTitle = gameNameTitle + "\n\n\n";
-//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
-
-
 
 // Check For Platinum Edition
 // Main Webpage Link: http://www.gamehouse.com/platinum-games?platform=pc-games
@@ -406,6 +406,13 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 
 
 
+// START TESTING ----------------------------------------------------------------------/
+
+// Build Game Info
+//gameTitle = gameNameTitle + "\n\n\n";
+//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
+
+
 //popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
 //var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
 
@@ -417,6 +424,11 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 // Show an Alert Message To User
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
+// END TESTING ----------------------------------------------------------------------/
+
+
+
+// START MAIN TOOL ------------------------------------------------------------------/
 
 // Get Some Basic Info
 getCID();
@@ -438,3 +450,5 @@ hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "second
 
 //checkLink(linkRFS);
 //shamelessPlug();
+
+// END MAIN TOOL --------------------------------------------------------------------/
