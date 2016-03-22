@@ -293,6 +293,24 @@ function checkTrademark(){
 	}
 }
 
+// Check Copyright In Name
+function checkCopyright(){
+	
+	// Game Links Tested OK (Added "tm" to end of filename)
+	// plants-vs-zombies >> plantsvszombiestm
+	
+	if (gameNamePackage == "plantsvszombies") {
+	   isCopyright = 1;
+	} 
+	
+	// Check Names if "Copyright"
+	if (isCopyright == 1){
+		//alert("Trademark");
+		var fixCopyright = "c";
+		gameNamePackage = gameNamePackage += fixCopyright;
+	}
+}
+
 // Check Freeplay Version
 // Example: http://games-dl.gamehouse.com/zylom/ghmigration/amg-texttwist2/amg-texttwist2.rga
 // Src: onclick="window.location.href='/pc/postdownload/texttwist-2';return false;"
@@ -320,6 +338,7 @@ function buildNewLinks(){
 	checkPlatinum();
 	checkDoublePack();
 	checkTrademark();
+	checkCopyright();
 	checkFreeplay();
 	
 	// Post Download Page
