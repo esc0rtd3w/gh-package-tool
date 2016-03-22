@@ -336,10 +336,7 @@ function createNewButton(){
 */
 
 function shamelessPlug(){
-	var avatar = document.getElementsByClassName("favoritegame_container")[0].innerHTML;
-	alert(avatar);
-	//avatar.setAttribute("src", "http://ps3dg.com/Images/btn_buynowCC_LG.gif");
-	//avatar.insertBefore(spanHijackTextMain, avatar.nextSibling);
+	var credits = "esc0rtd3w / cRypTiCwaRe 2016";
 }
 
 
