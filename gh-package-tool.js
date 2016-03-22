@@ -67,17 +67,38 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Bases For Different Game Types
+
+// Bases (EXE)
 var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
 
-var baseArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
-var baseTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
-var basePopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
-var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
-var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+// Bases (RGS Legacy)
+var baseRGS = "";
+
+// Bases (RGA)
+
+// Bases (RFS)
+
+
+// Server Base URLs
+var baseServGH = "http://games-dl.gamehouse.com";
+
+// Distributor Base URLs
+var baseDistZylom = "zylom";
+
+// Developer Base URLs (Zylom)
+var baseDevZylomArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
+var baseDevTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
+var baseDevPopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
+var baseDevMumboJumbo = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+
+var baseDevGHMigration = "ghmigration";
+
+// Offering Base URLs
+
 
 
 // Set Default Game Info Values
-var base = baseZylomGHM;
+var base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
@@ -249,12 +270,13 @@ function buildNewLinks(){
 	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
 	// RFS
-	base = baseZylomGHM;
+	base = baseServGH + "/" + baseDistZylom + "/" + baseDevGHMigration + "/";
+	//alert(base);
 	ext = "rfs";
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
 	// RGA
-	base = baseZylomMumboDipEN;
+	base = "";
 	ext = "rga";
 	linkRGA = base + gameNamePackage + lang + "." + ext;
 }
