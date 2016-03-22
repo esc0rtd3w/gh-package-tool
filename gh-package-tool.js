@@ -25,14 +25,7 @@
 
 
 
-// Basic Info and Text
-var scriptVer = "0.2.4";
-var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
-var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
-
-
-
-// Sample URLs
+// START SAMPLE URLS ---------------------------------------------------------------------/
 
 // EXE Stub
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=f86bc49a788ace0058a420899e086139-supergloveshero.rfs&offering=supergloveshero&channel=z_syn_gh_g12
@@ -65,23 +58,27 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 // RGA (No Lang)
 // http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/supergloveshero_EN.rga
 
+// END SAMPLE URLS ---------------------------------------------------------------------/
 
-// Set URL Bases For Different Game Types
 
-// Bases (EXE)
+
+// START DEFAULTS ---------------------------------------------------------------------/
+
+// Basic Info and Text
+var scriptVer = "0.2.4";
+var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
+var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
+
+
+// Set URL Values For Different Game Types
+
+// Bases URL (EXE Stub)
 var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
 
-// Bases (RGS Legacy)
-var baseRGS = "";
-
-// Bases (RGA)
-
-// Bases (RFS)
-
-
+// Example URL: $server/$distributor/$developer/$offering
 // Server Base URLs
 var server = [];
-server.push("http://games-dl.gamehouse.com");
+server.push("http://games-dl.gamehouse.com"); // Default GameHouse Server
 server.push("http://origin.gamehouse.com");
 /*
 for (i = 0; i < server.length; i++) {
@@ -89,27 +86,36 @@ for (i = 0; i < server.length; i++) {
 }
 */
 
-// Distributor Base URLs
+// Distributor List
 var distributor = [];
 distributor.push("zylom");
 
-// Developer Base URLs (Zylom)
+// Developer List
 var developer = [];
-developer.push("ghmigration");
+developer.push("ghmigration"); // Default Zylom Migration
 developer.push("artifex");
 developer.push("terminalstudio");
 developer.push("popcap");
 developer.push("mumbo");
 
-//var baseDevZylomArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
-//var baseDevTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
-//var baseDevPopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
-//var baseDevMumboJumbo = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+// Offering List
+var offering = [];
+offering.push("dip_nt_zy_en"); // Default Offering (RGA)
 
-//var baseDevGHMigration = "ghmigration";
+// Channel List
+var channel = [];
+channel.push("z_syn_gh_g12"); // Default Zylom/GameHouse Channel
 
-// Offering Base URLs
+// Language List
+var language = [];
+language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
 
+// File Extension List
+var ext = [];
+ext.push("exe"); // Legacy EXE Game Installer (Not A Stub)
+ext.push("rgs"); // Legacy RealArcade Game Installer
+ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
+ext.push("rfs"); // New RFS File Format (2015/2016)
 
 
 // Set Default Game Info Values
@@ -118,10 +124,6 @@ var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";
-var ext = "rfs";
-var lang = "_EN";
-var offering = "dip_nt_zy_en";
-var channel = "z_syn_gh_g12";
 
 var gameTitle = "";
 var gameInfo = "";
@@ -144,8 +146,10 @@ var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
 
 // Special Situations (Platinum, Double Pack, Funpass, etc)
-var isPlatinum = "0";
-var isDoublePack = "0";
+var isPlatinum = 0;
+var isDoublePack = 0;
+
+// END DEFAULTS -----------------------------------------------------------------------/
 
 
 
@@ -185,12 +189,6 @@ function getGameName(){
 }
 	
 
-// Build Game Info
-//gameTitle = gameNameTitle + "\n\n\n";
-//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
-
-
-
 // Check For Platinum Edition
 // Main Webpage Link: http://www.gamehouse.com/platinum-games?platform=pc-games
 function checkPlatinum(){
@@ -206,13 +204,13 @@ function checkPlatinum(){
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
 	
 	if (gameNameTitle.search("platinumedition") != "platinumedition") {
-	   isPlatinum = "1";
+	   isPlatinum = 1;
 	} 
 	
 	// Check Names if "Platinum Edition"
-	if (isPlatinum == "1"){
+	if (isPlatinum == 1){
 		//alert("Platinum Edition");
-		var fixPlatinum = 'pe'
+		var fixPlatinum = 'pe';
 		
 		// Individual Game Name Fixes
 		if (gameNamePackage == "12laboursofherculesivmothernatureplatinumedition") {
@@ -248,13 +246,13 @@ function checkDoublePack(){
 	// 4-elements-ii-call-of-atlantis-treasures-of-poseidon-double-pack >> 4elementsiicoatreasuresposeidon
 	
 	if (gameNameTitle.search("doublepack") != "doublepack") {
-	   isDoublePack = "1";
+	   isDoublePack = 1;
 	} 
 	
 	// Check Names if "Double Pack"
-	if (isDoublePack === "1"){
+	if (isDoublePack == 1){
 		//alert("Double Pack");
-		var fixDoublePack = ""
+		var fixDoublePack = "";
 		
 		// Individual Game Name Fixes
 		if (gameNamePackage == "4elementsiicallofatlantistreasuresofposeidondoublepack") {
@@ -281,18 +279,19 @@ function buildNewLinks(){
 	// Sample #1
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	base = baseExeStub;
-	offering = gameNamePackage;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 
 	// RFS
 	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
-	ext = "rfs";
-	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
+	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[3];
 
 	// RGA
 	base = "";
-	ext = "rga";
-	linkRGA = base + gameNamePackage + lang + "." + ext;
+	linkRGA = base + gameNamePackage + language[0] + "." + ext[2];
+
+	// RGS
+	base = "";
+	linkRGA = base + gameNamePackage +  "." + ext[1];
 }
 
 // Check New Link
@@ -407,6 +406,13 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 
 
 
+// START TESTING ----------------------------------------------------------------------/
+
+// Build Game Info
+//gameTitle = gameNameTitle + "\n\n\n";
+//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
+
+
 //popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
 //var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
 
@@ -418,6 +424,11 @@ function hijackLinkFunpass(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 // Show an Alert Message To User
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
+// END TESTING ----------------------------------------------------------------------/
+
+
+
+// START MAIN TOOL ------------------------------------------------------------------/
 
 // Get Some Basic Info
 getCID();
@@ -439,3 +450,5 @@ hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "second
 
 //checkLink(linkRFS);
 //shamelessPlug();
+
+// END MAIN TOOL --------------------------------------------------------------------/
