@@ -355,6 +355,7 @@ function buildNewLinks(){
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[3];
 
 	// RGA
+	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = "";
 	linkRGA = base + gameNamePackage + language[0] + "." + ext[2];
 
