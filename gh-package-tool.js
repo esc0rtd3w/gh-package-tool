@@ -98,7 +98,7 @@ var baseDevGHMigration = "ghmigration";
 
 
 // Set Default Game Info Values
-var base = baseZylomGHM;
+var base = baseServGH + "/" + baseZylomGHM + baseDevGHMigration;
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
@@ -270,7 +270,7 @@ function buildNewLinks(){
 	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + offering + "&channel=" + channel;
 
 	// RFS
-	base = baseZylomGHM;
+	base = baseServGH + "/" + baseZylomGHM + baseDevGHMigration + "/";
 	ext = "rfs";
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext;
 
