@@ -65,7 +65,7 @@
 // START DEFAULTS ---------------------------------------------------------------------/
 
 // Basic Info and Text
-var scriptVer = "0.2.4";
+var scriptVer = "0.2.5";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -432,7 +432,5 @@ buildNewLinks();
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
-//checkLink(linkRFS);
-//shamelessPlug();
 
 // END MAIN TOOL --------------------------------------------------------------------/
