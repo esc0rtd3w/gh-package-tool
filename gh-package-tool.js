@@ -67,13 +67,21 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Bases For Different Game Types
+
+// Bases (EXE)
 var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
 
+// Bases (RGS Legacy)
+var baseRGS = "";
+
+// Bases (RGA)
 var baseArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
 var baseTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
 var basePopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
-var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
 var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+
+// Bases (RFS)
+var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
 
 
 // Set Default Game Info Values
