@@ -75,13 +75,26 @@ var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getin
 var baseRGS = "";
 
 // Bases (RGA)
-var baseArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
-var baseTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
-var basePopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
-var baseZylomMumboDipEN = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
 
 // Bases (RFS)
-var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
+
+
+// Server Base URLs
+var baseServGH = "http://games-dl.gamehouse.com";
+
+// Distributor Base URLs
+var baseDistZylom = "zylom";
+
+// Developer Base URLs (Zylom)
+var baseDevZylomArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
+var baseDevTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
+var baseDevPopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
+var baseDevMumboJumbo = "http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/";
+
+var baseDevGHMigration = "ghmigration";
+
+// Offering Base URLs
+
 
 
 // Set Default Game Info Values
