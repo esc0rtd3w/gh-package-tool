@@ -151,6 +151,10 @@ var isDoublePack = 0;
 var isFunpass = 0;
 var isPlatinum = 0;
 
+// Special Filename Situations
+var isCopyright = 0;
+var isTrademark = 0;
+
 // END DEFAULTS -----------------------------------------------------------------------/
 
 
@@ -195,12 +199,14 @@ function getGameName(){
 // Main Webpage Link: http://www.gamehouse.com/platinum-games?platform=pc-games
 function checkPlatinum(){
 	
-	// Game Links Tested OK (pe)
-	
-	// 7-wonders-ancient-alien-makeover-platinum-edition
+	// Game Links Tested OK (platinumedition)
 	// 9-the-dark-side-of-notre-dame-platinum-edition >> 9thedarksideofnotredameplatinumedition
+	// gardens-inc-4-blooming-stars-platinum-edition >> gardensinc4bloomingstarsplatinumedition
 	// lost-lands-the-golden-curse-platinum-edition >> lostlandsthegoldencurseplatinumedition
 	// mystery-trackers-four-aces-platinum-edition >> mysterytrackersfouracesplatinumedition
+	
+	// Game Links Tested OK (pe)
+	// gardens-inc-4-blooming-stars-platinum-edition >> gardensinc4bloomingstarsplatinumedition
 	
 	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
@@ -266,13 +272,31 @@ function checkDoublePack(){
 	}
 }
 
+// Check Trademark In Name
+function checkTrademark(){
+	
+	// Game Links Tested OK (Added "tm" to end of filename)
+	// plants-vs-zombies >> plantsvszombiestm
+	
+	if (gameNamePackage == "plantsvszombies") {
+	   isTrademark = 1;
+	} 
+	
+	// Check Names if "Trademark"
+	if (isTrademark == 1){
+		//alert("Trademark");
+		var fixTrademark = "tm";
+		gameNamePackage = gameNamePackage += fixTrademark;
+	}
+}
+
 	
 // Build New Download Links
 function buildNewLinks(){
 	
 	checkPlatinum();
 	checkDoublePack();
-	
+	checkTrademark();
 	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
@@ -423,7 +447,7 @@ buildNewLinks();
 
 // Remove Nodes and Elements
 //removeNode(btnPlayNow);
-//removeNode(btnFunpass);
+removeNode(btnFunpass);
 //removeNode("buy_now_button");
 //removeNode("alreadybought");
 
