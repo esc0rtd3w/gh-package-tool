@@ -68,6 +68,8 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // Set URL Bases For Different Game Types
 var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
+
+var baseArtifex = "http://games-dl.gamehouse.com/zylom/artifex/dip_nt_zy_en";
 var baseTerminalStudio = "http://games-dl.gamehouse.com/zylom/terminalstudio/dip_nt_zy_en";
 var basePopcap = "http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en";
 var baseZylomGHM = "http://games-dl.gamehouse.com/zylom/ghmigration/";
