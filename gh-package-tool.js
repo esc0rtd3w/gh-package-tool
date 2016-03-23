@@ -411,8 +411,8 @@ function removeElement(nodeToRemove){
 
 
 function createNewButton(){
-	//var hijackID_ = document.getElementById("dl_now_button");
-	var btnTemplate = document.createElement("dl_now_button button");
+	var hijackID_ = document.getElementById("dl_now_button");
+	var btnTemplate = document.createElement("dl_now_button");
 	hijackID_.setAttribute("class", "download");
 	hijackID_.innerHTML = "cRypTiC";
 	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
@@ -525,6 +525,6 @@ hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "second
 
 
 //cloneElement(btnPlayNow, "cRypTiC_Test");
-createNewButton();
+//createNewButton();
 
 // END MAIN TOOL --------------------------------------------------------------------/
