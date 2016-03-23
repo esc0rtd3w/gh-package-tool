@@ -169,6 +169,11 @@ function scrollToBottom(height){
 	window.scrollTo(0,document.body.scrollHeight);
 }
 
+// Force Page To Display All Available Games
+function showAllGames(){
+	// http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=2859&filterType=new-games&listView=true&start=20
+}
+
 
 // Get Content ID
 function getCID(){
