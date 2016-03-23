@@ -394,28 +394,30 @@ function checkLink(linkToCheck){
 
 
 // Clone Node
-function cloneNode(nodeToClone){
+function cloneElement(nodeToClone, newID){
 	var srcNode = document.getElementById(nodeToClone);
 	var destNode = srcNode.cloneNode(true);
+	destNode.id = newID;
 	document.body.appendChild(destNode);
 }
 
 // Remove Node
-function removeNode(nodeToRemove){
+function removeElement(nodeToRemove){
 	var getElement = document.getElementById(nodeToRemove);
 	var nodeGetParent = getElement.parentNode;
 	nodeGetParent.removeChild(getElement);
 }
 
-/*
+
+
 function createNewButton(){
-	var hijackID = document.getElementById("dl_now_button");
+	//var hijackID_ = document.getElementById("dl_now_button");
 	var btnTemplate = document.createElement("dl_now_button button");
-	spanHijackTextMain.setAttribute("class", "download");
-	spanHijackTextMain.innerHTML = "cRypTiC;
-	hijackID.insertBefore(btnTemplate, hijackID.nextSibling);
+	hijackID_.setAttribute("class", "download");
+	hijackID_.innerHTML = "cRypTiC";
+	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
 }
-*/
+
 
 function shamelessPlug(){
 	var credits = "esc0rtd3w / cRypTiCwaRe 2016";
@@ -511,15 +513,18 @@ getGameName();
 buildNewLinks();
 
 // Remove Nodes and Elements
-//removeNode(btnPlayNow);
-removeNode(btnFunpass);
-//removeNode("buy_now_button");
-//removeNode("alreadybought");
+//removeElement(btnPlayNow);
+removeElement(btnFunpass);
+//removeElement("buy_now_button");
+//removeElement("alreadybought");
 
 
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
+
+//cloneElement(btnPlayNow, "cRypTiC_Test");
+createNewButton();
 
 // END MAIN TOOL --------------------------------------------------------------------/
