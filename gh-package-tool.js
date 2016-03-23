@@ -171,7 +171,7 @@ function scrollToBottom(height){
 
 // Force Page To Display All Available Games
 function showAllGames(){
-	// http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=2859&filterType=new-games&listView=true&start=20
+	// http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=2859&filterType=new-games&listView=true&start=1
 }
 
 
@@ -226,6 +226,7 @@ function checkPlatinum(){
 	// Check Names if "Platinum Edition"
 	if (isPlatinum == 1){
 		//alert("Platinum Edition");
+		var origPlatinum = 'platinumedition';
 		var fixPlatinum = 'pe';
 		
 		// Individual Game Name Fixes
@@ -249,7 +250,8 @@ function checkPlatinum(){
 		}
 		
 		else {
-			gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+			//gameNamePackage = gameNamePackage.split('platinumedition').join(fixPlatinum);
+			gameNamePackage = gameNamePackage.replace(origPlatinum, fixPlatinum);
 		}
 	}
 }
