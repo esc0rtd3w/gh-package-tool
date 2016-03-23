@@ -306,13 +306,13 @@ function checkCopyright(){
 	// Game Links Tested OK (Added "tm" to end of filename)
 	// plants-vs-zombies >> plantsvszombiestm
 	
-	if (gameNamePackage == "plantsvszombies") {
+	if (gameNamePackage == "") {
 	   isCopyright = 1;
 	} 
 	
 	// Check Names if "Copyright"
 	if (isCopyright == 1){
-		//alert("Trademark");
+		//alert("Copyright");
 		var fixCopyright = "c";
 		gameNamePackage = gameNamePackage += fixCopyright;
 	}
@@ -345,7 +345,7 @@ function buildNewLinks(){
 	checkPlatinum();
 	checkDoublePack();
 	checkTrademark();
-	checkCopyright();
+	//checkCopyright();
 	checkFreeplay();
 	
 	// Members Only Sticker and Link Sample Source
