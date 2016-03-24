@@ -173,12 +173,8 @@ var isTrademark = 0;
 function getRootPath(){
 	rootDirectory = window.location.href.substring(25); // Remove http://www.gamehouse.com/
 	rootDirectory.split('/');
-	for(x=0; x<rootDirectory.length; x++){
-		if(/\d+&/i.test(rootDirectory[x])){
-			rootDirectory = rootDirectory[x].split('?')[0];
-		}
-	}
-	alert(rootDirectory);
+	rootDirectory = rootDirectory.split('?')[0];
+	//alert(rootDirectory);
 }
 
 // Force Page To Display All Available Games
