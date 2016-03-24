@@ -572,8 +572,14 @@ function hijackLinkFunpass(hjElement, hjLink){
 //var showMe = window.location.pathname;
 //alert(showMe);
 
-// END TESTING ----------------------------------------------------------------------/
+/*
+function isIE() {
+	var myNav = navigator.userAgent.toLowerCase();
+	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+}
+*/
 
+// END TESTING ----------------------------------------------------------------------/
 
 
 // START MAIN TOOL ------------------------------------------------------------------/
@@ -592,7 +598,6 @@ removeElement(btnFunpass);
 //removeElement("alreadybought");
 
 //removeElement("callToAction");
-
 
 // Other Testing Start
 
