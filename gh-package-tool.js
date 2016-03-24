@@ -169,6 +169,8 @@ var isTrademark = 0;
 // Force Page To Display All Available Games
 // This function can cause long page load times depending on the number of items loaded
 function showAllGames(){
+	var totalGames = document.getElementById("countsOnGameList");
+	//totalGames.split(" ");
 	var numberOfGamesToShow = 2863;
 	var startingPoint = 0;
 	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
