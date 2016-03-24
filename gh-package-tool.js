@@ -596,7 +596,7 @@ removeElement(btnFunpass);
 
 // Other Testing Start
 
-forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
+//forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
 // Other Testing End
