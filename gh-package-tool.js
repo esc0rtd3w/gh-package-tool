@@ -100,7 +100,7 @@ developer.push("mumbo");
 
 // Offering List
 var offering = [];
-offering.push("dip_nt_zy_en"); // Default Offering (RGA)
+offering.push("dip_nt_zy_en"); // Default Offering (RGA Links Only??)
 
 // Channel List
 var channel = [];
@@ -166,14 +166,18 @@ var isTrademark = 0;
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
 
+// Force Page To Display All Available Games
+// This function can cause long page load times depending on the number of items loaded
+function showAllGames(){
+	var numberOfGamesToShow = 2863;
+	var startingPoint = 0;
+	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
+	window.location = linkAllGames;
+}
+
 // Scroll To Bottom of Page
 function scrollToBottom(height){
 	window.scrollTo(0,document.body.scrollHeight);
-}
-
-// Force Page To Display All Available Games
-function showAllGames(){
-	// http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=2859&filterType=new-games&listView=true&start=1
 }
 
 
@@ -558,7 +562,14 @@ removeElement(btnFunpass);
 
 //removeElement("callToAction");
 
+
+// Other Testing Start
+
 //forceStubPage();
+//showAllGames(); // Can cause LONG LOAD TIMES!!
+
+// Other Testing End
+
 
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
