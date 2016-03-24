@@ -78,8 +78,8 @@ var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getin
 // Example URL: $server/$distributor/$developer/$offering
 // Server Base URLs
 var server = [];
-server.push("http://games-dl.gamehouse.com"); // Default GameHouse Server
-server.push("http://origin.gamehouse.com");
+server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
+server.push("http://origin.gamehouse.com"); // Alternate Server (Check /gameconsole/)
 /*
 for (i = 0; i < server.length; i++) {
 	alert(server[i]);
@@ -88,7 +88,7 @@ for (i = 0; i < server.length; i++) {
 
 // Distributor List
 var distributor = [];
-distributor.push("zylom");
+distributor.push("zylom"); // Default Distributor After Migration
 
 // Developer List
 var developer = [];
@@ -112,8 +112,8 @@ language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
 
 // File Extension List
 var ext = [];
-ext.push("exe"); // Legacy EXE Game Installer (Not A Stub)
-ext.push("rgs"); // Legacy RealArcade Game Installer
+ext.push("exe"); // Legacy EXE Game Installer and Stubs
+ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
@@ -558,10 +558,11 @@ removeElement(btnFunpass);
 
 //removeElement("callToAction");
 
+//forceStubPage();
+
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
-
 
 //cloneElement(btnPlayNow, "cRypTiC_Test");
 //createNewButton();
