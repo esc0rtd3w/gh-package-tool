@@ -146,6 +146,8 @@ var btnFreePlay = "dl_now_button";
 var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
 var btnFunpassElement = document.getElementById("funpass_btn");
+var btnDiscontinued = "discontinued";
+var btnDiscontinuedElement = document.getElementById("discontinued");
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -255,7 +257,6 @@ function checkPlatinum(){
 		}
 	}
 }
-
 
 // Check For "Double Pack"
 function checkDoublePack(){
@@ -427,8 +428,7 @@ function removeElement(nodeToRemove){
 	nodeGetParent.removeChild(getElement);
 }
 
-
-
+// Create New Button
 function createNewButton(){
 	var hijackID_ = document.getElementById("dl_now_button");
 	var btnTemplate = document.createElement("dl_now_button");
@@ -437,11 +437,10 @@ function createNewButton(){
 	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
 }
 
-
+// Credits
 function shamelessPlug(){
 	var credits = "esc0rtd3w / cRypTiCwaRe 2016";
 }
-
 
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
@@ -536,6 +535,8 @@ buildNewLinks();
 removeElement(btnFunpass);
 //removeElement("buy_now_button");
 //removeElement("alreadybought");
+
+//removeElement("callToAction");
 
 
 // Hijack Button Links
