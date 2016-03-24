@@ -428,6 +428,15 @@ function removeElement(nodeToRemove){
 	nodeGetParent.removeChild(getElement);
 }
 
+// Insert Script
+function insertScript() {
+    //var vScript = document.createElement('script');
+    //vScript.type = 'text/javascript'; vScript.async = true;
+    //vScript.src = 'file.js';
+    //vScript.onload = function(){_v = new VeediEmbed(settings);};
+    //var veedi = document.getElementById('veediInit'); veedi.parentNode.insertBefore(vScript, veedi);
+}
+
 // Create New Button
 function createNewButton(){
 	var hijackID_ = document.getElementById("dl_now_button");
@@ -435,6 +444,14 @@ function createNewButton(){
 	hijackID_.setAttribute("class", "download");
 	hijackID_.innerHTML = "cRypTiC";
 	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
+}
+
+// Force Page Load To Stub
+function forceStubPage() {
+	var path = window.location.pathname;
+	pathX = path.replace("download-games", "pc/postdownload");
+	//alert(pathX);
+	window.location = pathX;
 }
 
 // Credits
@@ -517,6 +534,9 @@ function hijackLinkFunpass(hjElement, hjLink){
 // Show an Alert Message To User
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
+//var showMe = window.location.pathname;
+//alert(showMe);
+
 // END TESTING ----------------------------------------------------------------------/
 
 
@@ -537,7 +557,6 @@ removeElement(btnFunpass);
 //removeElement("alreadybought");
 
 //removeElement("callToAction");
-
 
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
