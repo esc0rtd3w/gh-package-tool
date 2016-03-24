@@ -338,6 +338,31 @@ function checkFreeplay(){
 	}
 }
 
+// Check For Discontinued Game
+function checkDiscontinued(){
+	
+	// Sample Discontinued Game
+	// 1000-light-years-away >> 1000lightyearsaway >> 476fb6e4ba5621765356419ea0f170a7
+	/*
+	<div class="discontinued">This game is no longer available on our website. 
+	<a href="/pc-games" class="link">
+	<strong><u>Click here</u></strong></a> to choose and enjoy another game. FunPass and FunTicket members can still play this game. 
+	<a href="http://www.gamehouse.com/funpass" target="_blank"><strong><u>Subscribe to FunPass</u></strong></a> or 
+	<a href="https://www.gamehouse.com/my-profile" target="_blank"><strong><u>log in if you have FunPass or FunTicket! </u></strong></a></div>
+	*/
+}
+
+// Check For "Members Only" Games
+function checkMembersOnly() {
+	
+	// Members Only Sticker and Link Sample Source
+	// <div class="memberOnlyContainer">
+	// <div class="member_only_sticker">
+	// <img src="//cdn.ghstatic.com/gamehouse/images/members_only.png?20160229.131.2"></div>
+	// <div class="member_only_info">This is a member-only game. <a href="/memberships/funpass/freetrial" style="color:#fff;">Subscribe to FunPass</a> to become a member and get to enjoy all our games.</div>
+	// <div style="display: none;" class="member_only_tooltip">This title will be released for everyone in two weeks or less! Sign up for FunPass to play it today! <a href="/memberships/funpass/freetrial">Click here</a> to learn more.</div></div>
+	
+}
 
 // Build New Download Links
 function buildNewLinks(){
@@ -347,13 +372,7 @@ function buildNewLinks(){
 	checkTrademark();
 	//checkCopyright();
 	checkFreeplay();
-	
-	// Members Only Sticker and Link Sample Source
-	// <div class="memberOnlyContainer">
-	// <div class="member_only_sticker">
-	// <img src="//cdn.ghstatic.com/gamehouse/images/members_only.png?20160229.131.2"></div>
-	// <div class="member_only_info">This is a member-only game. <a href="/memberships/funpass/freetrial" style="color:#fff;">Subscribe to FunPass</a> to become a member and get to enjoy all our games.</div>
-	// <div style="display: none;" class="member_only_tooltip">This title will be released for everyone in two weeks or less! Sign up for FunPass to play it today! <a href="/memberships/funpass/freetrial">Click here</a> to learn more.</div></div>
+	checkDiscontinued();
 	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
