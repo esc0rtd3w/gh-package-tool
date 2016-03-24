@@ -78,8 +78,8 @@ var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getin
 // Example URL: $server/$distributor/$developer/$offering
 // Server Base URLs
 var server = [];
-server.push("http://games-dl.gamehouse.com"); // Default GameHouse Server
-server.push("http://origin.gamehouse.com");
+server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
+server.push("http://origin.gamehouse.com"); // Alternate Server (Check /gameconsole/)
 /*
 for (i = 0; i < server.length; i++) {
 	alert(server[i]);
@@ -88,7 +88,7 @@ for (i = 0; i < server.length; i++) {
 
 // Distributor List
 var distributor = [];
-distributor.push("zylom");
+distributor.push("zylom"); // Default Distributor After Migration
 
 // Developer List
 var developer = [];
@@ -100,7 +100,7 @@ developer.push("mumbo");
 
 // Offering List
 var offering = [];
-offering.push("dip_nt_zy_en"); // Default Offering (RGA)
+offering.push("dip_nt_zy_en"); // Default Offering (RGA Links Only??)
 
 // Channel List
 var channel = [];
@@ -112,8 +112,8 @@ language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
 
 // File Extension List
 var ext = [];
-ext.push("exe"); // Legacy EXE Game Installer (Not A Stub)
-ext.push("rgs"); // Legacy RealArcade Game Installer
+ext.push("exe"); // Legacy EXE Game Installer and Stubs
+ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
@@ -166,14 +166,20 @@ var isTrademark = 0;
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
 
+// Force Page To Display All Available Games
+// This function can cause long page load times depending on the number of items loaded
+function showAllGames(){
+	var totalGames = document.getElementById("countsOnGameList");
+	//totalGames.split(" ");
+	var numberOfGamesToShow = 2863;
+	var startingPoint = 0;
+	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
+	window.location = linkAllGames;
+}
+
 // Scroll To Bottom of Page
 function scrollToBottom(height){
 	window.scrollTo(0,document.body.scrollHeight);
-}
-
-// Force Page To Display All Available Games
-function showAllGames(){
-	// http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=2859&filterType=new-games&listView=true&start=1
 }
 
 
@@ -558,10 +564,18 @@ removeElement(btnFunpass);
 
 //removeElement("callToAction");
 
+
+// Other Testing Start
+
+//forceStubPage();
+//showAllGames(); // Can cause LONG LOAD TIMES!!
+
+// Other Testing End
+
+
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
-
 
 //cloneElement(btnPlayNow, "cRypTiC_Test");
 //createNewButton();
