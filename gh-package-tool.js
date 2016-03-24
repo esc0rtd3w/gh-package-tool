@@ -3,6 +3,7 @@
 // @namespace   com.crypticware.ghpkgtool
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
+// @include     http://www.gamehouse.com/new-games*
 // @version     0.2.5
 // @grant       none
 // ==/UserScript==
@@ -172,7 +173,7 @@ var isTrademark = 0;
 function showAllGames(){
 	var totalGames = document.getElementById("countsOnGameList");
 	//totalGames.split(" ");
-	var numberOfGamesToShow = 2863;
+	var numberOfGamesToShow = 25;
 	var startingPoint = 0;
 	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
 	window.location = linkAllGames;
