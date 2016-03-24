@@ -25,7 +25,7 @@
 
 
 
-// START SAMPLE URLS ---------------------------------------------------------------------/
+// START SAMPLE URLS -------------------------------------------------------------------/
 
 // EXE Stub
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=f86bc49a788ace0058a420899e086139-supergloveshero.rfs&offering=supergloveshero&channel=z_syn_gh_g12
@@ -52,13 +52,14 @@
 // http://games-dl.gamehouse.com/zylom/ghmigration/deathuponanaustriansonataadknpe/af5adab1ea584472a88c2f32b111ec45-deathuponanaustriansonataadknpe.rfs
 
 
-// RGA (With Lang)
+// RGA (No Lang)
 // http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en/MONOPOLY.rga
 
-// RGA (No Lang)
+// RGA (With Lang)
 // http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/supergloveshero_EN.rga
+// http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en/AstroPopDeluxe_EN.rga
 
-// END SAMPLE URLS ---------------------------------------------------------------------/
+// END SAMPLE URLS --------------------------------------------------------------------/
 
 
 
@@ -285,6 +286,34 @@ function checkDoublePack(){
 		}
 		else {
 			gameNamePackage = gameNamePackage.split("doublepack").join(fixDoublePack);
+		}
+	}
+}
+
+// Check For "Deluxe Edition"
+function checkDeluxe(){
+	
+	// Game Links Tested OK ("deluxe" added to end of name)
+	// astro-pop >> astropop >> AstroPopDeluxe_EN.rga
+	
+	// Change this to an array and a list of matching games (20160324)
+	/*
+	if (gameNameTitle.search("") != "") {
+	   isDeluxe = 1;
+	} 
+	*/
+	
+	// Check Names if "Deluxe"
+	if (isDeluxe == 1){
+		//alert("Deluxe Edition");
+		var fixDeluxe = "";
+		
+		// Individual Game Name Fixes
+		if (gameNamePackage == "astropop") {
+			gameNamePackage = "astropopdeluxe_en";
+		}
+		else {
+			gameNamePackage = gameNamePackage.split("").join(fixDoublePack);
 		}
 	}
 }
@@ -567,7 +596,7 @@ removeElement(btnFunpass);
 
 // Other Testing Start
 
-//forceStubPage();
+//forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
 // Other Testing End
