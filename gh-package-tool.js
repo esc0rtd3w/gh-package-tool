@@ -119,6 +119,7 @@ ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
+var rootDirectory = "";
 
 // Set Default Game Info Values
 var base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
@@ -167,6 +168,13 @@ var isTrademark = 0;
 
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
+
+// Get Root Path
+function getRootPath(){
+	// Get Game Name From Title (Same as Install Directory Name)
+	rootDirectory = window.location.href.substring(5);
+	alert(rootDirectory);
+}
 
 // Force Page To Display All Available Games
 // This function can cause long page load times depending on the number of items loaded
@@ -585,6 +593,8 @@ function isIE() {
 
 // START MAIN TOOL ------------------------------------------------------------------/
 
+getRootPath();
+
 // Get Some Basic Info
 getCID();
 getGameName();
@@ -604,6 +614,7 @@ removeElement(btnFunpass);
 
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
+
 
 // Other Testing End
 
