@@ -3,6 +3,7 @@
 // @namespace   com.crypticware.ghpkgtool
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
+// @include     http://www.gamehouse.com/new-games*
 // @version     0.2.5
 // @grant       none
 // ==/UserScript==
@@ -118,6 +119,7 @@ ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
+var rootDirectory = "";
 
 // Set Default Game Info Values
 var base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
@@ -167,12 +169,20 @@ var isTrademark = 0;
 
 // BEGIN FUNCTIONS --------------------------------------------------------------------/
 
+// Get Root Path
+function getRootPath(){
+	rootDirectory = window.location.href.substring(25); // Remove http://www.gamehouse.com/
+	rootDirectory.split('/');
+	rootDirectory = rootDirectory.split('?')[0];
+	//alert(rootDirectory);
+}
+
 // Force Page To Display All Available Games
 // This function can cause long page load times depending on the number of items loaded
 function showAllGames(){
 	var totalGames = document.getElementById("countsOnGameList");
 	//totalGames.split(" ");
-	var numberOfGamesToShow = 2863;
+	var numberOfGamesToShow = 25;
 	var startingPoint = 0;
 	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
 	window.location = linkAllGames;
@@ -572,11 +582,19 @@ function hijackLinkFunpass(hjElement, hjLink){
 //var showMe = window.location.pathname;
 //alert(showMe);
 
+/*
+function isIE() {
+	var myNav = navigator.userAgent.toLowerCase();
+	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+}
+*/
+
 // END TESTING ----------------------------------------------------------------------/
 
 
-
 // START MAIN TOOL ------------------------------------------------------------------/
+
+getRootPath();
 
 // Get Some Basic Info
 getCID();
@@ -593,11 +611,11 @@ removeElement(btnFunpass);
 
 //removeElement("callToAction");
 
-
 // Other Testing Start
 
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
+
 
 // Other Testing End
 
