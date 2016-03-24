@@ -171,8 +171,13 @@ var isTrademark = 0;
 
 // Get Root Path
 function getRootPath(){
-	// Get Game Name From Title (Same as Install Directory Name)
-	rootDirectory = window.location.href.substring(5);
+	rootDirectory = window.location.href.substring(25); // Remove http://www.gamehouse.com/
+	rootDirectory.split('/');
+	for(x=0; x<rootDirectory.length; x++){
+		if(/\d+&/i.test(rootDirectory[x])){
+			rootDirectory = rootDirectory[x].split('?')[0];
+		}
+	}
 	alert(rootDirectory);
 }
 
