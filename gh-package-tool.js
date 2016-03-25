@@ -465,6 +465,7 @@ function cloneElement(nodeToClone, newID){
 	var destNode = srcNode.cloneNode(true);
 	destNode.id = newID;
 	document.body.appendChild(destNode);
+	//srcNode.appendChild(destNode);
 }
 
 // Remove Node
@@ -617,6 +618,7 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
+
 // Other Testing End
 
 
@@ -624,6 +626,7 @@ removeElement(btnFunpass);
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 //hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
+//cloneElement(btnPlayNow, "newButton")
 
 //cloneElement(btnPlayNow, "cRypTiC_Test");
 //createNewButton();
