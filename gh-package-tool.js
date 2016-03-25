@@ -133,6 +133,7 @@ var gameInfo = "";
 
 
 // Set Default Link Variables
+var linkHijack = "";
 var linkEXE = "";
 var linkRGA = "";
 var linkRGS = "";
@@ -153,6 +154,7 @@ var btnDiscontinued = "discontinued";
 var btnDiscontinuedElement = document.getElementById("discontinued");
 
 // Default Hijacked/Cloned Button Elements
+var btnHijack = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackEXEElement = document.getElementById("dl_now_button_exe");
 var btnHijackRFS = "dl_now_button_rfs";
@@ -634,18 +636,16 @@ removeElement(btnFunpass);
 
 
 // Hijack Button Links
-hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-//hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+hijackLinkPlayNow(btnPlayNow, linkHijack, "download", "span", "span", "cta", "secondary", "... File", "Download Full Package");
+//hijackLinkFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
-cloneElement(btnPlayNow, btnHijackEXE);
-removeElement(btnPlayNow);
-cloneElement(btnHijackEXE, btnHijackRGA);
-cloneElement(btnHijackEXE, btnHijackRGS);
-cloneElement(btnHijackEXE, btnHijackRFS);
-
-//cloneElement(btnPlayNow, "newButton")
-
-//cloneElement(btnPlayNow, "cRypTiC_Test");
-//createNewButton();
+// Create New Hijacked Buttons
+cloneElement(btnPlayNow, btnHijack);// Clone Hijacked "Play Now" Button To A New ID
+removeElement(btnPlayNow);// Remove Original "Play Now" Button
+cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
+removeElement(btnHijack);
 
 // END MAIN TOOL --------------------------------------------------------------------/
