@@ -4,6 +4,7 @@
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @include     http://www.gamehouse.com/new-games*
+// @require     gameInfo.js
 // @version     0.2.5
 // @grant       none
 // ==/UserScript==
@@ -616,13 +617,13 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
-
 // Other Testing End
 
 
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+//hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+
 
 //cloneElement(btnPlayNow, "cRypTiC_Test");
 //createNewButton();
