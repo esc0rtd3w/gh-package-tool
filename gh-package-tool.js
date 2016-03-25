@@ -96,9 +96,9 @@ distributor.push("zylom"); // Default Distributor After Migration
 var developer = [];
 developer.push("ghmigration"); // Default Zylom Migration
 developer.push("artifex");
-developer.push("terminalstudio");
-developer.push("popcap");
 developer.push("mumbo");
+developer.push("popcap");
+developer.push("terminalstudio");
 
 // Offering List
 var offering = [];
@@ -184,7 +184,7 @@ function showAllGames(){
 	//totalGames.split(" ");
 	var numberOfGamesToShow = 25;
 	var startingPoint = 0;
-	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow + "&filterType=new-games&listView=true&start=" + startingPoint;
+	var linkAllGames = "http://www.gamehouse.com/new-games?platform=pc-games#gametype=download&genre=all&sorting=name&count=" + numberOfGamesToShow.toString + "&filterType=new-games&listView=true&start=" + startingPoint.toString;
 	window.location = linkAllGames;
 }
 
@@ -617,7 +617,7 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
-//cloneElement(btnPlayNow, "dl_now_button2");
+//cloneElement(btnPlayNow, "dl_now_button");
 
 // Other Testing End
 
