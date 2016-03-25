@@ -352,9 +352,11 @@ function checkCopyright(){
 	// Game Links Tested OK (Added "tm" to end of filename)
 	// plants-vs-zombies >> plantsvszombiestm
 	
-	if (gameNamePackage == "") {
+	/*
+	if (gameNamePackage == gameNamePackage += "") {
 	   isCopyright = 1;
 	} 
+	*/
 	
 	// Check Names if "Copyright"
 	if (isCopyright == 1){
@@ -416,7 +418,7 @@ function buildNewLinks(){
 	checkPlatinum();
 	checkDoublePack();
 	checkTrademark();
-	//checkCopyright();
+	checkCopyright();
 	checkFreeplay();
 	checkDiscontinued();
 	
@@ -458,13 +460,14 @@ function checkLink(linkToCheck){
 }
 
 
-// Clone Node
-function cloneElement(nodeToClone, newID){
+// Clone Element
+function cloneElement(nodeToClone, newID) {
+	var dup = 0;
 	var srcNode = document.getElementById(nodeToClone);
-	var destNode = srcNode.cloneNode(true);
-	destNode.id = newID;
-	document.body.appendChild(destNode);
-	//srcNode.appendChild(destNode);
+    var destNode = srcNode.cloneNode(true);
+    //destNode.id = newID + ++dup;
+    destNode.id = newID;
+    srcNode.parentNode.appendChild(destNode);
 }
 
 // Remove Node
@@ -625,6 +628,12 @@ removeElement(btnFunpass);
 // Hijack Button Links
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 //hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+
+cloneElement(btnPlayNow, "dl_now_button_exe");
+removeElement(btnPlayNow);
+cloneElement("dl_now_button_exe", "dl_now_button_rfs");
+cloneElement("dl_now_button_exe");
+cloneElement("dl_now_button_exe", "dl_now_button_rgs");
 
 //cloneElement(btnPlayNow, "newButton")
 
