@@ -4,7 +4,6 @@
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @include     http://www.gamehouse.com/new-games*
-// @require     gameInfo.js
 // @version     0.2.5
 // @grant       none
 // ==/UserScript==
@@ -618,6 +617,7 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
+cloneElement(btnPlayNow, "dl_now_button2");
 
 // Other Testing End
 
