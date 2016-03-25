@@ -617,7 +617,7 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
-cloneElement(btnPlayNow, "dl_now_button2");
+//cloneElement(btnPlayNow, "dl_now_button2");
 
 // Other Testing End
 
