@@ -152,6 +152,16 @@ var btnFunpassElement = document.getElementById("funpass_btn");
 var btnDiscontinued = "discontinued";
 var btnDiscontinuedElement = document.getElementById("discontinued");
 
+// Default Hijacked/Cloned Button Elements
+var btnHijackEXE = "dl_now_button_exe";
+var btnHijackEXEElement = document.getElementById("dl_now_button_exe");
+var btnHijackRFS = "dl_now_button_rfs";
+var btnHijackRFSElement = document.getElementById("dl_now_button_rfs");
+var btnHijackRGA = "dl_now_button_rga";
+var btnHijackRGAElement = document.getElementById("dl_now_button_rga");
+var btnHijackRGS = "dl_now_button_rgs";
+var btnHijackRGSElement = document.getElementById("dl_now_button_rgs");
+
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
 var isDoublePack = 0;
@@ -620,8 +630,6 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
-//cloneElement(btnPlayNow, "dl_now_button");
-
 // Other Testing End
 
 
@@ -629,11 +637,11 @@ removeElement(btnFunpass);
 hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 //hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
-cloneElement(btnPlayNow, "dl_now_button_exe");
+cloneElement(btnPlayNow, btnHijackEXE);
 removeElement(btnPlayNow);
-cloneElement("dl_now_button_exe", "dl_now_button_rfs");
-cloneElement("dl_now_button_exe");
-cloneElement("dl_now_button_exe", "dl_now_button_rgs");
+cloneElement(btnHijackEXE, btnHijackRGA);
+cloneElement(btnHijackEXE, btnHijackRGS);
+cloneElement(btnHijackEXE, btnHijackRFS);
 
 //cloneElement(btnPlayNow, "newButton")
 
