@@ -634,8 +634,8 @@ hijackLinkPlayNow(btnPlayNow, linkHijack, "download", "span", "span", "cta", "se
 //hijackLinkFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
 // Create New Hijacked Buttons
-cloneElement(btnPlayNow, btnHijack);// Clone Hijacked "Play Now" Button To A New ID
-removeElement(btnPlayNow);// Remove Original "Play Now" Button
+cloneElement("dl_now_button", btnHijack);// Clone Hijacked "Play Now" Button To A New ID
+removeElement("dl_now_button");// Remove Original "Play Now" Button
 cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
 cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
