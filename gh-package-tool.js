@@ -145,13 +145,13 @@ var hijackMe;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
-var btnPlayNowElement = document.getElementById("dl_now_button button");
+//var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFreePlay = "dl_now_button";
-var btnFreePlayElement = document.getElementById("dl_now_button");
+//var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
-var btnFunpassElement = document.getElementById("funpass_btn");
+//var btnFunpassElement = document.getElementById("funpass_btn");
 var btnDiscontinued = "discontinued";
-var btnDiscontinuedElement = document.getElementById("discontinued");
+//var btnDiscontinuedElement = document.getElementById("discontinued");
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
@@ -642,22 +642,28 @@ cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack C
 cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 removeElement(btnHijack);
 
+
 // Apply Styling To New Buttons
 var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 //btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
-hijackLinkPlayNow(btnHijackEXEElement);
+//hijackLinkPlayNow(btnHijackEXEElement, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+btnHijackEXEElement.setAttribute('href', linkEXE);
+//btnHijackEXEElement.setAttribute("");
 
 var btnHijackRGAElement = document.getElementById(btnHijackRGA);
 //btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
-hijackLinkPlayNow(btnHijackRGAElement, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
+//hijackLinkPlayNow(btnHijackRGAElement, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
+btnHijackRGAElement.setAttribute('href', linkRGA);
 
 var btnHijackRGSElement = document.getElementById(btnHijackRGS);
 //btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
-hijackLinkPlayNow(btnHijackRGSElement, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
+//hijackLinkPlayNow(btnHijackRGSElement, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
+btnHijackRGSElement.setAttribute('href', linkRGS);
 
 var btnHijackRFSElement = document.getElementById(btnHijackRFS);
 //btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
-hijackLinkPlayNow(btnHijackRGSElement, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+//hijackLinkPlayNow(btnHijackRFSElement, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+btnHijackRFSElement.setAttribute('href', linkRFS);
 
 
 // END MAIN TOOL --------------------------------------------------------------------/
