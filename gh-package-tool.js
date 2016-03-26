@@ -133,6 +133,7 @@ var gameInfo = "";
 
 
 // Set Default Link Variables
+var linkHijack = "";
 var linkEXE = "";
 var linkRGA = "";
 var linkRGS = "";
@@ -144,13 +145,24 @@ var hijackMe;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
-var btnPlayNowElement = document.getElementById("dl_now_button button");
+//var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFreePlay = "dl_now_button";
-var btnFreePlayElement = document.getElementById("dl_now_button");
+//var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
-var btnFunpassElement = document.getElementById("funpass_btn");
+//var btnFunpassElement = document.getElementById("funpass_btn");
 var btnDiscontinued = "discontinued";
-var btnDiscontinuedElement = document.getElementById("discontinued");
+//var btnDiscontinuedElement = document.getElementById("discontinued");
+
+// Default Hijacked/Cloned Button Elements
+var btnHijack = "dl_now_button_hijack";
+var btnHijackEXE = "dl_now_button_exe";
+//var btnHijackEXEElement = document.getElementById("dl_now_button_exe");
+var btnHijackRFS = "dl_now_button_rfs";
+//var btnHijackRFSElement = document.getElementById("dl_now_button_rfs");
+var btnHijackRGA = "dl_now_button_rga";
+//var btnHijackRGAElement = document.getElementById("dl_now_button_rga");
+var btnHijackRGS = "dl_now_button_rgs";
+//var btnHijackRGSElement = document.getElementById("dl_now_button_rgs");
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -352,9 +364,11 @@ function checkCopyright(){
 	// Game Links Tested OK (Added "tm" to end of filename)
 	// plants-vs-zombies >> plantsvszombiestm
 	
-	if (gameNamePackage == "") {
+	/*
+	if (gameNamePackage == gameNamePackage += "") {
 	   isCopyright = 1;
 	} 
+	*/
 	
 	// Check Names if "Copyright"
 	if (isCopyright == 1){
@@ -416,7 +430,7 @@ function buildNewLinks(){
 	checkPlatinum();
 	checkDoublePack();
 	checkTrademark();
-	//checkCopyright();
+	checkCopyright();
 	checkFreeplay();
 	checkDiscontinued();
 	
@@ -458,13 +472,14 @@ function checkLink(linkToCheck){
 }
 
 
-// Clone Node
-function cloneElement(nodeToClone, newID){
+// Clone Element
+function cloneElement(nodeToClone, newID) {
+	var dup = 0;
 	var srcNode = document.getElementById(nodeToClone);
-	var destNode = srcNode.cloneNode(true);
-	destNode.id = newID;
-	document.body.appendChild(destNode);
-	//srcNode.appendChild(destNode);
+    var destNode = srcNode.cloneNode(true);
+    //destNode.id = newID + ++dup;
+    destNode.id = newID;
+    srcNode.parentNode.appendChild(destNode);
 }
 
 // Remove Node
@@ -508,17 +523,11 @@ function shamelessPlug(){
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
 	
-	// Button Modifier
-	if (isFreeplay == 1){
-		var hijackID = document.getElementById(btnFreePlay);
-		hijackID.setAttribute("onclick", "window.location.href=\"" + linkRGA);
-		hijackID.setAttribute("class", hjClass);
-	}
-	else {
-		var hijackID = document.getElementById(hjElement);
-		hijackID.setAttribute("href", hjLink);
-		hijackID.setAttribute("class", hjClass);
-	}
+	
+	var hijackID = document.getElementById(hjElement);
+	hijackID.setAttribute("href", hjLink);
+	hijackID.setAttribute("class", hjClass);
+	
 	
 	// Clear Original Button Text
 	hijackID.innerHTML = "";
@@ -617,18 +626,44 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 
-//cloneElement(btnPlayNow, "dl_now_button");
-
 // Other Testing End
 
 
 // Hijack Button Links
-hijackLinkPlayNow(btnPlayNow, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-//hijackLinkFunpass(btnFunpass, linkEXE, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+hijackLinkPlayNow(btnPlayNow, linkHijack, "download", "span", "span", "cta", "secondary", "Hijacked", "Button Link");
+//hijackLinkFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
-//cloneElement(btnPlayNow, "newButton")
+// Create New Hijacked Buttons
+cloneElement(btnPlayNow, btnHijack);// Clone Hijacked "Play Now" Button To A New ID
+removeElement(btnPlayNow);// Remove Original "Play Now" Button
+cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
+removeElement(btnHijack);
 
-//cloneElement(btnPlayNow, "cRypTiC_Test");
-//createNewButton();
+
+// Apply Styling To New Buttons
+var btnHijackEXEElement = document.getElementById(btnHijackEXE);
+//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
+//hijackLinkPlayNow(btnHijackEXEElement, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+btnHijackEXEElement.setAttribute('href', linkEXE);
+//btnHijackEXEElement.setAttribute("");
+
+var btnHijackRGAElement = document.getElementById(btnHijackRGA);
+//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
+//hijackLinkPlayNow(btnHijackRGAElement, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
+btnHijackRGAElement.setAttribute('href', linkRGA);
+
+var btnHijackRGSElement = document.getElementById(btnHijackRGS);
+//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
+//hijackLinkPlayNow(btnHijackRGSElement, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
+btnHijackRGSElement.setAttribute('href', linkRGS);
+
+var btnHijackRFSElement = document.getElementById(btnHijackRFS);
+//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
+//hijackLinkPlayNow(btnHijackRFSElement, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+btnHijackRFSElement.setAttribute('href', linkRFS);
+
 
 // END MAIN TOOL --------------------------------------------------------------------/
