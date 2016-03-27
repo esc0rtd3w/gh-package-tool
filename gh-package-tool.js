@@ -4,7 +4,7 @@
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @include     http://www.gamehouse.com/new-games*
-// @version     0.2.5
+// @version     0.2.6
 // @grant       none
 // ==/UserScript==
 
