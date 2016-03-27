@@ -118,9 +118,13 @@ language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
 // File Extension List
 var ext = [];
 ext.push("exe"); // Legacy EXE Game Installer and Stubs
-ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
+ext.push("dmg"); // Mac OSX DMG Game Install Images
+ext.push("rgs"); // Legacy RealArcade RGS Game Installer (XZIP 2.0)
+ext.push("rgi"); // Legacy RealArcade RGS XML Game Info
+ext.push("rgp"); // Legacy RealArcade RGS XML Structured Install Info
+ext.push("mez"); // Legacy RealArcade RGS XZip 2.0 Header Stub??
 
 // Bases URL (EXE Stub)
 var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
@@ -152,24 +156,16 @@ var hijackMe;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
-//var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFreePlay = "dl_now_button";
-//var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
-//var btnFunpassElement = document.getElementById("funpass_btn");
 var btnDiscontinued = "discontinued";
-//var btnDiscontinuedElement = document.getElementById("discontinued");
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
-//var btnHijackEXEElement = document.getElementById("dl_now_button_exe");
 var btnHijackRFS = "dl_now_button_rfs";
-//var btnHijackRFSElement = document.getElementById("dl_now_button_rfs");
 var btnHijackRGA = "dl_now_button_rga";
-//var btnHijackRGAElement = document.getElementById("dl_now_button_rga");
 var btnHijackRGS = "dl_now_button_rgs";
-//var btnHijackRGSElement = document.getElementById("dl_now_button_rgs");
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -449,22 +445,22 @@ function buildNewLinks(){
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	base = baseExeStub;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[3] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 	
 	// RFS
 	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
-	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[3];
+	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[1];
-	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[2];
-	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[2];
+	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[1];
+	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[1];
 
 	// RGS
 	base = server[1];
-	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[1];
-	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[1];
+	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[4];
+	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[4];
 }
 
 // Check New Link
@@ -499,7 +495,7 @@ function removeElement(nodeToRemove){
 	nodeGetParent.removeChild(getElement);
 }
 
-// Insert Script
+// Insert Script (Nabbed From GameHouse Page Source!!)
 function insertScript() {
     //var vScript = document.createElement('script');
     //vScript.type = 'text/javascript'; vScript.async = true;
@@ -518,10 +514,8 @@ function createNewButton(){
 }
 
 function createDropdownBox() {
-	
 	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>"
 	//alert(dropdown);
-	
 }
 
 // Force Page Load To Stub
@@ -539,7 +533,6 @@ function shamelessPlug(){
 
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
-	
 	
 	var hijackID = document.getElementById(hjElement);
 	hijackID.setAttribute("href", hjLink);
@@ -606,9 +599,6 @@ function hijackLinkFunpass(hjElement, hjLink){
 // Show an Alert Message To User
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
-//var showMe = window.location.pathname;
-//alert(showMe);
-
 /*
 function isIE() {
 	var myNav = navigator.userAgent.toLowerCase();
@@ -643,7 +633,8 @@ removeElement(btnFunpass);
 
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
-createDropdownBox();
+//createDropdownBox();
+
 // Other Testing End
 
 
