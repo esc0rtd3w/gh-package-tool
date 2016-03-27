@@ -152,24 +152,16 @@ var hijackMe;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
-//var btnPlayNowElement = document.getElementById("dl_now_button button");
 var btnFreePlay = "dl_now_button";
-//var btnFreePlayElement = document.getElementById("dl_now_button");
 var btnFunpass = "funpass_btn";
-//var btnFunpassElement = document.getElementById("funpass_btn");
 var btnDiscontinued = "discontinued";
-//var btnDiscontinuedElement = document.getElementById("discontinued");
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
-//var btnHijackEXEElement = document.getElementById("dl_now_button_exe");
 var btnHijackRFS = "dl_now_button_rfs";
-//var btnHijackRFSElement = document.getElementById("dl_now_button_rfs");
 var btnHijackRGA = "dl_now_button_rga";
-//var btnHijackRGAElement = document.getElementById("dl_now_button_rga");
 var btnHijackRGS = "dl_now_button_rgs";
-//var btnHijackRGSElement = document.getElementById("dl_now_button_rgs");
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -643,7 +635,7 @@ removeElement(btnFunpass);
 
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
-createDropdownBox();
+//createDropdownBox();
 // Other Testing End
 
 
