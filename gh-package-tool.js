@@ -73,15 +73,12 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Values For Different Game Types
-
-// Bases URL (EXE Stub)
-var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
-
 // Example URL: $server/$distributor/$developer/$offering
 // Server Base URLs
 var server = [];
 server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
 server.push("http://origin.gamehouse.com"); // Alternate GameHouse and RealArcade Server (Check /gameconsole/)
+server.push("http://installer-manager.gamehouse.com"); // Default GameHouse Stub Building Server
 server.push("http://www.gamehouse.com"); // Main GameHouse Website Server
 server.push("http://games-dl2.real.com"); // Legacy RealArcade Download Server
 server.push("http://install.real.com"); // Legacy RealArcade Package Generator Server
@@ -125,6 +122,10 @@ ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
+// Bases URL (EXE Stub)
+var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
+
+// Placeholder For Getting Root Path
 var rootDirectory = "";
 
 // Set Default Game Info Values
