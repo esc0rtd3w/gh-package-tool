@@ -74,6 +74,7 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // Set URL Values For Different Game Types
 // Example URL: $server/$distributor/$developer/$offering
+
 // Server Base URLs
 var server = [];
 server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
@@ -85,11 +86,15 @@ server.push("http://install.real.com"); // Legacy RealArcade Package Generator S
 server.push("http://switchboard.real.com"); // Alternate Legacy RealArcade Package Generator Server
 server.push("http://downloads.gamehouse.com"); // Default Mac Download Server
 
-/*
-for (i = 0; i < server.length; i++) {
-	alert(server[i]);
-}
-*/
+// Game Paths On Server
+var path = [];
+path.push("/"); // Default Path
+path.push("/gameconsole/games/demorgses/"); // Legacy RealArcade Demo RGS Game Path
+path.push("/gameconsole/realarcadev21/games/"); // Legacy GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/dip/"); // Legacy Updated GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/am-"); // Legacy Activemark (Trial Game) GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/amg-"); // Legacy Activemark (Free Game) GameHouse and RealArcade RGA Path
+path.push("/pub/"); // Default Mac OSX DMG Path (amac-)
 
 // Distributor List
 var distributor = [];
@@ -177,6 +182,7 @@ var isPlatinum = 0;
 // Special Filename Situations
 var isCopyright = 0;
 var isTrademark = 0;
+var isRegTrademark = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -351,12 +357,13 @@ function checkTrademark(){
 	
 	if (gameNamePackage == "plantsvszombies") {
 	   isTrademark = 1;
-	} 
+	}
 	
 	// Check Names if "Trademark"
 	if (isTrademark == 1){
 		//alert("Trademark");
 		var fixTrademark = "tm";
+		var fixRegTrademark = "r";
 		gameNamePackage = gameNamePackage += fixTrademark;
 	}
 }
@@ -454,13 +461,13 @@ function buildNewLinks(){
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[1];
-	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[1];
-	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[1];
+	linkRGA = base + path[2] + gameNamePackage + "." + ext[1];
+	//linkRGA = base + "path[2] + gameNamePackage + language[0] + "." + ext[1];
 
 	// RGS
 	base = server[1];
-	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[4];
-	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[4];
+	linkRGS = base + path[1] + gameNamePackage +  "_free." + ext[4];
+	//linkRGA = base + path[1] + gameNamePackage +  "_full." + ext[4];
 }
 
 // Check New Link
@@ -520,8 +527,8 @@ function createDropdownBox() {
 
 // Force Page Load To Stub
 function forceStubPage() {
-	var path = window.location.pathname;
-	pathX = path.replace("download-games", "pc/postdownload");
+	var findPath = window.location.pathname;
+	pathX = findPath.replace("download-games", "pc/postdownload");
 	//alert(pathX);
 	window.location = pathX;
 }
