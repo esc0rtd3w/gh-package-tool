@@ -118,10 +118,10 @@ language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
 // File Extension List
 var ext = [];
 ext.push("exe"); // Legacy EXE Game Installer and Stubs
-ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
-ext.push("dmg"); // Mac OSX DMG Game Install Images 
+ext.push("dmg"); // Mac OSX DMG Game Install Images
+ext.push("rgs"); // Legacy RealArcade RGS Game Installer (XZIP 2.0)
 ext.push("rgi"); // Legacy RealArcade RGS XML Game Info
 ext.push("rgp"); // Legacy RealArcade RGS XML Structured Install Info
 ext.push("mez"); // Legacy RealArcade RGS XZip 2.0 Header Stub??
@@ -445,22 +445,22 @@ function buildNewLinks(){
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	base = baseExeStub;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[3] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 	
 	// RFS
 	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
-	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[3];
+	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[1];
-	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[2];
-	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[2];
+	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[1];
+	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[1];
 
 	// RGS
 	base = server[1];
-	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[1];
-	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[1];
+	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[4];
+	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[4];
 }
 
 // Check New Link
