@@ -508,6 +508,13 @@ function createNewButton(){
 	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
 }
 
+function createDropdownBox() {
+	
+	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>"
+	//alert(dropdown);
+	
+}
+
 // Force Page Load To Stub
 function forceStubPage() {
 	var path = window.location.pathname;
@@ -627,7 +634,7 @@ removeElement(btnFunpass);
 
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
-
+createDropdownBox();
 // Other Testing End
 
 
