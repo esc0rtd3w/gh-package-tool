@@ -121,6 +121,10 @@ ext.push("exe"); // Legacy EXE Game Installer and Stubs
 ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
+ext.push("dmg"); // Mac OSX DMG Game Install Images 
+ext.push("rgi"); // Legacy RealArcade RGS XML Game Info
+ext.push("rgp"); // Legacy RealArcade RGS XML Structured Install Info
+ext.push("mez"); // Legacy RealArcade RGS XZip 2.0 Header Stub??
 
 // Bases URL (EXE Stub)
 var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
@@ -491,7 +495,7 @@ function removeElement(nodeToRemove){
 	nodeGetParent.removeChild(getElement);
 }
 
-// Insert Script
+// Insert Script (Nabbed From GameHouse Page Source!!)
 function insertScript() {
     //var vScript = document.createElement('script');
     //vScript.type = 'text/javascript'; vScript.async = true;
@@ -510,10 +514,8 @@ function createNewButton(){
 }
 
 function createDropdownBox() {
-	
 	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>"
 	//alert(dropdown);
-	
 }
 
 // Force Page Load To Stub
@@ -531,7 +533,6 @@ function shamelessPlug(){
 
 // Hijack Links
 function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
-	
 	
 	var hijackID = document.getElementById(hjElement);
 	hijackID.setAttribute("href", hjLink);
@@ -598,9 +599,6 @@ function hijackLinkFunpass(hjElement, hjLink){
 // Show an Alert Message To User
 //alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
 
-//var showMe = window.location.pathname;
-//alert(showMe);
-
 /*
 function isIE() {
 	var myNav = navigator.userAgent.toLowerCase();
@@ -636,6 +634,7 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 //createDropdownBox();
+
 // Other Testing End
 
 
