@@ -441,7 +441,7 @@ function buildNewLinks(){
 	// Sample #1
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	base = baseExeStub;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[0] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 
 	// RFS
 	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
