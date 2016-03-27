@@ -4,7 +4,7 @@
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @include     http://www.gamehouse.com/new-games*
-// @version     0.2.5
+// @version     0.2.6
 // @grant       none
 // ==/UserScript==
 
@@ -73,15 +73,18 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Values For Different Game Types
-
-// Bases URL (EXE Stub)
-var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=";
-
 // Example URL: $server/$distributor/$developer/$offering
 // Server Base URLs
 var server = [];
 server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
-server.push("http://origin.gamehouse.com"); // Alternate Server (Check /gameconsole/)
+server.push("http://origin.gamehouse.com"); // Alternate GameHouse and RealArcade Server (Check /gameconsole/)
+server.push("http://installer-manager.gamehouse.com"); // Default GameHouse Stub Building Server
+server.push("http://www.gamehouse.com"); // Main GameHouse Website Server
+server.push("http://games-dl2.real.com"); // Legacy RealArcade Download Server
+server.push("http://install.real.com"); // Legacy RealArcade Package Generator Server
+server.push("http://switchboard.real.com"); // Alternate Legacy RealArcade Package Generator Server
+server.push("http://downloads.gamehouse.com"); // Default Mac Download Server
+
 /*
 for (i = 0; i < server.length; i++) {
 	alert(server[i]);
@@ -119,6 +122,10 @@ ext.push("rgs"); // Legacy RealArcade Game Installer (XZIP 2.0)
 ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
 ext.push("rfs"); // New RFS File Format (2015/2016)
 
+// Bases URL (EXE Stub)
+var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
+
+// Placeholder For Getting Root Path
 var rootDirectory = "";
 
 // Set Default Game Info Values
@@ -450,12 +457,14 @@ function buildNewLinks(){
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
-	base = "";
-	linkRGA = base + gameNamePackage + language[0] + "." + ext[2];
+	base = server[1];
+	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[2];
+	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[2];
 
 	// RGS
-	base = "";
-	linkRGA = base + gameNamePackage +  "." + ext[1];
+	base = server[1];
+	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[1];
+	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[1];
 }
 
 // Check New Link
