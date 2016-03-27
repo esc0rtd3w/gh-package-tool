@@ -81,7 +81,13 @@ var baseExeStub = "http://installer-manager.gamehouse.com/InstallerManager/getin
 // Server Base URLs
 var server = [];
 server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
-server.push("http://origin.gamehouse.com"); // Alternate Server (Check /gameconsole/)
+server.push("http://origin.gamehouse.com"); // Alternate GameHouse and RealArcade Server (Check /gameconsole/)
+server.push("http://www.gamehouse.com"); // Main GameHouse Website Server
+server.push("http://games-dl2.real.com"); // Legacy RealArcade Download Server
+server.push("http://install.real.com"); // Legacy RealArcade Package Generator Server
+server.push("http://switchboard.real.com"); // Alternate Legacy RealArcade Package Generator Server
+server.push("http://downloads.gamehouse.com"); // Default Mac Download Server
+
 /*
 for (i = 0; i < server.length; i++) {
 	alert(server[i]);
