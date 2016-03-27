@@ -450,12 +450,14 @@ function buildNewLinks(){
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
-	base = "";
-	linkRGA = base + gameNamePackage + language[0] + "." + ext[2];
+	base = server[1];
+	linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + "." + ext[2];
+	//linkRGA = base + "/gameconsole/realarcadev21/games/" + gameNamePackage + language[0] + "." + ext[2];
 
 	// RGS
-	base = "";
-	linkRGA = base + gameNamePackage +  "." + ext[1];
+	base = server[1];
+	linkRGS = base + "/gameconsole/games/demorgses/" + gameNamePackage +  "_free." + ext[1];
+	//linkRGA = base + "/gameconsole/games/demorgses" + gameNamePackage +  "_full." + ext[1];
 }
 
 // Check New Link
