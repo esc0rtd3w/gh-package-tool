@@ -500,6 +500,7 @@ function removeElement(nodeToRemove){
 	var getElement = document.getElementById(nodeToRemove);
 	var nodeGetParent = getElement.parentNode;
 	nodeGetParent.removeChild(getElement);
+	//alert("Removed " + nodeToRemove);
 }
 
 // Insert Script (Nabbed From GameHouse Page Source!!)
@@ -521,14 +522,14 @@ function createNewButton(){
 }
 
 function createDropdownBox() {
-	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>"
+	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>";
 	//alert(dropdown);
 }
 
 // Force Page Load To Stub
 function forceStubPage() {
-	var findPath = window.location.pathname;
-	pathX = findPath.replace("download-games", "pc/postdownload");
+	var p = window.location.pathname;
+	pathX = p.replace("download-games", "pc/postdownload");
 	//alert(pathX);
 	window.location = pathX;
 }
