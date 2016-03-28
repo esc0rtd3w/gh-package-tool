@@ -534,6 +534,16 @@ function forceStubPage() {
 	window.location = pathX;
 }
 
+function parseGamePageLinks() {
+	var gamesContainer = document.getElementById("_games_container");
+	var gameModule = document.getElementById("_game_module");
+	var gameList = document.getElementsByClassName("widgetContent2 games list dynamic");
+	var game1 = document.getElementById("game_1");
+	
+	
+	alert(game1);
+}
+
 // Credits
 function shamelessPlug(){
 	var credits = "esc0rtd3w / cRypTiCwaRe 2016";
@@ -619,6 +629,7 @@ function isIE() {
 
 // START MAIN TOOL ------------------------------------------------------------------/
 
+parseGamePageLinks();
 getRootPath();
 
 // Get Some Basic Info
@@ -636,6 +647,7 @@ removeElement(btnFunpass);
 //removeElement("alreadybought");
 
 //removeElement("callToAction");
+
 
 // Other Testing Start
 
