@@ -134,6 +134,10 @@ ext.push("mez"); // Legacy RealArcade RGS XZip 2.0 Header Stub??
 // Bases URL (EXE Stub)
 var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
 
+// Acid Config Info
+var baseAcidConfig = server[2] + "/InstallerManager/getinstallersettings?installationid="; // First part before Install ID
+var postAcidConfig = "&component=acid&version=1.20"; // 2nd part after Install ID
+
 // Placeholder For Getting Root Path
 var rootDirectory = "";
 
@@ -142,7 +146,8 @@ var base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
-var cid = "00000000000000000000000000000000";
+var cid = "00000000000000000000000000000000";// Content ID
+var iid = "00000000000000000000000000000000"; // Installation ID
 
 var gameTitle = "";
 var gameInfo = "";
@@ -541,7 +546,15 @@ function parseGamePageLinks() {
 	var game1 = document.getElementById("game_1");
 	
 	
-	alert(game1);
+	//alert(game1);
+}
+
+// Get ACID Config Settings (Pulled From Stub Install Log)
+function getAcidConfig() {
+	// Sample URL: 
+	// http://installer-manager.gamehouse.com/InstallerManager/getinstallersettings?installationid=0a5297a8531946c690446eab6baad53e&component=acid&version=1.20
+	var configFile = baseAcidConfig + iid + postAcidConfig;
+	window.location = configFile;
 }
 
 // Credits
@@ -654,6 +667,8 @@ removeElement(btnFunpass);
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 //createDropdownBox();
+
+//getAcidConfig();
 
 // Other Testing End
 
