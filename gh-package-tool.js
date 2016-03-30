@@ -60,6 +60,9 @@
 // http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/supergloveshero_EN.rga
 // http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en/AstroPopDeluxe_EN.rga
 
+// Stub Installer
+// http://amlocalhost.trymedia.com/offline/00edd86c60350000/_build.js?_=1459237405310
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
@@ -585,8 +588,8 @@ function hijackLinkPlayNow(hjElement, hjLink, hjClass, txtElementMain, txtElemen
 	spanHijackTextSub.innerHTML = txtSubNew;
 
 	// Insert New Text Into Current Page
-	hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
-	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
+	//hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
+	//hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
 function hijackLinkFunpass(hjElement, hjLink){
@@ -642,7 +645,6 @@ function isIE() {
 
 // START MAIN TOOL ------------------------------------------------------------------/
 
-parseGamePageLinks();
 getRootPath();
 
 // Get Some Basic Info
@@ -664,6 +666,7 @@ removeElement(btnFunpass);
 
 // Other Testing Start
 
+//parseGamePageLinks();
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 //createDropdownBox();
@@ -688,26 +691,34 @@ removeElement(btnHijack);
 
 
 // Apply Styling To New Buttons
-var btnHijackEXEElement = document.getElementById(btnHijackEXE);
+//var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 //btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
-//hijackLinkPlayNow(btnHijackEXEElement, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
-btnHijackEXEElement.setAttribute('href', linkEXE);
-//btnHijackEXEElement.setAttribute("");
+hijackLinkPlayNow(btnHijackEXE, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+//btnHijackEXEElement.setAttribute('href', linkEXE);
+//var btnHijackEXEElementTextMain = document.createElement("span");
+//btnHijackEXEElementTextMain.setAttribute("class", "cta");
+//btnHijackEXEElementTextMain.innerHTML = "EXE File";
+//var btnHijackEXEElementTextSub = document.createElement("span");
+//btnHijackEXEElementTextSub.setAttribute("class", "secondary");
+//btnHijackEXEElementTextSub.innerHTML = "Download Game Stub";
+//btnHijackEXEElement.insertBefore(btnHijackEXEElementTextMain, btnHijackEXEElement.nextSibling);
+//btnHijackEXEElement.insertBefore(btnHijackEXEElementTextSub, btnHijackEXEElement.nextSibling);
 
-var btnHijackRGAElement = document.getElementById(btnHijackRGA);
+
+//var btnHijackRGAElement = document.getElementById(btnHijackRGA);
 //btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
-//hijackLinkPlayNow(btnHijackRGAElement, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
-btnHijackRGAElement.setAttribute('href', linkRGA);
+hijackLinkPlayNow(btnHijackRGA, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
+//btnHijackRGAElement.setAttribute('href', linkRGA);
 
-var btnHijackRGSElement = document.getElementById(btnHijackRGS);
+//var btnHijackRGSElement = document.getElementById(btnHijackRGS);
 //btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
-//hijackLinkPlayNow(btnHijackRGSElement, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
-btnHijackRGSElement.setAttribute('href', linkRGS);
+hijackLinkPlayNow(btnHijackRGS, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
+//btnHijackRGSElement.setAttribute('href', linkRGS);
 
-var btnHijackRFSElement = document.getElementById(btnHijackRFS);
+//var btnHijackRFSElement = document.getElementById(btnHijackRFS);
 //btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
-//hijackLinkPlayNow(btnHijackRFSElement, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
-btnHijackRFSElement.setAttribute('href', linkRFS);
+hijackLinkPlayNow(btnHijackRFS, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+//btnHijackRFSElement.setAttribute('href', linkRFS);
 
 
 // END MAIN TOOL --------------------------------------------------------------------/
