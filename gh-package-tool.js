@@ -628,13 +628,18 @@ function hijackButtonFunpass(hjElement, hjLink){
 // Create New Hijacked Buttons
 function buildNewButtons() {
 
+	// Clone and Remove Original "Play Now" Button
 	cloneElement(btnPlayNow, btnHijack);// Clone Hijacked "Play Now" Button To A New ID
 	removeElement(btnPlayNow);// Remove Original "Play Now" Button
+	
+	// Create New Buttons From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMG);// Create an DMG File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
+	
+	// Remove Original Hijack Clone
 	removeElement(btnHijack);
 }
 
@@ -713,7 +718,7 @@ removeElement(btnFunpass);
 
 
 // Hijack Button Links
-hijackButtonLink(btnPlayNow, linkHijack, "download");
+//hijackButtonLink(btnPlayNow, linkHijack, "download");
 
 // Build New Hijacked Buttons
 buildNewButtons();
