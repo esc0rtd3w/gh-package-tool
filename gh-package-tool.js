@@ -635,7 +635,10 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
 	removeElement(btnHijack);
+}
 
+function setButtonProperties() {
+	
 	//hijackButtonLink(btnHijackEXE, linkEXE, "download");
 	var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 	btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Small Game Stub</span><br>";
@@ -742,6 +745,7 @@ hijackButtonLink(btnPlayNow, linkHijack, "download");
 //hijackButtonFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
 buildNewButtons();
+setButtonProperties();
 
 
 // END MAIN TOOL --------------------------------------------------------------------/
