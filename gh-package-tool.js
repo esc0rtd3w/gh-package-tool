@@ -605,6 +605,7 @@ function hijackButtonText(hjElement, txtElementMain, txtElementSub, txtClassMain
 	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
+// Hijack Funpass Button
 function hijackButtonFunpass(hjElement, hjLink){
 
 	// Sample Default Funpass Button
@@ -637,41 +638,13 @@ function buildNewButtons() {
 	removeElement(btnHijack);
 }
 
-function setButtonProperties() {
+// Set Button Properties
+function setButtonProperties(btn, lnk, textMain, textSub) {
 	
-	//hijackButtonLink(btnHijackEXE, linkEXE, "download");
-	var btnHijackEXEElement = document.getElementById(btnHijackEXE);
-	btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Small Game Stub</span><br>";
-	btnHijackEXEElement.outerHTML = "<a href=" + linkEXE + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackEXEElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
+	var btnHijackTarget = document.getElementById(btn);
+	btnHijackTarget.innerHTML = "<span class=" + "\"cta\"" + ">" + textMain + "</span><span class=" + "\"secondary\"" + ">" + textSub + "</span><br>";
+	btnHijackTarget.outerHTML = "<a href=" + lnk + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackTarget.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
-
-
-	//hijackButtonLink(btnHijackRFS, linkRFS, "download");
-	var btnHijackRFSElement = document.getElementById(btnHijackRFS);
-	btnHijackRFSElement.innerHTML = "<span class=" + "\"cta\"" + ">RFS File</span><span class=" + "\"secondary\"" + ">New AM Package</span><br>";
-	btnHijackRFSElement.outerHTML = "<a href=" + linkRFS + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRFSElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
-	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
-
-
-	//hijackButtonLink(btnHijackDMG, linkDMG, "download");
-	var btnHijackDMGElement = document.getElementById(btnHijackDMG);
-	btnHijackDMGElement.innerHTML = "<span class=" + "\"cta\"" + ">DMG File</span><span class=" + "\"secondary\"" + ">Mac OSX Package</span><br>";
-	btnHijackDMGElement.outerHTML = "<a href=" + linkDMG + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackDMGElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
-	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
-
-
-	//hijackButtonLink(btnHijackRGA, linkRGA, "download");
-	var btnHijackRGAElement = document.getElementById(btnHijackRGA);
-	btnHijackRGAElement.innerHTML = "<span class=" + "\"cta\"" + ">RGA File</span><span class=" + "\"secondary\"" + ">WinRAR Package</span><br>";
-	btnHijackRGAElement.outerHTML = "<a href=" + btnHijackRGA + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRGAElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
-	//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
-
-
-	//hijackButtonLink(btnHijackRGS, linkRGS, "download");
-	var btnHijackRGSElement = document.getElementById(btnHijackRGS);
-	btnHijackRGSElement.innerHTML = "<span class=" + "\"cta\"" + ">RGS File</span><span class=" + "\"secondary\"" + ">Legacy RealArcade</span><br>";
-	btnHijackRGSElement.outerHTML = "<a href=" + linkRGS + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRGSElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
-	//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
@@ -741,11 +714,16 @@ removeElement(btnFunpass);
 
 // Hijack Button Links
 hijackButtonLink(btnPlayNow, linkHijack, "download");
-//hijackButtonLink(btnPlayNow, linkHijack, "download", "span", "span", "cta", "secondary", "Hijacked", "Button Link");
-//hijackButtonFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
+// Build New Hijacked Buttons
 buildNewButtons();
-setButtonProperties();
+
+// Set Button Properties
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Small Game Stub");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package");
+setButtonProperties(btnHijackDMG, linkDMG, "DMG File", "Mac OSX Package");
+setButtonProperties(btnHijackRGA, linkRGA, "RGA File", "WinRAR Package");
+setButtonProperties(btnHijackRGS, linkRGS, "RGS File", "Legacy RealArcade");
 
 
 // END MAIN TOOL --------------------------------------------------------------------/
