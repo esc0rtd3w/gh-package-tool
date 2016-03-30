@@ -521,9 +521,11 @@ function removeElement(nodeToRemove){
 	//alert("Removed " + nodeToRemove);
 }
 
-// Remove Class
-function removeClass(classToRemove){
-	var getClass = document.getElementById(classToRemove).className = "";
+// Remove Images/Pictures With "img" Tag
+function removeImage(imageNumberToRemove){
+	var imageName = document.getElementsByTagName('img')[imageNumberToRemove];
+	imageName.parentNode.removeChild(imageName);
+	
 }
 
 // Insert Script (Nabbed From GameHouse Page Source!!)
@@ -683,7 +685,7 @@ removeElement(btnFunpass);// Remove The Orange Funpass Button
 removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
-//removeClass("playable");// Remove "Funpass Playable" Image
+removeImage(4);// Remove "Funpass Playable" Image
 
 
 // Other Testing Start
