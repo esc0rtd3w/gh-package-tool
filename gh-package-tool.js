@@ -159,8 +159,12 @@ var gameInfo = "";
 // Set Default Link Variables
 var linkHijack = "";
 var linkEXE = "";
-var linkRGA = "";
-var linkRGS = "";
+var linkRGALang = "";
+var linkRGALegacy = "";
+var linkRGATrial = "";
+var linkRGAUnlimited = "";
+var linkRGSFree = "";
+var linkRGSFull = "";
 var linkRFS = "";
 var linkDMG = "";
 
@@ -178,8 +182,12 @@ var btnDiscontinued = "discontinued";
 var btnHijack = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
-var btnHijackRGA = "dl_now_button_rga";
-var btnHijackRGS = "dl_now_button_rgs";
+var btnHijackRGALang = "dl_now_button_rga_lang";
+var btnHijackRGALegacy = "dl_now_button_rga_legacy";
+var btnHijackRGATrial = "dl_now_button_rga_trial";
+var btnHijackRGAUnlimited = "dl_now_button_rga_unlimited";
+var btnHijackRGSFree = "dl_now_button_rgs_free";
+var btnHijackRGSFull = "dl_now_button_rgs_full";
 var btnHijackDMG = "dl_now_button_dmg";
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
@@ -474,13 +482,15 @@ function buildNewLinks(){
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[1];
-	linkRGA = base + path[2] + gameNamePackage + "." + ext[1];
-	//linkRGA = base + "path[2] + gameNamePackage + language[0] + "." + ext[1];
+	linkRGALang = base + path[2] + gameNamePackage + language[0] + "." + ext[1];
+	linkRGALegacy = base + path[2] + gameNamePackage + "." + ext[1];
+	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
+	linkRGAUnlimited = base + path[2] + gameNamePackage + "." + ext[1];
 
 	// RGS
 	base = server[1];
-	linkRGS = base + path[1] + gameNamePackage +  "_free." + ext[4];
-	//linkRGA = base + path[1] + gameNamePackage +  "_full." + ext[4];
+	linkRGSFree = base + path[1] + gameNamePackage +  "_free." + ext[4];
+	linkRGSFull = base + path[1] + gameNamePackage +  "_full." + ext[4];
 
 	// DMG
 	base = server[7];
@@ -646,8 +656,12 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMG);// Create an DMG File Button From Hijack Clone
-	cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
-	cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGALang);// Create an RGA v4.x With Language File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGALegacy);// Create an RGA v2.1 File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGATrial);// Create an RGA v2.6 Trial File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGAUnlimited);// Create an RGA v2.6 Unlimited File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	
 	// Remove Original Hijack Clone
 	removeElement(btnHijack);
@@ -686,6 +700,7 @@ removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
 // Remove "Funpass Playable" Image
+// Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
 // This will remove the wrong pic if image order is changed on Gamehouse, or if page is not Funpass Playable
 //removeImage(4);
 
@@ -709,11 +724,15 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 buildNewButtons();
 
 // Set Button Properties
-setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Small Game Stub");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package");
-setButtonProperties(btnHijackDMG, linkDMG, "DMG File", "Mac OSX Package");
-setButtonProperties(btnHijackRGA, linkRGA, "RGA File", "WinRAR Package");
-setButtonProperties(btnHijackRGS, linkRGS, "RGS File", "Legacy RealArcade");
+setButtonProperties(btnHijackEXE, linkEXE, "EXE Stub", "Default Game Installer");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New ActiveMark Installer");
+setButtonProperties(btnHijackDMG, linkDMG, "DMG Image", "Mac OSX Package");
+setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "v4.x w/Language");
+setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "v2.1 ActiveMark Legacy");
+setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "v2.6 ActiveMark Trial");
+setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "v2.6 ActiveMark Unlim");
+setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS Free", "Legacy RealArcade");
+setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS Full", "Legacy RealArcade");
 
 
 // END MAIN TOOL ----------------------------------------------------------------------/
