@@ -521,9 +521,11 @@ function removeElement(nodeToRemove){
 	//alert("Removed " + nodeToRemove);
 }
 
-// Remove Class
-function removeClass(classToRemove){
-	var getClass = document.getElementById(classToRemove).className = "";
+// Remove Images/Pictures With "img" Tag
+function removeImage(imageNumberToRemove){
+	var imageName = document.getElementsByTagName('img')[imageNumberToRemove];
+	imageName.parentNode.removeChild(imageName);
+	
 }
 
 // Insert Script (Nabbed From GameHouse Page Source!!)
@@ -664,36 +666,9 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 
 
 
-// START TESTING ----------------------------------------------------------------------/
+// START MAIN TOOL --------------------------------------------------------------------/
 
-// Build Game Info
-//gameTitle = gameNameTitle + "\n\n\n";
-//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
-
-
-//popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
-//var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
-
-
-// Popup Game and Package Info
-//alert(popupInfo);
-
-
-// Show an Alert Message To User
-//alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
-
-/*
-function isIE() {
-	var myNav = navigator.userAgent.toLowerCase();
-	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-}
-*/
-
-// END TESTING ----------------------------------------------------------------------/
-
-
-// START MAIN TOOL ------------------------------------------------------------------/
-
+// Get root path of webpage after server base
 getRootPath();
 
 // Get Some Basic Info
@@ -703,15 +678,13 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
-// Remove Nodes and Elements
+// Remove Unwanted Stuff From Webpage
 //removeElement(btnPlayNow);// This is removed during the hijacked button building
-removeElement(btnFunpass);
-//removeElement(btnFreePlay);// 
-
+removeElement(btnFunpass);// Remove The Orange Funpass Button
+//removeElement(btnFreePlay);// Remove The Freeplay Button
 removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
-
-//removeClass("playable");// Remove "Funpass Playable" Image
+removeImage(4);// Remove "Funpass Playable" Image (This will remove the wrong pic if image order is changed on Gamehouse)
 
 
 // Other Testing Start
@@ -740,4 +713,4 @@ setButtonProperties(btnHijackRGA, linkRGA, "RGA File", "WinRAR Package");
 setButtonProperties(btnHijackRGS, linkRGS, "RGS File", "Legacy RealArcade");
 
 
-// END MAIN TOOL --------------------------------------------------------------------/
+// END MAIN TOOL ----------------------------------------------------------------------/
