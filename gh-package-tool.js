@@ -664,8 +664,9 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 
 
 
-// START MAIN TOOL ------------------------------------------------------------------/
+// START MAIN TOOL --------------------------------------------------------------------/
 
+// Get root path of webpage after server base
 getRootPath();
 
 // Get Some Basic Info
@@ -675,11 +676,10 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
-// Remove Nodes and Elements
+// Remove Unwanted Stuff From Webpage
 //removeElement(btnPlayNow);// This is removed during the hijacked button building
-removeElement(btnFunpass);
-//removeElement(btnFreePlay);// 
-
+removeElement(btnFunpass);// Remove The Orange Funpass Button
+//removeElement(btnFreePlay);// Remove The Freeplay Button
 removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
@@ -712,4 +712,4 @@ setButtonProperties(btnHijackRGA, linkRGA, "RGA File", "WinRAR Package");
 setButtonProperties(btnHijackRGS, linkRGS, "RGS File", "Legacy RealArcade");
 
 
-// END MAIN TOOL --------------------------------------------------------------------/
+// END MAIN TOOL ----------------------------------------------------------------------/
