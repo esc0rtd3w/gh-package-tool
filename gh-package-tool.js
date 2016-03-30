@@ -173,6 +173,7 @@ var linkDMGNew = "";
 var hijackID;
 var hijackMe;
 var hijackDescription;
+var hijackBuy;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
@@ -682,7 +683,7 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 }
 
 // Clear Game Description for Custom Text
-function hijackGameDescription(customText) {
+function hijackGameDescription(customText, color) {
 	
 	cloneElement("game_desc", "game_desc_hijacked");
 
@@ -695,7 +696,22 @@ function hijackGameDescription(customText) {
 	hijackDescription.innerHTML = "";
 	
 	// Enter New HTML Into Description
-	hijackDescription.innerHTML = customText;
+	hijackDescription.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
+}
+
+// Clear "Or Buy" Area for Custom Text
+function hijackBuyText(customText, color) {
+	
+	cloneElement("buy_now_button", "buy_now_button_hijacked");
+
+	// Remove Buy Text
+	removeElement("buy_now_button");// Remove "Or Buy" Text
+	
+	hijackBuy = document.getElementById("buy_now_button_hijacked");
+	hijackBuy.innerHTML = "";
+	
+	// Enter New Text Into Buy Area
+	hijackBuy.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
@@ -721,16 +737,16 @@ removeElement(btnFunpass);// Remove The Orange Funpass Button
 removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
-removeElement("buy_now_button");// Remove "Or Buy" Text
-
 // Remove "Funpass Playable" Image
 // Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
 // This will remove the wrong pic if image order is changed on Gamehouse, or if page is not Funpass Playable
 //removeImage(4);
 
 // Hijack Game Description
-hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016");
+hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 
+// Hijack Buy Text
+hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 
 // Other Testing Start
 
