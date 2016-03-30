@@ -4,7 +4,7 @@
 // @description Parses Content ID from page to create a direct download links to all the package types
 // @include     http://www.gamehouse.com/download-games/*
 // @include     http://www.gamehouse.com/new-games*
-// @version     0.2.6
+// @version     0.2.7
 // @grant       none
 // ==/UserScript==
 
@@ -70,7 +70,7 @@
 // START DEFAULTS ---------------------------------------------------------------------/
 
 // Basic Info and Text
-var scriptVer = "0.2.5";
+var scriptVer = "0.2.7";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
