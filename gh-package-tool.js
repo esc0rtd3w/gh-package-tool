@@ -636,33 +636,38 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
 	removeElement(btnHijack);
 
-	hijackButtonLink(btnHijackEXE, linkEXE, "download");
+	//hijackButtonLink(btnHijackEXE, linkEXE, "download");
 	var btnHijackEXEElement = document.getElementById(btnHijackEXE);
-	btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Small Game Stub</span>";
+	btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Small Game Stub</span><br><br>";
+	btnHijackEXEElement.outerHTML = "<a href=" + linkEXE + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackEXEElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackButtonLink(btnHijackRFS, linkRFS, "download");
+	//hijackButtonLink(btnHijackRFS, linkRFS, "download");
 	var btnHijackRFSElement = document.getElementById(btnHijackRFS);
-	btnHijackRFSElement.innerHTML = "<span class=" + "\"cta\"" + ">RFS File</span><span class=" + "\"secondary\"" + ">New AM Package</span>";
+	btnHijackRFSElement.innerHTML = "<span class=" + "\"cta\"" + ">RFS File</span><span class=" + "\"secondary\"" + ">New AM Package</span><br><br>";
+	btnHijackRFSElement.outerHTML = "<a href=" + linkRFS + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRFSElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackButtonLink(btnHijackDMG, linkDMG, "download");
+	//hijackButtonLink(btnHijackDMG, linkDMG, "download");
 	var btnHijackDMGElement = document.getElementById(btnHijackDMG);
-	btnHijackDMGElement.innerHTML = "<span class=" + "\"cta\"" + ">DMG File</span><span class=" + "\"secondary\"" + ">Mac OSX Package</span>";
+	btnHijackDMGElement.innerHTML = "<span class=" + "\"cta\"" + ">DMG File</span><span class=" + "\"secondary\"" + ">Mac OSX Package</span><br><br>";
+	btnHijackDMGElement.outerHTML = "<a href=" + linkDMG + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackDMGElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackButtonLink(btnHijackRGA, linkRGA, "download");
+	//hijackButtonLink(btnHijackRGA, linkRGA, "download");
 	var btnHijackRGAElement = document.getElementById(btnHijackRGA);
-	btnHijackRGAElement.innerHTML = "<span class=" + "\"cta\"" + ">RGA File</span><span class=" + "\"secondary\"" + ">WinRAR Package</span>";
+	btnHijackRGAElement.innerHTML = "<span class=" + "\"cta\"" + ">RGA File</span><span class=" + "\"secondary\"" + ">WinRAR Package</span><br><br>";
+	btnHijackRGAElement.outerHTML = "<a href=" + btnHijackRGA + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRGAElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackButtonLink(btnHijackRGS, linkRGS, "download");
+	//hijackButtonLink(btnHijackRGS, linkRGS, "download");
 	var btnHijackRGSElement = document.getElementById(btnHijackRGS);
-	btnHijackRGSElement.innerHTML = "<span class=" + "\"cta\"" + ">RGS File</span><span class=" + "\"secondary\"" + ">Legacy RealArcade</span>";
+	btnHijackRGSElement.innerHTML = "<span class=" + "\"cta\"" + ">RGS File</span><span class=" + "\"secondary\"" + ">Legacy RealArcade</span><br><br>";
+	btnHijackRGSElement.outerHTML = "<a href=" + linkRGS + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackRGSElement.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
 }
 
