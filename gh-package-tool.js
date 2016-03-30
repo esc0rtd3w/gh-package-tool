@@ -80,32 +80,32 @@ var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 // Server Base URLs
 var server = [];
-server.push("http://games-dl.gamehouse.com"); // Default GameHouse Download Server
-server.push("http://origin.gamehouse.com"); // Alternate GameHouse and RealArcade Server (Check /gameconsole/)
-server.push("http://installer-manager.gamehouse.com"); // Default GameHouse Stub Building Server
-server.push("http://www.gamehouse.com"); // Main GameHouse Website Server
-server.push("http://games-dl2.real.com"); // Legacy RealArcade Download Server
-server.push("http://install.real.com"); // Legacy RealArcade Package Generator Server
-server.push("http://switchboard.real.com"); // Alternate Legacy RealArcade Package Generator Server
-server.push("http://downloads.gamehouse.com"); // Default Mac Download Server
+server.push("http://games-dl.gamehouse.com");// Default GameHouse Download Server
+server.push("http://origin.gamehouse.com");// Alternate GameHouse and RealArcade Server (Check /gameconsole/)
+server.push("http://installer-manager.gamehouse.com");// Default GameHouse Stub Building Server
+server.push("http://www.gamehouse.com");// Main GameHouse Website Server
+server.push("http://games-dl2.real.com");// Legacy RealArcade Download Server
+server.push("http://install.real.com");// Legacy RealArcade Package Generator Server
+server.push("http://switchboard.real.com");// Alternate Legacy RealArcade Package Generator Server
+server.push("http://downloads.gamehouse.com");// Default Mac Download Server
 
 // Game Paths On Server
 var path = [];
-path.push("/"); // Default Path
-path.push("/gameconsole/games/demorgses/"); // Legacy RealArcade Demo RGS Game Path
-path.push("/gameconsole/realarcadev21/games/"); // Legacy GameHouse and RealArcade RGA Path
-path.push("/gameconsole/realarcadev21/games/dip/"); // Legacy Updated GameHouse and RealArcade RGA Path
-path.push("/gameconsole/realarcadev21/games/am-"); // Legacy Activemark (Trial Game) GameHouse and RealArcade RGA Path
-path.push("/gameconsole/realarcadev21/games/amg-"); // Legacy Activemark (Free Game) GameHouse and RealArcade RGA Path
-path.push("/pub/"); // Default Mac OSX DMG Path (amac-)
+path.push("/");// Default Path
+path.push("/gameconsole/games/demorgses/");// Legacy RealArcade Demo RGS Game Path
+path.push("/gameconsole/realarcadev21/games/");// Legacy GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/dip/");// Legacy Updated GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/am-");// Legacy Activemark (Trial Game) GameHouse and RealArcade RGA Path
+path.push("/gameconsole/realarcadev21/games/amg-");// Legacy Activemark (Free Game) GameHouse and RealArcade RGA Path
+path.push("/pub/");// Default Mac OSX DMG Path (amac-)
 
 // Distributor List
 var distributor = [];
-distributor.push("zylom"); // Default Distributor After Migration
+distributor.push("zylom");// Default Distributor After Migration
 
 // Developer List
 var developer = [];
-developer.push("ghmigration"); // Default Zylom Migration
+developer.push("ghmigration");// Default Zylom Migration
 developer.push("artifex");
 developer.push("mumbo");
 developer.push("popcap");
@@ -113,33 +113,33 @@ developer.push("terminalstudio");
 
 // Offering List
 var offering = [];
-offering.push("dip_nt_zy_en"); // Default Offering (RGA Links Only??)
+offering.push("dip_nt_zy_en");// Default Offering (RGA Links Only??)
 
 // Channel List
 var channel = [];
-channel.push("z_syn_gh_g12"); // Default Zylom/GameHouse Channel
+channel.push("z_syn_gh_g12");// Default Zylom/GameHouse Channel
 
 // Language List
 var language = [];
-language.push("_EN"); // Default RGA English (Newer 2015/2016 Style)
+language.push("_EN");// Default RGA English (Newer 2015/2016 Style)
 
 // File Extension List
 var ext = [];
-ext.push("exe"); // Legacy EXE Game Installer and Stubs
-ext.push("rga"); // Original GameHouse WinRAR Compressed Installer
-ext.push("rfs"); // New RFS File Format (2015/2016)
-ext.push("dmg"); // Mac OSX DMG Game Install Images
-ext.push("rgs"); // Legacy RealArcade RGS Game Installer (XZIP 2.0)
-ext.push("rgi"); // Legacy RealArcade RGS XML Game Info
-ext.push("rgp"); // Legacy RealArcade RGS XML Structured Install Info
-ext.push("mez"); // Legacy RealArcade RGS XZip 2.0 Header Stub??
+ext.push("exe");// Legacy EXE Game Installer and Stubs
+ext.push("rga");// Original GameHouse WinRAR Compressed Installer
+ext.push("rfs");// New RFS File Format (2015/2016)
+ext.push("dmg");// Mac OSX DMG Game Install Images
+ext.push("rgs");// Legacy RealArcade RGS Game Installer (XZIP 2.0)
+ext.push("rgi");// Legacy RealArcade RGS XML Game Info
+ext.push("rgp");// Legacy RealArcade RGS XML Structured Install Info
+ext.push("mez");// Legacy RealArcade RGS XZip 2.0 Header Stub??
 
 // Bases URL (EXE Stub)
 var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
 
 // Acid Config Info
-var baseAcidConfig = server[2] + "/InstallerManager/getinstallersettings?installationid="; // First part before Install ID
-var postAcidConfig = "&component=acid&version=1.20"; // 2nd part after Install ID
+var baseAcidConfig = server[2] + "/InstallerManager/getinstallersettings?installationid=";// First part before Install ID
+var postAcidConfig = "&component=acid&version=1.20";// 2nd part after Install ID
 
 // Placeholder For Getting Root Path
 var rootDirectory = "";
@@ -150,7 +150,7 @@ var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";// Content ID
-var iid = "00000000000000000000000000000000"; // Installation ID
+var iid = "00000000000000000000000000000000";// Installation ID
 
 var gameTitle = "";
 var gameInfo = "";
@@ -205,7 +205,7 @@ var isMembersOnly = 0;
 
 // Get Root Path
 function getRootPath(){
-	rootDirectory = window.location.href.substring(25); // Remove http://www.gamehouse.com/
+	rootDirectory = window.location.href.substring(25);// Remove http://www.gamehouse.com/
 	rootDirectory.split('/');
 	rootDirectory = rootDirectory.split('?')[0];
 	//alert(rootDirectory);
@@ -521,6 +521,11 @@ function removeElement(nodeToRemove){
 	//alert("Removed " + nodeToRemove);
 }
 
+// Remove Class
+function removeClass(classToRemove){
+	var getClass = document.getElementById(classToRemove).className = "";
+}
+
 // Insert Script (Nabbed From GameHouse Page Source!!)
 function insertScript() {
     //var vScript = document.createElement('script');
@@ -699,20 +704,21 @@ getGameName();
 buildNewLinks();
 
 // Remove Nodes and Elements
-//removeElement(btnPlayNow);
+//removeElement(btnPlayNow);// This is removed during the hijacked button building
 removeElement(btnFunpass);
-//removeElement(btnFreePlay);
-//removeElement("buy_now_button");
-//removeElement("alreadybought");
+//removeElement(btnFreePlay);// 
 
-//removeElement("callToAction");
+removeElement("fav_button_full");// Remove Favorite Heart Image FULL
+removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+
+//removeClass("playable");// Remove "Funpass Playable" Image
 
 
 // Other Testing Start
 
 //parseGamePageLinks();
-//forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
-//showAllGames(); // Can cause LONG LOAD TIMES!!
+//forceStubPage();// Force Load To /pc/postdownload/ and Retrieve EXE Stub
+//showAllGames();// Can cause LONG LOAD TIMES!!
 //createDropdownBox();
 
 //getAcidConfig();
