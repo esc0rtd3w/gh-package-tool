@@ -169,9 +169,10 @@ var linkRFS = "";
 var linkDMGLegacy = "";
 var linkDMGNew = "";
 
-// Default Hijack Element
+// Default Hijack Elements
 var hijackID;
 var hijackMe;
+var hijackDescription;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
@@ -680,6 +681,23 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 }
 
+// Clear Game Description for Custom Text
+function hijackGameDescription(customText) {
+	
+	cloneElement("game_desc", "game_desc_hijacked");
+
+	// Remove Game Description
+	removeElement("game_desc");
+	removeElement("show_more");
+	removeElement("show_less");
+	
+	hijackDescription = document.getElementById("game_desc_hijacked");
+	hijackDescription.innerHTML = "";
+	
+	// Enter New HTML Into Description
+	hijackDescription.innerHTML = customText;
+}
+
 // END FUNCTIONS ----------------------------------------------------------------------/
 
 
@@ -707,6 +725,9 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
 // This will remove the wrong pic if image order is changed on Gamehouse, or if page is not Funpass Playable
 //removeImage(4);
+
+// Hijack Game Description
+hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016");
 
 
 // Other Testing Start
