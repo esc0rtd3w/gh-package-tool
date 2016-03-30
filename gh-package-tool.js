@@ -703,7 +703,7 @@ removeElement(btnHijack);
 hijackLinkPlayNow(btnHijackEXE, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
 var btnHijackEXEElement = document.getElementById(btnHijackEXE);
-btnHijackEXEElement.innerHTML = "EXE File";
+btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Download Game Stub</span>";
 
 //btnHijackEXEElement.setAttribute('href', linkEXE);
 //var btnHijackEXEElementTextMain = document.createElement("span");
@@ -719,7 +719,7 @@ btnHijackEXEElement.innerHTML = "EXE File";
 hijackLinkPlayNow(btnHijackRGA, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
 
 var btnHijackRGAElement = document.getElementById(btnHijackRGA);
-btnHijackRGAElement.innerHTML = "RGA File";
+btnHijackRGAElement.innerHTML = "<span class=" + "\"cta\"" + ">RGA File</span><span class=" + "\"secondary\"" + ">Download Full Package</span>";
 //btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRGAElement.setAttribute('href', linkRGA);
 
@@ -727,7 +727,7 @@ btnHijackRGAElement.innerHTML = "RGA File";
 hijackLinkPlayNow(btnHijackRGS, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
 
 var btnHijackRGSElement = document.getElementById(btnHijackRGS);
-btnHijackRGSElement.innerHTML = "RGS File";
+btnHijackRGSElement.innerHTML = "<span class=" + "\"cta\"" + ">RGS File</span><span class=" + "\"secondary\"" + ">Download Full Package</span>";
 //btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRGSElement.setAttribute('href', linkRGS);
 
@@ -735,7 +735,7 @@ btnHijackRGSElement.innerHTML = "RGS File";
 hijackLinkPlayNow(btnHijackRFS, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
 
 var btnHijackRFSElement = document.getElementById(btnHijackRFS);
-btnHijackRFSElement.innerHTML = "RFS File";
+btnHijackRFSElement.innerHTML = "<span class=" + "\"cta\"" + ">RFS File</span><span class=" + "\"secondary\"" + ">Download Full Package</span>";
 //btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRFSElement.setAttribute('href', linkRFS);
 
@@ -743,7 +743,7 @@ btnHijackRFSElement.innerHTML = "RFS File";
 hijackLinkPlayNow(btnHijackDMG, linkDMG, "download", "span", "span", "cta", "secondary", "DMG File", "Mac OSX Full Package");
 
 var btnHijackDMGElement = document.getElementById(btnHijackDMG);
-btnHijackDMGElement.innerHTML = "DMG File";
+btnHijackDMGElement.innerHTML = "<span class=" + "\"cta\"" + ">DMG File</span><span class=" + "\"secondary\"" + ">Download Full Package</span>";
 //btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRFSElement.setAttribute('href', linkDMG);
 
