@@ -684,8 +684,7 @@ removeElement(btnFunpass);// Remove The Orange Funpass Button
 //removeElement(btnFreePlay);// Remove The Freeplay Button
 removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
-
-removeImage(4);// Remove "Funpass Playable" Image
+removeImage(4);// Remove "Funpass Playable" Image (This will remove the wrong pic if image order is changed on Gamehouse)
 
 
 // Other Testing Start
