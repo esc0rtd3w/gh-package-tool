@@ -60,6 +60,9 @@
 // http://games-dl.gamehouse.com/zylom/mumbo/dip_nt_zy_en/supergloveshero_EN.rga
 // http://games-dl.gamehouse.com/zylom/popcap/dip_nt_zy_en/AstroPopDeluxe_EN.rga
 
+// Stub Installer
+// http://amlocalhost.trymedia.com/offline/00edd86c60350000/_build.js?_=1459237405310
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
@@ -642,7 +645,6 @@ function isIE() {
 
 // START MAIN TOOL ------------------------------------------------------------------/
 
-parseGamePageLinks();
 getRootPath();
 
 // Get Some Basic Info
@@ -664,6 +666,7 @@ removeElement(btnFunpass);
 
 // Other Testing Start
 
+//parseGamePageLinks();
 //forceStubPage(); // Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames(); // Can cause LONG LOAD TIMES!!
 //createDropdownBox();
@@ -692,7 +695,15 @@ var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 //btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 //hijackLinkPlayNow(btnHijackEXEElement, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 btnHijackEXEElement.setAttribute('href', linkEXE);
-//btnHijackEXEElement.setAttribute("");
+var btnHijackEXEElementTextMain = document.createElement("span");
+btnHijackEXEElementTextMain.setAttribute("class", "cta");
+btnHijackEXEElementTextMain.innerHTML = "EXE File";
+var btnHijackEXEElementTextSub = document.createElement("download");
+btnHijackEXEElementTextSub.setAttribute("class", "secondary");
+btnHijackEXEElementTextSub.innerHTML = "Download Game Stub";
+btnHijackEXEElement.insertBefore(btnHijackEXEElementTextMain, btnHijackEXEElement.nextSibling);
+btnHijackEXEElement.insertBefore(btnHijackEXEElementTextSub, btnHijackEXEElement.nextSibling);
+
 
 var btnHijackRGAElement = document.getElementById(btnHijackRGA);
 //btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
