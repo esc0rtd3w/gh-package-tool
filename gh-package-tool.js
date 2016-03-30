@@ -194,6 +194,9 @@ var isCopyright = 0;
 var isTrademark = 0;
 var isRegTrademark = 0;
 
+// Special Webpage Situations
+var isMemberOnly = 0;
+
 // END DEFAULTS -----------------------------------------------------------------------/
 
 
