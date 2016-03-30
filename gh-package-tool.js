@@ -162,6 +162,7 @@ var linkEXE = "";
 var linkRGA = "";
 var linkRGS = "";
 var linkRFS = "";
+var linkDMG = "";
 
 // Default Hijack Element
 var hijackID;
@@ -179,6 +180,7 @@ var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
 var btnHijackRGA = "dl_now_button_rga";
 var btnHijackRGS = "dl_now_button_rgs";
+var btnHijackDMG = "dl_now_button_dmg";
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -476,6 +478,11 @@ function buildNewLinks(){
 	base = server[1];
 	linkRGS = base + path[1] + gameNamePackage +  "_free." + ext[4];
 	//linkRGA = base + path[1] + gameNamePackage +  "_full." + ext[4];
+
+	// DMG
+	base = server[7];
+	linkDMG = base + path[6] + gameNamePackage +  "." + ext[3];
+	//linkDMG = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
 }
 
 // Check New Link
@@ -687,6 +694,7 @@ cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack C
 cloneElement(btnHijack, btnHijackRGA);// Create an RGA File Button From Hijack Clone
 cloneElement(btnHijack, btnHijackRGS);// Create an RGS File Button From Hijack Clone
 cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
+cloneElement(btnHijack, btnHijackDMG);// Create an DMG File Button From Hijack Clone
 removeElement(btnHijack);
 
 
@@ -730,6 +738,14 @@ var btnHijackRFSElement = document.getElementById(btnHijackRFS);
 btnHijackRFSElement.innerHTML = "RFS File";
 //btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRFSElement.setAttribute('href', linkRFS);
+
+
+hijackLinkPlayNow(btnHijackDMG, linkDMG, "download", "span", "span", "cta", "secondary", "DMG File", "Mac OSX Full Package");
+
+var btnHijackDMGElement = document.getElementById(btnHijackDMG);
+btnHijackDMGElement.innerHTML = "DMG File";
+//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
+//btnHijackRFSElement.setAttribute('href', linkDMG);
 
 
 // END MAIN TOOL --------------------------------------------------------------------/
