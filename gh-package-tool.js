@@ -767,16 +767,16 @@ hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2
 buildNewButtons();
 
 // Set Button Properties
-setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#FFFFFF", "#FFFFFF");
-setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
+setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
+setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
+setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
+setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 
 
 // END MAIN TOOL ----------------------------------------------------------------------/
