@@ -651,7 +651,7 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 	
 	var btnHijackTarget = document.getElementById(btn);
 	btnHijackTarget.innerHTML = "<span class=" + "\"cta\"" + ">" + textMain + "</span><span class=" + "\"secondary\"" + ">" + textSub + "</span><br>";
-	btnHijackTarget.outerHTML = "<a href=" + lnk + " id=\"dl_now_button_exe\"" + " class=\"download\">" + btnHijackTarget.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
+	btnHijackTarget.outerHTML = "<a href=" + lnk + " id=" + btn + " class=\"download\">" + btnHijackTarget.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 }
 
