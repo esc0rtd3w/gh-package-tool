@@ -166,7 +166,8 @@ var linkRGAUnlimited = "";
 var linkRGSFree = "";
 var linkRGSFull = "";
 var linkRFS = "";
-var linkDMG = "";
+var linkDMGLegacy = "";
+var linkDMGNew = "";
 
 // Default Hijack Element
 var hijackID;
@@ -188,7 +189,8 @@ var btnHijackRGATrial = "dl_now_button_rga_trial";
 var btnHijackRGAUnlimited = "dl_now_button_rga_unlimited";
 var btnHijackRGSFree = "dl_now_button_rgs_free";
 var btnHijackRGSFull = "dl_now_button_rgs_full";
-var btnHijackDMG = "dl_now_button_dmg";
+var btnHijackDMGLegacy = "dl_now_button_dmg_legacy";
+var btnHijackDMGNew = "dl_now_button_dmg_new";
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -483,9 +485,9 @@ function buildNewLinks(){
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[1];
 	linkRGALang = base + path[2] + gameNamePackage + language[0] + "." + ext[1];
-	linkRGALegacy = base + path[2] + gameNamePackage + "." + ext[1];
+	linkRGALegacy = base + path[2] + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
-	linkRGAUnlimited = base + path[2] + gameNamePackage + "." + ext[1];
+	linkRGAUnlimited = base + path[2] + "amg-" + gameNamePackage + "." + ext[1];
 
 	// RGS
 	base = server[1];
@@ -494,8 +496,8 @@ function buildNewLinks(){
 
 	// DMG
 	base = server[7];
-	linkDMG = base + path[6] + gameNamePackage +  "." + ext[3];
-	//linkDMG = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	linkDMGLegacy = base + path[6] + gameNamePackage +  "." + ext[3];
+	linkDMGNew = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
 }
 
 // Check New Link
@@ -655,7 +657,8 @@ function buildNewButtons() {
 	// Create New Buttons From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
-	cloneElement(btnHijack, btnHijackDMG);// Create an DMG File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackDMGNew);// Create an DMG AMAC File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGALang);// Create an RGA v4.x With Language File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGALegacy);// Create an RGA v2.1 File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGATrial);// Create an RGA v2.6 Trial File Button From Hijack Clone
@@ -724,15 +727,16 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 buildNewButtons();
 
 // Set Button Properties
-setButtonProperties(btnHijackEXE, linkEXE, "EXE Stub", "Default Game Installer");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New ActiveMark Installer");
-setButtonProperties(btnHijackDMG, linkDMG, "DMG Image", "Mac OSX Package");
-setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "v4.x w/Language");
-setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "v2.1 ActiveMark Legacy");
-setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "v2.6 ActiveMark Trial");
-setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "v2.6 ActiveMark Unlim");
-setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS Free", "Legacy RealArcade");
-setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS Full", "Legacy RealArcade");
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package");
+setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy");
+setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark");
+setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang");
+setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy");
+setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial");
+setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited");
+setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free");
+setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full");
 
 
 // END MAIN TOOL ----------------------------------------------------------------------/
