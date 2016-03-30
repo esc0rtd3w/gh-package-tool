@@ -205,6 +205,7 @@ var isTrademark = 0;
 var isRegTrademark = 0;
 
 // Special Webpage Situations
+var isDiscontinued = 0;
 var isMembersOnly = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
