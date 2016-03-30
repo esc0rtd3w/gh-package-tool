@@ -10,3 +10,8 @@ Builds links for EXE Stub, RFS, RGS, and RGA currently.
 Requires GreaseMoney for Firefox
 
 http://www.greasespot.net/
+
+
+Part of the RealArcade Wrapper Killer
+
+cRypTiC / esc0rtd3w
