@@ -691,9 +691,12 @@ removeElement(btnHijack);
 
 
 // Apply Styling To New Buttons
-//var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 //btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 hijackLinkPlayNow(btnHijackEXE, linkEXE, "download", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+
+var btnHijackEXEElement = document.getElementById(btnHijackEXE);
+btnHijackEXEElement.innerHTML = "EXE File";
+
 //btnHijackEXEElement.setAttribute('href', linkEXE);
 //var btnHijackEXEElementTextMain = document.createElement("span");
 //btnHijackEXEElementTextMain.setAttribute("class", "cta");
@@ -705,19 +708,27 @@ hijackLinkPlayNow(btnHijackEXE, linkEXE, "download", "span", "span", "cta", "sec
 //btnHijackEXEElement.insertBefore(btnHijackEXEElementTextSub, btnHijackEXEElement.nextSibling);
 
 
-//var btnHijackRGAElement = document.getElementById(btnHijackRGA);
-//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
 hijackLinkPlayNow(btnHijackRGA, linkRGA, "download", "span", "span", "cta", "secondary", "RGA File", "Download Full Package");
+
+var btnHijackRGAElement = document.getElementById(btnHijackRGA);
+btnHijackRGAElement.innerHTML = "RGA File";
+//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRGAElement.setAttribute('href', linkRGA);
 
-//var btnHijackRGSElement = document.getElementById(btnHijackRGS);
-//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
+
 hijackLinkPlayNow(btnHijackRGS, linkRGS, "download", "span", "span", "cta", "secondary", "RGS File", "Download Full Package");
+
+var btnHijackRGSElement = document.getElementById(btnHijackRGS);
+btnHijackRGSElement.innerHTML = "RGS File";
+//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRGSElement.setAttribute('href', linkRGS);
 
-//var btnHijackRFSElement = document.getElementById(btnHijackRFS);
-//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
+
 hijackLinkPlayNow(btnHijackRFS, linkRFS, "download", "span", "span", "cta", "secondary", "RFS File", "Download Full Package");
+
+var btnHijackRFSElement = document.getElementById(btnHijackRFS);
+btnHijackRFSElement.innerHTML = "RFS File";
+//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 //btnHijackRFSElement.setAttribute('href', linkRFS);
 
 
