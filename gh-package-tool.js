@@ -573,34 +573,39 @@ function shamelessPlug(){
 }
 
 // Hijack Links
-// Old Args: (hjElement, hjLink, hjClass, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew)
-function hijackLinkPlayNow(hjElement, hjLink, hjClass){
+function hijackButtonLink(hjElement, hjLink, hjClass){
 	
 	var hijackID = document.getElementById(hjElement);
 	hijackID.setAttribute("href", hjLink);
 	hijackID.setAttribute("class", hjClass);
 	
+	// Clear Original Button Text
+	hijackID.innerHTML = "";
+}
+
+function hijackButtonText(hjElement, txtElementMain, txtElementSub, txtClassMain, txtClassSub, txtMainNew, txtSubNew){
+	
+	var hijackID = document.getElementById(hjElement);
 	
 	// Clear Original Button Text
 	hijackID.innerHTML = "";
 	
-
 	// Text Modifier Main Button Text
-	//var spanHijackTextMain = document.createElement(txtElementMain);
-	//spanHijackTextMain.setAttribute("class", txtClassMain);
-	//spanHijackTextMain.innerHTML = txtMainNew;
+	var spanHijackTextMain = document.createElement(txtElementMain);
+	spanHijackTextMain.setAttribute("class", txtClassMain);
+	spanHijackTextMain.innerHTML = txtMainNew;
 
 	// Text Modifier Sub Button Text
-	//var spanHijackTextSub = document.createElement(txtElementSub);
-	//spanHijackTextSub.setAttribute("class", txtClassSub);
-	//spanHijackTextSub.innerHTML = txtSubNew;
+	var spanHijackTextSub = document.createElement(txtElementSub);
+	spanHijackTextSub.setAttribute("class", txtClassSub);
+	spanHijackTextSub.innerHTML = txtSubNew;
 
 	// Insert New Text Into Current Page
-	//hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
-	//hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
+	hijackID.insertBefore(spanHijackTextMain, hijackID.nextSibling);
+	hijackID.insertBefore(spanHijackTextSub, hijackID.nextSibling);
 }
 
-function hijackLinkFunpass(hjElement, hjLink){
+function hijackButtonFunpass(hjElement, hjLink){
 
 	// Sample Default Funpass Button
 	// <div id="funpass_btn">
@@ -631,31 +636,31 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackDMG);// Create an DMG File Button From Hijack Clone
 	removeElement(btnHijack);
 
-	hijackLinkPlayNow(btnHijackEXE, linkEXE, "download");
+	hijackButtonLink(btnHijackEXE, linkEXE, "download");
 	var btnHijackEXEElement = document.getElementById(btnHijackEXE);
 	btnHijackEXEElement.innerHTML = "<span class=" + "\"cta\"" + ">EXE File</span><span class=" + "\"secondary\"" + ">Small Game Stub</span>";
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackLinkPlayNow(btnHijackRGA, linkRGA, "download");
+	hijackButtonLink(btnHijackRGA, linkRGA, "download");
 	var btnHijackRGAElement = document.getElementById(btnHijackRGA);
 	btnHijackRGAElement.innerHTML = "<span class=" + "\"cta\"" + ">RGA File</span><span class=" + "\"secondary\"" + ">WinRAR Package</span>";
 	//btnHijackRGAElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackLinkPlayNow(btnHijackRGS, linkRGS, "download");
+	hijackButtonLink(btnHijackRGS, linkRGS, "download");
 	var btnHijackRGSElement = document.getElementById(btnHijackRGS);
 	btnHijackRGSElement.innerHTML = "<span class=" + "\"cta\"" + ">RGS File</span><span class=" + "\"secondary\"" + ">Legacy RealArcade</span>";
 	//btnHijackRGSElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackLinkPlayNow(btnHijackRFS, linkRFS, "download");
+	hijackButtonLink(btnHijackRFS, linkRFS, "download");
 	var btnHijackRFSElement = document.getElementById(btnHijackRFS);
 	btnHijackRFSElement.innerHTML = "<span class=" + "\"cta\"" + ">RFS File</span><span class=" + "\"secondary\"" + ">New AM Package</span>";
 	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
 
 
-	hijackLinkPlayNow(btnHijackDMG, linkDMG, "download");
+	hijackButtonLink(btnHijackDMG, linkDMG, "download");
 	var btnHijackDMGElement = document.getElementById(btnHijackDMG);
 	btnHijackDMGElement.innerHTML = "<span class=" + "\"cta\"" + ">DMG File</span><span class=" + "\"secondary\"" + ">Mac OSX Package</span>";
 	//btnHijackRFSElement.style.margin = "0px, 50px, 50px, 0px";
@@ -727,9 +732,9 @@ removeElement(btnFunpass);
 
 
 // Hijack Button Links
-hijackLinkPlayNow(btnPlayNow, linkHijack, "download");
-//hijackLinkPlayNow(btnPlayNow, linkHijack, "download", "span", "span", "cta", "secondary", "Hijacked", "Button Link");
-//hijackLinkFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
+hijackButtonLink(btnPlayNow, linkHijack, "download");
+//hijackButtonLink(btnPlayNow, linkHijack, "download", "span", "span", "cta", "secondary", "Hijacked", "Button Link");
+//hijackButtonFunpass(btnFunpass, linkHijack, "funpass", "span", "span", "cta", "secondary", "EXE File", "Download Game Stub");
 
 buildNewButtons();
 
