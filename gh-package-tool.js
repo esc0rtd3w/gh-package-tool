@@ -718,7 +718,7 @@ removeElement(btnFunpass);
 
 
 // Hijack Button Links
-hijackButtonLink(btnPlayNow, linkHijack, "download");
+//hijackButtonLink(btnPlayNow, linkHijack, "download");
 
 // Build New Hijacked Buttons
 buildNewButtons();
