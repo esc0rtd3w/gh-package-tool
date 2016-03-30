@@ -560,7 +560,7 @@ function createNewButton(){
 	hijackID_.innerHTML = "cRypTiC";
 	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
 }
-
+// Dropdown Box Test
 function createDropdownBox() {
 	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>";
 	//alert(dropdown);
@@ -674,10 +674,10 @@ function buildNewButtons() {
 }
 
 // Set Button Properties
-function setButtonProperties(btn, lnk, textMain, textSub) {
+function setButtonProperties(btn, lnk, textMain, textSub, colorMain, colorSub) {
 	
 	var btnHijackTarget = document.getElementById(btn);
-	btnHijackTarget.innerHTML = "<span class=" + "\"cta\"" + ">" + textMain + "</span><span class=" + "\"secondary\"" + ">" + textSub + "</span><br>";
+	btnHijackTarget.innerHTML = "<span class=" + "\"cta\"" + ">" + "<font color=\"" + colorMain + "\">" + textMain + "</font>" + "</span><span class=" + "\"secondary\"" + ">" + "<font color=\"" + colorSub + "\">" + textSub + "</font>" + "</span><br>";
 	btnHijackTarget.outerHTML = "<a href=" + lnk + " id=" + btn + " class=\"download\">" + btnHijackTarget.innerHTML + "</a>&nbsp&nbsp&nbsp&nbsp";
 	//btnHijackEXEElement.style.margin = "0px, 50px, 50px, 0px";
 }
@@ -767,16 +767,16 @@ hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2
 buildNewButtons();
 
 // Set Button Properties
-setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package");
-setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy");
-setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark");
-setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang");
-setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy");
-setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial");
-setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited");
-setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free");
-setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full");
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#FFFFFF", "#FFFFFF");
+setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#FFFFFF", "#FFFFFF");
 
 
 // END MAIN TOOL ----------------------------------------------------------------------/
