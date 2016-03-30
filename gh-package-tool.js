@@ -521,6 +521,11 @@ function removeElement(nodeToRemove){
 	//alert("Removed " + nodeToRemove);
 }
 
+// Remove Class
+function removeClass(classToRemove){
+	var getClass = document.getElementById(classToRemove).className = "";
+}
+
 // Insert Script (Nabbed From GameHouse Page Source!!)
 function insertScript() {
     //var vScript = document.createElement('script');
@@ -705,7 +710,10 @@ removeElement(btnFunpass);
 //removeElement("buy_now_button");
 //removeElement("alreadybought");
 
-//removeElement("callToAction");
+removeElement("fav_button_full"); // Remove Favorite Heart Image FULL
+removeElement("fav_button_empty"); // Remove Favorite Heart Image EMPTY
+
+//removeClass("playable"); // Remove "Funpass Playable" Image
 
 
 // Other Testing Start
