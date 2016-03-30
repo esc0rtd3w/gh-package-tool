@@ -664,34 +664,6 @@ function setButtonProperties(btn, lnk, textMain, textSub) {
 
 
 
-// START TESTING ----------------------------------------------------------------------/
-
-// Build Game Info
-//gameTitle = gameNameTitle + "\n\n\n";
-//gameInfo = "Game Name (Directory Title): " + gameNameTitle + "\n\n" + "Game Name (Web Info): " + gameNameWebpage + "\n\n" + "Game Name (Package Link): " + gameNamePackage + "\n\n" + "Content ID: " + cid + "\n\n";
-
-
-//popupInfo = scriptTitle + gameInfo + linkRFS + "\n\n" + linkRGA + scriptCredits;
-//var popupInfo = scriptTitle + gameTitle + linkEXE + "\n\n" + linkRFS + "\n\n" + linkRGA + scriptCredits;
-
-
-// Popup Game and Package Info
-//alert(popupInfo);
-
-
-// Show an Alert Message To User
-//alert(scriptTitle + "\n\nCheck The Bottom of Page For Buttons With Direct Links\n\n" + scriptCredits);
-
-/*
-function isIE() {
-	var myNav = navigator.userAgent.toLowerCase();
-	return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
-}
-*/
-
-// END TESTING ----------------------------------------------------------------------/
-
-
 // START MAIN TOOL ------------------------------------------------------------------/
 
 getRootPath();
