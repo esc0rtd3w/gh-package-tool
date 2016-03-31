@@ -125,7 +125,10 @@ channel.push("z_syn_gh_g12");// Default Zylom/GameHouse Channel
 
 // Language List
 var language = [];
+language.push("");// Default Blank
 language.push("_EN");// Default RGA English (Newer 2015/2016 Style)
+language.push("_DE");// Dutch
+language.push("_FR");// French
 
 // File Extension List
 var ext = [];
@@ -508,8 +511,8 @@ function createLinksRFS() {
 function createLinksRGA() {
 	// Samples
 	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
-	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
-	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[5] + "/" + offering[0] + "/" + gameNamePackage + language[0] + "." + ext[1];
+	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[5] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
 	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + "." + ext[1];
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
@@ -804,24 +807,22 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Hijack Game Description
 //var dropdownServer = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + server[0] + "</option><option value=" + "2" + ">" + server[1] + "</option><option value=" + "3" + ">" + server[2] + "</option><option value=" + "4" + ">" + server[3] + "</option><option value=" + "5" + ">" + server[4] + "</option><option value=" + "6" + ">" + server[5] + "</option><option value=" + "7" + ">" + server[6] + "</option><option value=" + "8" + ">" + server[7] + "</option></select>";
 //var dropdownPath = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + path[0] + "</option><option value=" + "2" + ">" + path[1] + "</option><option value=" + "3" + ">" + path[2] + "</option><option value=" + "4" + ">" + path[3] + "</option><option value=" + "5" + ">" + path[4] + "</option><option value=" + "6" + ">" + path[5] + "</option></select>";
-//var dropdownChannel = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
-//var dropdownLanguage = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + language[0] + "</option></select>";
+var dropdownChannel = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
+var dropdownLanguage = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + language[0] + "</option><option value=" + "2" + ">" + language[1] + "</option><option value=" + "3" + ">" + language[2] + "</option><option value=" + "4" + ">" + language[3] + "</option></select>";
 
 var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + distributor[0] + "</option></select>";
 var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + developer[0] + "</option><option value=" + "2" + ">" + developer[1] + "</option><option value=" + "3" + ">" + developer[2] + "</option><option value=" + "4" + ">" + developer[3] + "</option><option value=" + "5" + ">" + developer[4] + "</option><option value=" + "6" + ">" + developer[5] + "</option></select>";
-var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option></select>";
+var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option><option value=" + "2" + ">" + gameNamePackage + "</option></select>";
 var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>";
 //var comboFirstRow = "<b>Server: </b>" + dropdownServer + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 //var comboSecondRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
-var comboFirstRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
-//var comboSecondRow = "<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
+var comboFirstRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
+var comboSecondRow = "<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 
-//var comboDropdown =  comboFirstRow + "<br><br>" + comboSecondRow;
-var comboDropdown =  defaultDesc + comboFirstRow;
+var comboDropdown = comboFirstRow + "<br><br>" + comboSecondRow;
 hijackGameDescription(comboDropdown, "#FFFFFF");
 
 // Hijack Buy Text
-//hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 
 
