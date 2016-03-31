@@ -804,9 +804,12 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Hijack Game Description
 //hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 //var defaultDesc = "Content ID: " + cid + "Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.";
-var dropdown = "<div id=\"dropdown\"><select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select></div>";
-var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
-var combo = defaultDesc + dropdown;
+var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">Option 1</option></select>";
+var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">Option 1</option></select>";
+var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">Option 1</option></select>";
+//var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
+var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br><b>Distributor: </b>";
+var combo = defaultDesc + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 hijackGameDescription(combo, "#FFFFFF");
 
 // Hijack Buy Text
