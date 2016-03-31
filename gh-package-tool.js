@@ -577,8 +577,13 @@ function insertScript() {
 
 // Dropdown Box Test
 function createDropdownBox() {
-	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>";
+	var dropdown = "<div id=\"dropdown\"><select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select></div>";
+	var a = document.getElementById("game_description");
+	//var b = document.createElement(dropdown);
+	//a.setAttribute("class", "dl_now_button"):
+	//a.insertBefore(b, a.nextSibling);
 	//alert(dropdown);
+	//a.innerHTML = dropdown;
 }
 
 // Force Page Load To Stub
@@ -799,8 +804,13 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Hijack Game Description
 //hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 //var defaultDesc = "Content ID: " + cid + "Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.";
-var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
-hijackGameDescription(defaultDesc, "#FFFFFF");
+var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + distributor[0] + "</option></select>";
+var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + developer[0] + "</option><option value=" + "2" + ">" + developer[1] + "</option><option value=" + "3" + ">" + developer[2] + "</option><option value=" + "4" + ">" + developer[3] + "</option><option value=" + "5" + ">" + developer[4] + "</option><option value=" + "6" + ">" + developer[5] + "</option></select>";
+var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option></select>";
+//var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
+var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br><b>Distributor: </b>";
+var combo = defaultDesc + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
+hijackGameDescription(combo, "#FFFFFF");
 
 // Hijack Buy Text
 //hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
@@ -812,7 +822,7 @@ hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 //parseGamePageLinks();
 //forceStubPage();// Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames();// Can cause LONG LOAD TIMES!!
-//createDropdownBox();
+createDropdownBox();
 
 //getAcidConfig();
 
