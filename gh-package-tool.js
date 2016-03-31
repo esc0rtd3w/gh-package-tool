@@ -769,7 +769,8 @@ function shrinkMargin(elem, size) {
 
 // START MAIN TOOL --------------------------------------------------------------------/
 
-hijackNewGamesArea("<h3><b>GameHouse Package Tool Is Currently Active</b></h3><br><i>This special script is running to make your visit a little more enjoyable ;)</i><br><br>", "#000000");
+// Hijack Game Page Text On Main Pages
+//hijackNewGamesArea("<h3><b>GameHouse Package Tool Is Currently Active</b></h3><br><i>This special script is running to make your visit a little more enjoyable ;)</i><br><br>", "#000000");
 
 // Get root path of webpage after server base
 getRootPath();
