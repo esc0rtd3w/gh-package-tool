@@ -174,6 +174,8 @@ var hijackID;
 var hijackMe;
 var hijackDescription;
 var hijackBuy;
+var hijackNewGamesHeader;
+var hijackNewGamesDesc;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
@@ -731,6 +733,26 @@ function hijackBuyText(customText, color) {
 	hijackBuy.setAttribute("href", buyLink);
 }
 
+// Clear "New Games" Area for Custom Text
+function hijackNewGamesHeader(textHeader, colorHeader, textDesc, colorDesc) {
+	
+	cloneElement("seocategorytitle", "seocategorytitle_hijacked");
+	//cloneElement("gameDescTxt", "gameDescTxt_hijacked");
+
+	removeElement("seocategorytitle");
+	//removeElement("gameDescTxt");
+	
+	hijackNewGamesHeader = document.getElementById("seocategorytitle_hijacked");
+	hijackNewGamesHeader.innerHTML = "";
+	
+	//hijackNewGamesDesc = document.getElementById("gameDescTxt_hijacked");
+	//hijackNewGamesDesc.innerHTML = "";
+	
+	// Enter New Text Into New Games Area
+	hijackNewGamesHeader.innerHTML = "<h3><font color=\"" + colorHeader + "\">" + textHeader + "</font></h3>";
+	//hijackNewGamesDesc.innerHTML = "<h3><font color=\"" + colorDesc + "\">" + textDesc + "</font></h3>";
+}
+
 // Remove Extra Margin From Top of Buttons
 function shrinkMargin(elem, size) {
 	
@@ -743,6 +765,8 @@ function shrinkMargin(elem, size) {
 
 
 // START MAIN TOOL --------------------------------------------------------------------/
+
+hijackNewGamesHeader("GameHouse Package Tool Is Currently Active", "#000000", "Some Text Here", "#000000");
 
 // Get root path of webpage after server base
 getRootPath();
@@ -774,6 +798,7 @@ hijackGameDescription("Please select one of the below button links with the file
 //hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 
+
 // Other Testing Start
 
 //parseGamePageLinks();
@@ -804,6 +829,5 @@ setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial"
 setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
-
 
 // END MAIN TOOL ----------------------------------------------------------------------/
