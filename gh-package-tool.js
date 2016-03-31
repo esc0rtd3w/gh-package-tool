@@ -7,7 +7,7 @@
 // @include     http://www.gamehouse.com/top-100-games*
 // @include     http://www.gamehouse.com/platinum-games*
 // @include     http://www.gamehouse.com/free-games*
-// @version     0.2.9
+// @version     0.3.0
 // @grant       none
 // ==/UserScript==
 
@@ -73,7 +73,7 @@
 // START DEFAULTS ---------------------------------------------------------------------/
 
 // Basic Info and Text
-var scriptVer = "0.2.9";
+var scriptVer = "0.3.0";
 var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
@@ -101,6 +101,7 @@ path.push("/gameconsole/realarcadev21/games/dip/");// Legacy Updated GameHouse a
 path.push("/gameconsole/realarcadev21/games/am-");// Legacy Activemark (Trial Game) GameHouse and RealArcade RGA Path
 path.push("/gameconsole/realarcadev21/games/amg-");// Legacy Activemark (Free Game) GameHouse and RealArcade RGA Path
 path.push("/pub/");// Default Mac OSX DMG Path (amac-)
+path.push("/InstallerManager/getinstaller?filename=");// Default EXE Stub Path (2015/2016)
 
 // Distributor List
 var distributor = [];
@@ -499,12 +500,15 @@ function buildNewLinks(){
 
 function createLinksEXE() {
 	// Samples
+	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8f8b2b96810e622485197a556b59695b-questforthefountain.rfs&offering=questforthefountain&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
-	linkEXE = server[0] + "/" + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
+	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
 }
 
 function createLinksRFS() {
+	// Samples
+	// igtslotsendoftherainbowcollection >> igtslotsendoftherainbowcollect
 	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
 }
 
