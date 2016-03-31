@@ -515,9 +515,8 @@ function createLinksRGS() {
 }
 
 function createLinksDMG() {
-	base = server[7];
-	linkDMGLegacy = base + path[6] + gameNamePackage +  "." + ext[3];
-	linkDMGNew = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	linkDMGLegacy = server[7] + path[6] + gameNamePackage +  "." + ext[3];
+	linkDMGNew = server[7] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
 }
 
 // Check New Link
