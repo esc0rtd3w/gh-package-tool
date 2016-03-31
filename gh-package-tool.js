@@ -177,6 +177,7 @@ var linkRGSFull = "";
 var linkRFS = "";
 var linkDMGLegacy = "";
 var linkDMGNew = "";
+var linkOriginVuln = "http://origin.gamehouse.com/gameconsole/";
 
 // Default Hijack Elements
 var hijackID;
@@ -205,6 +206,7 @@ var btnHijackRGSFree = "dl_now_button_rgs_free";
 var btnHijackRGSFull = "dl_now_button_rgs_full";
 var btnHijackDMGLegacy = "dl_now_button_dmg_legacy";
 var btnHijackDMGNew = "dl_now_button_dmg_new";
+var btnHijackOriginVuln = "dl_now_button_origin_vulnerability";
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -697,6 +699,7 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGAUnlimited);// Create an RGA v2.6 Unlimited File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
 	// Remove Original Hijack Clone
 	removeElement(btnHijack);
@@ -861,5 +864,6 @@ setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial"
 setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
+setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
 
 // END MAIN TOOL ----------------------------------------------------------------------/
