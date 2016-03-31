@@ -111,10 +111,10 @@ distributor.push("zylom");// Default Distributor After Migration
 var developer = [];
 developer.push("ghmigration");// Default Zylom Migration
 developer.push("artifex");
+developer.push("dekovir");
 developer.push("mumbo");
 developer.push("popcap");
 developer.push("terminalstudio");
-developer.push("dekovir");
 
 // Offering List
 var offering = [];
@@ -517,9 +517,9 @@ function createLinksRFS() {
 function createLinksRGA() {
 	// Samples
 	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
-	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[1] + "." + ext[1];
-	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[5] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
-	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + "." + ext[1];
+	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + "." + ext[1];
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
 	linkRGAUnlimited = server[1] + path[5] + gameNamePackage + "/" + "amg-" + gameNamePackage + "." + ext[1];
@@ -850,7 +850,7 @@ hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 //parseGamePageLinks();
 //forceStubPage();// Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames();// Can cause LONG LOAD TIMES!!
-createDropdownBox();
+//createDropdownBox();
 
 //getAcidConfig();
 
@@ -879,6 +879,5 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
-
 
 // END MAIN TOOL ----------------------------------------------------------------------/
