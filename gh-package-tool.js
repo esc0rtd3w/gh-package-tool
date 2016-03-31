@@ -712,6 +712,11 @@ function hijackBuyText(customText, color) {
 	
 	// Enter New Text Into Buy Area
 	hijackBuy.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
+	
+	// Set New URL (Optional)
+	var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNamePackage;
+	hijackBuy.setAttribute("onclick", buyLink);
+	hijackBuy.setAttribute("href", buyLink);
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
