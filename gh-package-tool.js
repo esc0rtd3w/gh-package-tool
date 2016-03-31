@@ -113,6 +113,7 @@ developer.push("artifex");
 developer.push("mumbo");
 developer.push("popcap");
 developer.push("terminalstudio");
+developer.push("dekovir");
 
 // Offering List
 var offering = [];
@@ -505,7 +506,10 @@ function createLinksRFS() {
 }
 
 function createLinksRGA() {
+	// Samples
+	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
+	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[5] + "/" + offering[0] + "/" + gameNamePackage + language[0] + "." + ext[1];
 	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + "." + ext[1];
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
@@ -795,7 +799,7 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Hijack Game Description
 //hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 //var defaultDesc = "Content ID: " + cid + "Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.";
-var defaultDesc = "Content ID: " + cid + "<br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
+var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
 hijackGameDescription(defaultDesc, "#FFFFFF");
 
 // Hijack Buy Text
