@@ -773,9 +773,16 @@ function hijackNewGamesArea(textHeader, colorHeader) {
 	//hijackNewGamesDesc.innerHTML = "<h5><font color=\"" + colorDesc + "\">" + textDesc + "</font></h5>";
 }
 
+// Add an extra area in game description to put custom text
+function addExtendedDescription(){
+	var txt = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>You can select advanced options by using the dropdown boxes below:";
+	cloneElement("game_desc_hijacked", "game_desc_hijacked_extended");
+	var x = document.getElementById("game_desc_hijacked");
+	x.innerHTML = txt;
+}
+
 // Remove Extra Margin From Top of Buttons
 function shrinkMargin(elem, size) {
-	
 	var a = document.getElementById(elem);
 	a.style.marginTop = size;
 }
@@ -812,15 +819,13 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 //removeImage(4);
 
 // Hijack Game Description
-//var dropdownServer = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + server[0] + "</option><option value=" + "2" + ">" + server[1] + "</option><option value=" + "3" + ">" + server[2] + "</option><option value=" + "4" + ">" + server[3] + "</option><option value=" + "5" + ">" + server[4] + "</option><option value=" + "6" + ">" + server[5] + "</option><option value=" + "7" + ">" + server[6] + "</option><option value=" + "8" + ">" + server[7] + "</option></select>";
-//var dropdownPath = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + path[0] + "</option><option value=" + "2" + ">" + path[1] + "</option><option value=" + "3" + ">" + path[2] + "</option><option value=" + "4" + ">" + path[3] + "</option><option value=" + "5" + ">" + path[4] + "</option><option value=" + "6" + ">" + path[5] + "</option></select>";
-var dropdownChannel = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
-var dropdownLanguage = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + language[0] + "</option><option value=" + "2" + ">" + language[1] + "</option><option value=" + "3" + ">" + language[2] + "</option><option value=" + "4" + ">" + language[3] + "</option></select>";
-
+//var dropdownServer = "<select id=" + "dropdownServer" + "><option value=" + "1" + ">" + server[0] + "</option><option value=" + "2" + ">" + server[1] + "</option><option value=" + "3" + ">" + server[2] + "</option><option value=" + "4" + ">" + server[3] + "</option><option value=" + "5" + ">" + server[4] + "</option><option value=" + "6" + ">" + server[5] + "</option><option value=" + "7" + ">" + server[6] + "</option><option value=" + "8" + ">" + server[7] + "</option></select>";
+//var dropdownPath = "<select id=" + "dropdownPath" + "><option value=" + "1" + ">" + path[0] + "</option><option value=" + "2" + ">" + path[1] + "</option><option value=" + "3" + ">" + path[2] + "</option><option value=" + "4" + ">" + path[3] + "</option><option value=" + "5" + ">" + path[4] + "</option><option value=" + "6" + ">" + path[5] + "</option></select>";
+var dropdownChannel = "<select id=" + "dropdownChannel" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
+var dropdownLanguage = "<select id=" + "dropdownLanguage" + "><option value=" + "1" + ">" + language[0] + "</option><option value=" + "2" + ">" + language[1] + "</option><option value=" + "3" + ">" + language[2] + "</option><option value=" + "4" + ">" + language[3] + "</option></select>";
 var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + distributor[0] + "</option></select>";
 var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + developer[0] + "</option><option value=" + "2" + ">" + developer[1] + "</option><option value=" + "3" + ">" + developer[2] + "</option><option value=" + "4" + ">" + developer[3] + "</option><option value=" + "5" + ">" + developer[4] + "</option><option value=" + "6" + ">" + developer[5] + "</option></select>";
 var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option><option value=" + "2" + ">" + gameNamePackage + "</option></select>";
-var defaultDesc = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>";
 //var comboFirstRow = "<b>Server: </b>" + dropdownServer + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 //var comboSecondRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 var comboFirstRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
@@ -844,6 +849,8 @@ createDropdownBox();
 
 // Other Testing End
 
+addExtendedDescription();
+
 shrinkMargin("callToAction", "0px");// Shrink Extra Margin Space Between Description Text and Buttons
 
 // Hijack Button Links
@@ -865,5 +872,6 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
+
 
 // END MAIN TOOL ----------------------------------------------------------------------/
