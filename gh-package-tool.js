@@ -486,8 +486,8 @@ function buildNewLinks(){
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
-	base = server[1];
-	linkRGALang = base + path[2] + gameNamePackage + language[0] + "." + ext[1];
+	base = server[0];
+	linkRGALang = base + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
 	linkRGALegacy = base + path[2] + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
 	linkRGAUnlimited = base + path[2] + "amg-" + gameNamePackage + "." + ext[1];
@@ -693,6 +693,7 @@ function hijackGameDescription(customText, color) {
 	removeElement("show_less");
 	
 	hijackDescription = document.getElementById("game_desc_hijacked");
+	//var hijackDescBackup = hijackDescription.innerHTML;
 	hijackDescription.innerHTML = "";
 	
 	// Enter New HTML Into Description
@@ -712,6 +713,11 @@ function hijackBuyText(customText, color) {
 	
 	// Enter New Text Into Buy Area
 	hijackBuy.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
+	
+	// Set New URL (Optional)
+	var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNameTitle;
+	hijackBuy.setAttribute("onclick", buyLink);
+	hijackBuy.setAttribute("href", buyLink);
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
