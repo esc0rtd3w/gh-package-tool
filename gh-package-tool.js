@@ -163,6 +163,7 @@ var gameInfo = "";
 var linkHijack = "";
 var linkEXE = "";
 var linkRGALang = "";
+var linkRGANoLang = "";
 var linkRGALegacy = "";
 var linkRGATrial = "";
 var linkRGAUnlimited = "";
@@ -191,6 +192,7 @@ var btnHijack = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
 var btnHijackRGALang = "dl_now_button_rga_lang";
+var btnHijackRGANoLang = "dl_now_button_rga_no_lang";
 var btnHijackRGALegacy = "dl_now_button_rga_legacy";
 var btnHijackRGATrial = "dl_now_button_rga_trial";
 var btnHijackRGAUnlimited = "dl_now_button_rga_unlimited";
@@ -504,6 +506,7 @@ function createLinksRFS() {
 
 function createLinksRGA() {
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
+	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + "." + ext[1];
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
 	linkRGAUnlimited = server[1] + path[5] + gameNamePackage + "/" + "amg-" + gameNamePackage + "." + ext[1];
@@ -671,6 +674,7 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGNew);// Create an DMG AMAC File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRGANoLang);// Create an RGA v4.x Without Language File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGALang);// Create an RGA v4.x With Language File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGALegacy);// Create an RGA v2.1 File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGATrial);// Create an RGA v2.6 Trial File Button From Hijack Clone
@@ -790,7 +794,9 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
 // Hijack Game Description
 //hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
-hijackGameDescription("Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.", "#FFFFFF");
+//var defaultDesc = "Content ID: " + cid + "Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.";
+var defaultDesc = "Content ID: " + cid + "<br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
+hijackGameDescription(defaultDesc, "#FFFFFF");
 
 // Hijack Buy Text
 //hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
@@ -821,7 +827,8 @@ setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer",
 setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
-setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x w/Lang", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
+setButtonProperties(btnHijackRGANoLang, linkRGANoLang, "RGA File", "AM v4.x Default", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGALegacy, linkRGALegacy, "RGA File", "AM v2.1 Legacy", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
