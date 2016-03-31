@@ -110,6 +110,7 @@ distributor.push("zylom");// Default Distributor After Migration
 var developer = [];
 developer.push("ghmigration");// Default Zylom Migration
 developer.push("artifex");
+developer.push("dekovir");
 developer.push("mumbo");
 developer.push("popcap");
 developer.push("terminalstudio");
@@ -505,6 +506,8 @@ function createLinksRFS() {
 }
 
 function createLinksRGA() {
+	// Samples
+	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
 	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + "." + ext[1];
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
