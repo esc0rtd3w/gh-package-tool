@@ -734,22 +734,22 @@ function hijackBuyText(customText, color) {
 }
 
 // Clear "New Games" Area for Custom Text
-function hijackNewGamesArea(textHeader, colorHeader, textDesc, colorDesc) {
+function hijackNewGamesArea(textHeader, colorHeader) {
 	
-	cloneElement("seocategorytitle", "seocategorytitle_hijacked");
-	//cloneElement("gameDescTxt", "gameDescTxt_hijacked");
+	//cloneElement("seocategorytitle", "seocategorytitle_hijacked");
+	//cloneElement("pageDesc", "pageDesc_hijacked");
 
-	removeElement("seocategorytitle");
-	//removeElement("gameDescTxt");
+	//removeElement("seocategorytitle");
+	//removeElement("pageDesc");
 	
-	hijackNewGamesHeader = document.getElementById("seocategorytitle_hijacked");
-	hijackNewGamesHeader.innerHTML = "";
+	hijackNewGamesHeader = document.getElementById("pageDesc");
+	//hijackNewGamesHeader.innerHTML = "";
 	
-	//hijackNewGamesDesc = document.getElementById("gameDescTxt_hijacked");
+	//hijackNewGamesDesc = document.getElementById("seocategorytitle");
 	//hijackNewGamesDesc.innerHTML = "";
 	
 	// Enter New Text Into New Games Area
-	hijackNewGamesHeader.innerHTML = "<h3><font color=\"" + colorHeader + "\">" + textHeader + "</font></h3>";
+	hijackNewGamesHeader.innerHTML = "<font color=\"" + colorHeader + "\">" + textHeader + "</font>";
 	//hijackNewGamesDesc.innerHTML = "<h5><font color=\"" + colorDesc + "\">" + textDesc + "</font></h5>";
 }
 
@@ -766,7 +766,7 @@ function shrinkMargin(elem, size) {
 
 // START MAIN TOOL --------------------------------------------------------------------/
 
-hijackNewGamesArea("GameHouse Package Tool Is Currently Active", "#000000", "Some Text Here", "#000000");
+hijackNewGamesArea("<h3><b>GameHouse Package Tool Is Currently Active</b></h3><br><i>This special script is running to make your visit a little more enjoyable ;)</i><br><br>", "#000000");
 
 // Get root path of webpage after server base
 getRootPath();
