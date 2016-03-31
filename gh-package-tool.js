@@ -721,6 +721,13 @@ function hijackBuyText(customText, color) {
 	hijackBuy.setAttribute("href", buyLink);
 }
 
+// Remove Extra Margin From Top of Buttons
+function shrinkMargin(elem, size) {
+	
+	var a = document.getElementById(elem);
+	a.style.marginTop = size;
+}
+
 // END FUNCTIONS ----------------------------------------------------------------------/
 
 
@@ -768,6 +775,7 @@ hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 
 // Other Testing End
 
+shrinkMargin("callToAction", "0px");// Shrink Extra Margin Space Between Description Text and Buttons
 
 // Hijack Button Links
 //hijackButtonLink(btnPlayNow, linkHijack, "download");
