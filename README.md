@@ -1,6 +1,6 @@
 Gamehouse Package Download and Info Tool
 
-Parses Content ID from page to create direct download links and more
+Parses Content ID and Game Name from page to create direct download links and more
 
 Will also download "Member Only" links without login.
 
