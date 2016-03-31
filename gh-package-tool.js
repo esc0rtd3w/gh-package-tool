@@ -516,6 +516,7 @@ function createLinksRFS() {
 
 function createLinksRGA() {
 	// Samples
+	// games-dl2.stage.real.com\integration\realarcade\games\dip
 	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + language[1] + "." + ext[1];
 	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
