@@ -727,9 +727,24 @@ function hijackGameDescription(customText, color) {
 	hijackDescription = document.getElementById("game_desc_hijacked");
 	//var hijackDescBackup = hijackDescription.innerHTML;
 	hijackDescription.innerHTML = "";
+	//hijackDescription.style.height = "95px";// Adjust container height
+	//hijackDescription.style.marginBottom = "10px";
+	hijackDescription.style.marginBottom = "10px";
 	
 	// Enter New HTML Into Description
 	hijackDescription.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
+}
+
+// Add an extra area in game description to put custom text
+function addExtendedDescription(){
+	var txt = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>You can select advanced options by using the dropdown boxes below:";
+	cloneElement("game_desc_hijacked", "game_desc_hijacked_extended");
+	var x = document.getElementById("game_desc_hijacked");
+	x.style.height = "55px";// Adjust Height
+	//x.style.paddingTop = "10px";
+	//x.style.paddingBottom = "10px";
+	x.style.marginBottom = "10px";
+	x.innerHTML = txt;
 }
 
 // Clear "Or Buy" Area for Custom Text
@@ -771,14 +786,6 @@ function hijackNewGamesArea(textHeader, colorHeader) {
 	// Enter New Text Into New Games Area
 	hijackNewGamesHeader.innerHTML = "<font color=\"" + colorHeader + "\">" + textHeader + "</font>";
 	//hijackNewGamesDesc.innerHTML = "<h5><font color=\"" + colorDesc + "\">" + textDesc + "</font></h5>";
-}
-
-// Add an extra area in game description to put custom text
-function addExtendedDescription(){
-	var txt = "<b>Content ID: <font color=\"#FFFFFF\">" + cid + "</font></b><br><br>You can select advanced options by using the dropdown boxes below:";
-	cloneElement("game_desc_hijacked", "game_desc_hijacked_extended");
-	var x = document.getElementById("game_desc_hijacked");
-	x.innerHTML = txt;
 }
 
 // Remove Extra Margin From Top of Buttons
