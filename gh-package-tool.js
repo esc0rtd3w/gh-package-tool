@@ -492,37 +492,31 @@ function buildNewLinks(){
 }
 
 function createLinksEXE() {
-	// Sample #1
+	// Samples
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
-	base = baseExeStub;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
+	linkEXE = server[0] + "/" + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
 }
 
 function createLinksRFS() {
-	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
-	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
+	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
 }
 
 function createLinksRGA() {
-	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
-	base = server[0];
-	linkRGALang = base + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
-	linkRGALegacy = base + path[2] + "am-" + gameNamePackage + "." + ext[1];
-	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
-	linkRGAUnlimited = base + path[2] + "amg-" + gameNamePackage + "." + ext[1];
+	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
+	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
+	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
+	linkRGAUnlimited = server[1] + path[5] + gameNamePackage + "/" + "amg-" + gameNamePackage + "." + ext[1];
 }
 
 function createLinksRGS() {
-	base = server[1];
-	linkRGSFree = base + path[1] + gameNamePackage +  "_free." + ext[4];
-	linkRGSFull = base + path[1] + gameNamePackage +  "_full." + ext[4];
+	linkRGSFree = server[1] + path[1] + gameNamePackage +  "_free." + ext[4];
+	linkRGSFull = server[1] + path[1] + gameNamePackage +  "_full." + ext[4];
 }
 
 function createLinksDMG() {
-	base = server[7];
-	linkDMGLegacy = base + path[6] + gameNamePackage +  "." + ext[3];
-	linkDMGNew = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	linkDMGLegacy = server[7] + path[6] + gameNamePackage +  "." + ext[3];
+	linkDMGNew = server[7] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
 }
 
 // Check New Link
