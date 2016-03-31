@@ -266,6 +266,11 @@ function getGameName(){
 
 	// Get Game Direct Package Link String (Without Dashes)
 	gameNamePackage = gameNameWebpage.split('-').join('');
+	
+	// Remove Special Characters
+	gameNamePackage = gameNamePackage.replace("#", "");
+	gameNamePackage = gameNamePackage.replace("!", "");
+	gameNamePackage = gameNamePackage.replace("&", "");
 }
 	
 
