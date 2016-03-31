@@ -486,8 +486,8 @@ function buildNewLinks(){
 
 	// RGA
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
-	base = server[1];
-	linkRGALang = base + path[2] + gameNamePackage + language[0] + "." + ext[1];
+	base = server[0];
+	linkRGALang = base + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
 	linkRGALegacy = base + path[2] + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
 	linkRGAUnlimited = base + path[2] + "amg-" + gameNamePackage + "." + ext[1];
