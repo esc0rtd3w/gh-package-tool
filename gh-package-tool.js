@@ -795,7 +795,7 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 // Hijack Game Description
 //hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 //var defaultDesc = "Content ID: " + cid + "Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.";
-var defaultDesc = "Content ID: " + cid + "<br><br>Some file formats WILL NOT be available for all games.";
+var defaultDesc = "Content ID: " + cid + "<br><br>No Game Will Have Every File Format Supported! Try Each Link To See If It Works.";
 hijackGameDescription(defaultDesc, "#FFFFFF");
 
 // Hijack Buy Text
