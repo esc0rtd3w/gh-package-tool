@@ -693,6 +693,7 @@ function hijackGameDescription(customText, color) {
 	removeElement("show_less");
 	
 	hijackDescription = document.getElementById("game_desc_hijacked");
+	//var hijackDescBackup = hijackDescription.innerHTML;
 	hijackDescription.innerHTML = "";
 	
 	// Enter New HTML Into Description
@@ -714,7 +715,7 @@ function hijackBuyText(customText, color) {
 	hijackBuy.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
 	
 	// Set New URL (Optional)
-	var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNamePackage;
+	var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNameTitle;
 	hijackBuy.setAttribute("onclick", buyLink);
 	hijackBuy.setAttribute("href", buyLink);
 }
