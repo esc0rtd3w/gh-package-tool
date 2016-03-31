@@ -174,6 +174,8 @@ var hijackID;
 var hijackMe;
 var hijackDescription;
 var hijackBuy;
+var hijackNewGamesHeader;
+var hijackNewGamesDesc;
 
 // Default Button Elements
 var btnPlayNow = "dl_now_button button";
@@ -267,7 +269,7 @@ function getGameName(){
 	// Get Game Direct Package Link String (Without Dashes)
 	gameNamePackage = gameNameWebpage.split('-').join('');
 	
-	// Remove Special Characters
+	// Remove Special Characters For Link Building
 	gameNamePackage = gameNamePackage.replace("#", "");
 	gameNamePackage = gameNamePackage.replace("!", "");
 	gameNamePackage = gameNamePackage.replace("&", "");
@@ -477,32 +479,44 @@ function buildNewLinks(){
 	
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
+	
+	createLinksEXE();
+	createLinksRFS();
+	createLinksRGA();
+	createLinksRGS();
+	createLinksDMG();
+	
+}
 
-	// EXE Stub
+function createLinksEXE() {
 	// Sample #1
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	base = baseExeStub;
-	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
-	
-	// RFS
+	linkEXE = base + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
+}
+
+function createLinksRFS() {
 	base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
 	linkRFS = base + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
+}
 
-	// RGA
+function createLinksRGA() {
 	// Sample Name Only: http://games-dl.gamehouse.com/zylom/ghmigration/superblackjack/superblackjack.rga
 	base = server[0];
 	linkRGALang = base + "/" + distributor[0] + "/" + developer[2] + "/" + gameNamePackage + language[0] + "." + ext[1];
 	linkRGALegacy = base + path[2] + "am-" + gameNamePackage + "." + ext[1];
 	linkRGATrial = base + path[2] + gameNamePackage + "." + ext[1];
 	linkRGAUnlimited = base + path[2] + "amg-" + gameNamePackage + "." + ext[1];
+}
 
-	// RGS
+function createLinksRGS() {
 	base = server[1];
 	linkRGSFree = base + path[1] + gameNamePackage +  "_free." + ext[4];
 	linkRGSFull = base + path[1] + gameNamePackage +  "_full." + ext[4];
+}
 
-	// DMG
+function createLinksDMG() {
 	base = server[7];
 	linkDMGLegacy = base + path[6] + gameNamePackage +  "." + ext[3];
 	linkDMGNew = base + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
@@ -557,14 +571,6 @@ function insertScript() {
     //var veedi = document.getElementById('veediInit'); veedi.parentNode.insertBefore(vScript, veedi);
 }
 
-// Create New Button
-function createNewButton(){
-	var hijackID_ = document.getElementById("dl_now_button");
-	var btnTemplate = document.createElement("dl_now_button");
-	hijackID_.setAttribute("class", "download");
-	hijackID_.innerHTML = "cRypTiC";
-	hijackID_.insertBefore(btnTemplate, hijackID_.nextSibling);
-}
 // Dropdown Box Test
 function createDropdownBox() {
 	var dropdown = "<select id=" + "dropdownTest" + "><option value=" + "1" + ">Option 1</option></select>";
@@ -579,6 +585,7 @@ function forceStubPage() {
 	window.location = pathX;
 }
 
+// Parse Game Page Links on New Games Webpage
 function parseGamePageLinks() {
 	var gamesContainer = document.getElementById("_games_container");
 	var gameModule = document.getElementById("_game_module");
@@ -726,6 +733,26 @@ function hijackBuyText(customText, color) {
 	hijackBuy.setAttribute("href", buyLink);
 }
 
+// Clear "New Games" Area for Custom Text
+function hijackNewGamesArea(textHeader, colorHeader) {
+	
+	//cloneElement("seocategorytitle", "seocategorytitle_hijacked");
+	//cloneElement("pageDesc", "pageDesc_hijacked");
+
+	//removeElement("seocategorytitle");
+	//removeElement("pageDesc");
+	
+	hijackNewGamesHeader = document.getElementById("pageDesc");
+	//hijackNewGamesHeader.innerHTML = "";
+	
+	//hijackNewGamesDesc = document.getElementById("seocategorytitle");
+	//hijackNewGamesDesc.innerHTML = "";
+	
+	// Enter New Text Into New Games Area
+	hijackNewGamesHeader.innerHTML = "<font color=\"" + colorHeader + "\">" + textHeader + "</font>";
+	//hijackNewGamesDesc.innerHTML = "<h5><font color=\"" + colorDesc + "\">" + textDesc + "</font></h5>";
+}
+
 // Remove Extra Margin From Top of Buttons
 function shrinkMargin(elem, size) {
 	
@@ -738,6 +765,8 @@ function shrinkMargin(elem, size) {
 
 
 // START MAIN TOOL --------------------------------------------------------------------/
+
+hijackNewGamesArea("<h3><b>GameHouse Package Tool Is Currently Active</b></h3><br><i>This special script is running to make your visit a little more enjoyable ;)</i><br><br>", "#000000");
 
 // Get root path of webpage after server base
 getRootPath();
@@ -769,6 +798,7 @@ hijackGameDescription("Please select one of the below button links with the file
 //hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
 hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 
+
 // Other Testing Start
 
 //parseGamePageLinks();
@@ -799,6 +829,5 @@ setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial"
 setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
-
 
 // END MAIN TOOL ----------------------------------------------------------------------/
