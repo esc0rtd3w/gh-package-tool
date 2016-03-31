@@ -270,6 +270,7 @@ function getGameName(){
 	// Remove Special Characters
 	gameNamePackage = gameNamePackage.replace("#", "");
 	gameNamePackage = gameNamePackage.replace("!", "");
+	gameNamePackage = gameNamePackage.replace("&", "");
 }
 	
 
