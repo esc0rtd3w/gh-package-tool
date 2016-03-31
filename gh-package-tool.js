@@ -850,7 +850,7 @@ hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 //parseGamePageLinks();
 //forceStubPage();// Force Load To /pc/postdownload/ and Retrieve EXE Stub
 //showAllGames();// Can cause LONG LOAD TIMES!!
-createDropdownBox();
+//createDropdownBox();
 
 //getAcidConfig();
 
@@ -879,6 +879,5 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
-
 
 // END MAIN TOOL ----------------------------------------------------------------------/
