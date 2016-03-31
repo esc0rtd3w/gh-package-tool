@@ -715,9 +715,17 @@ function hijackBuyText(customText, color) {
 	hijackBuy.innerHTML = "<font color=\"" + color + "\">" + customText + "</font>";
 	
 	// Set New URL (Optional)
-	var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNameTitle;
+	//var buyLink = "https://www.google.com/search?num=100&newwindow=1&site=&source=hp&q=" + gameNameTitle;
+	var buyLink = "mailto:esc0rtd3w@gmail.com?subject=[gh-package-tool] Broken Link For " + gameNameTitle;
 	hijackBuy.setAttribute("onclick", buyLink);
 	hijackBuy.setAttribute("href", buyLink);
+}
+
+// Remove Extra Margin From Top of Buttons
+function shrinkMargin(elem, size) {
+	
+	var a = document.getElementById(elem);
+	a.style.marginTop = size;
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
@@ -749,10 +757,12 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 //removeImage(4);
 
 // Hijack Game Description
-hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
+//hijackGameDescription("The Original Game Description Text Has Been Hijacked.<br><br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
+hijackGameDescription("Please select one of the below button links with the file format that you desire.<br><br>Some file formats WILL NOT be available for all games.", "#FFFFFF");
 
 // Hijack Buy Text
-hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
+//hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2016", "#FFFFFF");
+hijackBuyText("Report Broken Links To: <br>esc0rtd3w@gmail.com", "#FFFFFF");
 
 // Other Testing Start
 
@@ -765,6 +775,7 @@ hijackBuyText("The Original Buy Text Has Been Hijacked.<br>esc0rtd3w / cRypTiC 2
 
 // Other Testing End
 
+shrinkMargin("callToAction", "0px");// Shrink Extra Margin Space Between Description Text and Buttons
 
 // Hijack Button Links
 //hijackButtonLink(btnPlayNow, linkHijack, "download");
