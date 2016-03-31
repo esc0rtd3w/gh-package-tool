@@ -734,7 +734,7 @@ function hijackBuyText(customText, color) {
 }
 
 // Clear "New Games" Area for Custom Text
-function hijackNewGamesHeader(textHeader, colorHeader, textDesc, colorDesc) {
+function hijackNewGamesArea(textHeader, colorHeader, textDesc, colorDesc) {
 	
 	cloneElement("seocategorytitle", "seocategorytitle_hijacked");
 	//cloneElement("gameDescTxt", "gameDescTxt_hijacked");
@@ -750,7 +750,7 @@ function hijackNewGamesHeader(textHeader, colorHeader, textDesc, colorDesc) {
 	
 	// Enter New Text Into New Games Area
 	hijackNewGamesHeader.innerHTML = "<h3><font color=\"" + colorHeader + "\">" + textHeader + "</font></h3>";
-	//hijackNewGamesDesc.innerHTML = "<h3><font color=\"" + colorDesc + "\">" + textDesc + "</font></h3>";
+	//hijackNewGamesDesc.innerHTML = "<h5><font color=\"" + colorDesc + "\">" + textDesc + "</font></h5>";
 }
 
 // Remove Extra Margin From Top of Buttons
@@ -766,7 +766,7 @@ function shrinkMargin(elem, size) {
 
 // START MAIN TOOL --------------------------------------------------------------------/
 
-hijackNewGamesHeader("GameHouse Package Tool Is Currently Active", "#000000", "Some Text Here", "#000000");
+hijackNewGamesArea("GameHouse Package Tool Is Currently Active", "#000000", "Some Text Here", "#000000");
 
 // Get root path of webpage after server base
 getRootPath();
