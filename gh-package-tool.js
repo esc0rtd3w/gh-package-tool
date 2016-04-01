@@ -565,8 +565,10 @@ function checkLink(linkToCheck){
 		error_msg = "Error: " + e;
 	}
 
-	linkStatusEXE = linkCheckRequest.status;
-	alert(linkStatusEXE);
+	if(linkToCheck == linkEXE){
+		linkStatusEXE = linkCheckRequest.status;
+		alert(linkStatusEXE);
+	}
 }
 
 // Get HTTP Request Status
