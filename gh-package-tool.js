@@ -208,6 +208,20 @@ var btnHijackDMGLegacy = "dl_now_button_dmg_legacy";
 var btnHijackDMGNew = "dl_now_button_dmg_new";
 //var btnHijackOriginVuln = "dl_now_button_origin_vulnerability";
 
+// Link Statuses
+var linkCheckRequest;
+var linkStatusEXE;
+var linkStatusRFS;
+var linkStatusRGALang;
+var linkStatusRGANoLang;
+var linkStatusRGALegacy;
+var linkStatusRGATrial;
+var linkStatusRGAUnlimited;
+var linkStatusRGSFree;
+var linkStatusRGSFull;
+var linkStatusDMGLegacy;
+var linkStatusDMGNew;
+
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
 var isDoublePack = 0;
@@ -505,50 +519,110 @@ function createLinksEXE() {
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8f8b2b96810e622485197a556b59695b-questforthefountain.rfs&offering=questforthefountain&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
-	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
+	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	//checkLink(linkEXE);
 }
 
 function createLinksRFS() {
 	// Samples
 	// igtslotsendoftherainbowcollection >> igtslotsendoftherainbowcollect
 	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
+	//checkLink(linkRFS);
 }
 
 function createLinksRGA() {
 	// Samples
+	// games-dl2.stage.real.com\integration\realarcade\games\dip
 	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	//checkLink(linkRGALang);
 	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	//checkLink(linkRGALangOffering);
 	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGANoLang);
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGALegacy);
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGATrial);
 	linkRGAUnlimited = server[1] + path[5] + gameNamePackage + "/" + "amg-" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGAUnlimited);
 }
 
 function createLinksRGS() {
 	linkRGSFree = server[1] + path[1] + gameNamePackage +  "_free." + ext[4];
+	//checkLink(linkRGSFree);
 	linkRGSFull = server[1] + path[1] + gameNamePackage +  "_full." + ext[4];
+	//checkLink(linkRGSFull);
 }
 
 function createLinksDMG() {
 	linkDMGLegacy = server[7] + path[6] + gameNamePackage +  "." + ext[3];
+	//checkLink(linkDMGLegacy);
 	linkDMGNew = server[7] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	//checkLink(linkDMGNew);
 }
 
+function checkLink(linkToCheck){
+	var chk = new XMLHttpRequest();
+	chk.open("HEAD", linkToCheck, true);
+	 chk.onreadystatechange=function() {
+		
+	 }
+	 chk.send(null);
+	 linkStatusEXE = chk.status;
+}
+
+/*
 // Check New Link
 function checkLink(linkToCheck){
-	var request;
-	if(window.XMLHttpRequest)
-		request = new XMLHttpRequest();
-	else
-		request = new ActiveXObject("Microsoft.XMLHTTP");
-	request.open('GET', linkToCheck, false);
-	request.send();
-	if (request.status == 404) {
-		alert("A Dead Link Has Been Created!");
-	}
-}
+	linkCheckRequest = getHTTPRequest();
 
+	try {
+	linkCheckRequest.open("GET", linkToCheck, true);
+	linkCheckRequest.send("");
+	} 
+	catch (e) {
+		success = false;
+		error_msg = "Error: " + e;
+	}
+	
+	if(linkToCheck == linkEXE){linkStatusEXE = linkCheckRequest.status;}
+	if(linkToCheck == linkRFS){linkStatusRFS = linkCheckRequest.status;}
+	if(linkToCheck == linkDMGLegacy){linkStatusDMGLegacy = linkCheckRequest.status;}
+	if(linkToCheck == linkDMGNew){linkStatusDMGNew = linkCheckRequest.status;}
+	if(linkToCheck == linkRGANoLang){linkStatusRGANoLang = linkCheckRequest.status;}
+	if(linkToCheck == linkRGALang){linkStatusRGALang = linkCheckRequest.status;}
+	if(linkToCheck == linkRGALegacy){linkStatusRGALegacy = linkCheckRequest.status;}
+	if(linkToCheck == linkRGATrial){linkStatusRGATrial = linkCheckRequest.status;}
+	if(linkToCheck == linkRGAUnlimited){linkStatusRGAUnlimited = linkCheckRequest.status;}
+	if(linkToCheck == linkRGSFree){linkStatusRGSFree = linkCheckRequest.status;}
+	if(linkToCheck == linkRGSFull){linkStatusRGSFull = linkCheckRequest.status;}
+}
+*/
+
+/*
+// Get HTTP Request Status
+function getHTTPRequest() {
+    var request = false;
+    if(window.XMLHttpRequest) {
+        try {
+            request = new XMLHttpRequest();
+        } catch(e) {
+            request = false;
+        }
+    } else if(window.ActiveXObject) {
+        try {
+            request = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) {
+            request = false;
+        }
+    }
+    if (! request) {
+        //alert("Your browser does not support XMLHttpRequest.");
+    }
+    return request;
+}
+*/
 
 // Clone Element
 function cloneElement(nodeToClone, newID) {
