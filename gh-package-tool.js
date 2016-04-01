@@ -208,6 +208,19 @@ var btnHijackDMGLegacy = "dl_now_button_dmg_legacy";
 var btnHijackDMGNew = "dl_now_button_dmg_new";
 //var btnHijackOriginVuln = "dl_now_button_origin_vulnerability";
 
+// Link Statuses
+var isValidLinkEXE = 0;
+var isValidLinkRFS = 0;
+var isValidLinkRGALang = 0;
+var isValidLinkRGANoLang = 0;
+var isValidLinkRGALegacy = 0;
+var isValidLinkRGATrial = 0;
+var isValidLinkRGAUnlimited = 0;
+var isValidLinkRGSFree = 0;
+var isValidLinkRGSFull = 0;
+var isValidLinkDMGLegacy = 0;
+var isValidLinkDMGNew = 0;
+
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
 var isDoublePack = 0;
@@ -551,7 +564,7 @@ function checkLink(linkToCheck){
 		error_msg = "Error: " + e;
 	}
 
-	alert(request.status);
+	//alert(request.status);
 }
 
 // Get HTTP Request Status
