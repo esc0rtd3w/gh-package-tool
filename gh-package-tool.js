@@ -209,17 +209,18 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 //var btnHijackOriginVuln = "dl_now_button_origin_vulnerability";
 
 // Link Statuses
-var isValidLinkEXE = 0;
-var isValidLinkRFS = 0;
-var isValidLinkRGALang = 0;
-var isValidLinkRGANoLang = 0;
-var isValidLinkRGALegacy = 0;
-var isValidLinkRGATrial = 0;
-var isValidLinkRGAUnlimited = 0;
-var isValidLinkRGSFree = 0;
-var isValidLinkRGSFull = 0;
-var isValidLinkDMGLegacy = 0;
-var isValidLinkDMGNew = 0;
+var linkCheckRequest;
+var linkStatusEXE = 0;
+var linkStatusRFS = 0;
+var linkStatusRGALang = 0;
+var linkStatusRGANoLang = 0;
+var linkStatusRGALegacy = 0;
+var linkStatusRGATrial = 0;
+var linkStatusRGAUnlimited = 0;
+var linkStatusRGSFree = 0;
+var linkStatusRGSFull = 0;
+var linkStatusDMGLegacy = 0;
+var linkStatusDMGNew = 0;
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -553,18 +554,19 @@ function createLinksDMG() {
 
 // Check New Link
 function checkLink(linkToCheck){
-	var request = getHTTPRequest();
+	linkCheckRequest = getHTTPRequest();
 
 	try {
-	request.open("GET", linkToCheck, false);
-	request.send("");
+	linkCheckRequest.open("GET", linkToCheck, false);
+	linkCheckRequest.send("");
 	} 
 	catch (e) {
 		success = false;
 		error_msg = "Error: " + e;
 	}
 
-	//alert(request.status);
+	linkStatusEXE = linkCheckRequest.status;
+	alert(linkStatusEXE);
 }
 
 // Get HTTP Request Status
