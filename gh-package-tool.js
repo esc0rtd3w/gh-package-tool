@@ -539,56 +539,42 @@ function createLinksDMG() {
 }
 
 // Check New Link
-/*
 function checkLink(linkToCheck){
-	var request;
-	if(window.XMLHttpRequest)
-		request = new XMLHttpRequest();
-	else
-		request = new ActiveXObject("Microsoft.XMLHTTP");
-	request.open('GET', linkToCheck, false);
-	request.send();
-	if (request.status == 404) {
-		alert("A Dead Link Has Been Created!");
-	}
-}
-*/
+	var request = getHTTPRequest();
 
-// Check Link
-function checkLink(linkToCheck) {
-    var req = false;
+	try {
+	request.open("GET", linkToCheck, false);
+	request.send("");
+	} 
+	catch (e) {
+		success = false;
+		error_msg = "Error: " + e;
+	}
+
+	alert(request.status);
+}
+
+// Get HTTP Request Status
+function getHTTPRequest() {
+    var request = false;
     if(window.XMLHttpRequest) {
         try {
-            req = new XMLHttpRequest();
+            request = new XMLHttpRequest();
         } catch(e) {
-            req = false;
+            request = false;
         }
     } else if(window.ActiveXObject) {
         try {
-            req = new ActiveXObject("Microsoft.XMLHTTP");
+            request = new ActiveXObject("Microsoft.XMLHTTP");
         } catch(e) {
-            req = false;
+            request = false;
         }
     }
-    if (! req) {
+    if (! request) {
         //alert("Your browser does not support XMLHttpRequest.");
     }
-    return req;
+    return request;
 }
-
-var req = checkLink();
-
-try {
-req.open("GET", linkToCheck, false);
-req.send("");
-} 
-catch (e) {
-    success = false;
-    error_msg = "Error: " + e;
-}
-
-//alert(req.status);
-	
 
 // Clone Element
 function cloneElement(nodeToClone, newID) {
