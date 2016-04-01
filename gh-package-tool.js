@@ -506,6 +506,8 @@ function createLinksEXE() {
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
+	//checkLink(linkEXE);
+	getReq();
 }
 
 function createLinksRFS() {
@@ -537,6 +539,7 @@ function createLinksDMG() {
 }
 
 // Check New Link
+/*
 function checkLink(linkToCheck){
 	var request;
 	if(window.XMLHttpRequest)
@@ -549,7 +552,43 @@ function checkLink(linkToCheck){
 		alert("A Dead Link Has Been Created!");
 	}
 }
+*/
 
+// Check Link
+function checkLink(linkToCheck) {
+    var req = false;
+    if(window.XMLHttpRequest) {
+        try {
+            req = new XMLHttpRequest();
+        } catch(e) {
+            req = false;
+        }
+    } else if(window.ActiveXObject) {
+        try {
+            req = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch(e) {
+            req = false;
+        }
+    }
+    if (! req) {
+        //alert("Your browser does not support XMLHttpRequest.");
+    }
+    return req;
+}
+
+var req = checkLink();
+
+try {
+req.open("GET", linkToCheck, false);
+req.send("");
+} 
+catch (e) {
+    success = false;
+    error_msg = "Error: " + e;
+}
+
+//alert(req.status);
+	
 
 // Clone Element
 function cloneElement(nodeToClone, newID) {
