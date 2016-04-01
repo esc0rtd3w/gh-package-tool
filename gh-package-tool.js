@@ -507,7 +507,7 @@ function createLinksEXE() {
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
 	//checkLink(linkEXE);
-	getReq();
+	checkLink(linkEXE);
 }
 
 function createLinksRFS() {
