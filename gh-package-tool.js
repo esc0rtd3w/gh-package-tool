@@ -565,10 +565,17 @@ function checkLink(linkToCheck){
 		error_msg = "Error: " + e;
 	}
 
-	if(linkToCheck == linkEXE){
-		linkStatusEXE = linkCheckRequest.status;
-		alert(linkStatusEXE);
-	}
+	if(linkToCheck == linkEXE){linkStatusEXE = linkCheckRequest.status;}
+	if(linkToCheck == linkRFS){linkStatusRFS = linkCheckRequest.status;}
+	if(linkToCheck == linkDMGLegacy){linkStatusDMGLegacy = linkCheckRequest.status;}
+	if(linkToCheck == linkDMGNew){linkStatusDMGNew = linkCheckRequest.status;}
+	if(linkToCheck == linkRGANoLang){linkStatusRGANoLang = linkCheckRequest.status;}
+	if(linkToCheck == linkRGALang){linkStatusRGALang = linkCheckRequest.status;}
+	if(linkToCheck == linkRGALegacy){linkStatusRGALegacy = linkCheckRequest.status;}
+	if(linkToCheck == linkRGATrial){linkStatusRGATrial = linkCheckRequest.status;}
+	if(linkToCheck == linkRGAUnlimited){linkStatusRGAUnlimited = linkCheckRequest.status;}
+	if(linkToCheck == linkRGSFree){linkStatusRGSFree = linkCheckRequest.status;}
+	if(linkToCheck == linkRGSFull){linkStatusRGSFull = linkCheckRequest.status;}
 }
 
 // Get HTTP Request Status
