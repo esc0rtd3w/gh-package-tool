@@ -576,6 +576,8 @@ function checkLink(linkToCheck){
 	if(linkToCheck == linkRGAUnlimited){linkStatusRGAUnlimited = linkCheckRequest.status;}
 	if(linkToCheck == linkRGSFree){linkStatusRGSFree = linkCheckRequest.status;}
 	if(linkToCheck == linkRGSFull){linkStatusRGSFull = linkCheckRequest.status;}
+	
+	alert(linkStatusEXE.toString() + linkStatusRFS.toString() + linkStatusDMGLegacy.toString() + linkStatusDMGNew.toString() + linkStatusRGANoLang.toString() + linkStatusRGALang.toString() + linkStatusRGALegacy.toString() + linkStatusRGATrial.toString() + linkStatusRGAUnlimited.toString() + linkStatusRGSFree.toString() + linkStatusRGSFull);
 }
 
 // Get HTTP Request Status
