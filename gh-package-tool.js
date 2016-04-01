@@ -210,17 +210,17 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 
 // Link Statuses
 var linkCheckRequest;
-var linkStatusEXE = 0;
-var linkStatusRFS = 0;
-var linkStatusRGALang = 0;
-var linkStatusRGANoLang = 0;
-var linkStatusRGALegacy = 0;
-var linkStatusRGATrial = 0;
-var linkStatusRGAUnlimited = 0;
-var linkStatusRGSFree = 0;
-var linkStatusRGSFull = 0;
-var linkStatusDMGLegacy = 0;
-var linkStatusDMGNew = 0;
+var linkStatusEXE;
+var linkStatusRFS;
+var linkStatusRGALang;
+var linkStatusRGANoLang;
+var linkStatusRGALegacy;
+var linkStatusRGATrial;
+var linkStatusRGAUnlimited;
+var linkStatusRGSFree;
+var linkStatusRGSFull;
+var linkStatusDMGLegacy;
+var linkStatusDMGNew;
 
 // Special Situations (Platinum, Double Pack, Deluxe, Funpass, etc)
 var isDeluxe = 0;
@@ -519,8 +519,7 @@ function createLinksEXE() {
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8f8b2b96810e622485197a556b59695b-questforthefountain.rfs&offering=questforthefountain&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
-	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];	
-	//checkLink(linkEXE);
+	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 	checkLink(linkEXE);
 }
 
@@ -528,6 +527,7 @@ function createLinksRFS() {
 	// Samples
 	// igtslotsendoftherainbowcollection >> igtslotsendoftherainbowcollect
 	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
+	checkLink(linkRFS);
 }
 
 function createLinksRGA() {
@@ -535,36 +535,57 @@ function createLinksRGA() {
 	// games-dl2.stage.real.com\integration\realarcade\games\dip
 	// http://games-dl.gamehouse.com/zylom/dekovir/dip_nt_zy_en/TradeMania2_EN.rga
 	linkRGALang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	//checkLink(linkRGALang);
 	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
+	//checkLink(linkRGALangOffering);
 	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGANoLang);
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGALegacy);
 	linkRGATrial = server[1] + path[3] + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGATrial);
 	linkRGAUnlimited = server[1] + path[5] + gameNamePackage + "/" + "amg-" + gameNamePackage + "." + ext[1];
+	//checkLink(linkRGAUnlimited);
 }
 
 function createLinksRGS() {
 	linkRGSFree = server[1] + path[1] + gameNamePackage +  "_free." + ext[4];
+	//checkLink(linkRGSFree);
 	linkRGSFull = server[1] + path[1] + gameNamePackage +  "_full." + ext[4];
+	//checkLink(linkRGSFull);
 }
 
 function createLinksDMG() {
 	linkDMGLegacy = server[7] + path[6] + gameNamePackage +  "." + ext[3];
+	//checkLink(linkDMGLegacy);
 	linkDMGNew = server[7] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	//checkLink(linkDMGNew);
 }
 
+function checkLink(linkToCheck){
+	var chk = new XMLHttpRequest();
+	chk.open("HEAD", linkToCheck, true);
+	 chk.onreadystatechange=function() {
+		
+	 }
+	 chk.send(null);
+	 linkStatusEXE = chk.status;
+}
+
+/*
 // Check New Link
 function checkLink(linkToCheck){
 	linkCheckRequest = getHTTPRequest();
 
 	try {
-	linkCheckRequest.open("GET", linkToCheck, false);
+	linkCheckRequest.open("GET", linkToCheck, true);
 	linkCheckRequest.send("");
 	} 
 	catch (e) {
 		success = false;
 		error_msg = "Error: " + e;
 	}
-
+	
 	if(linkToCheck == linkEXE){linkStatusEXE = linkCheckRequest.status;}
 	if(linkToCheck == linkRFS){linkStatusRFS = linkCheckRequest.status;}
 	if(linkToCheck == linkDMGLegacy){linkStatusDMGLegacy = linkCheckRequest.status;}
@@ -576,10 +597,10 @@ function checkLink(linkToCheck){
 	if(linkToCheck == linkRGAUnlimited){linkStatusRGAUnlimited = linkCheckRequest.status;}
 	if(linkToCheck == linkRGSFree){linkStatusRGSFree = linkCheckRequest.status;}
 	if(linkToCheck == linkRGSFull){linkStatusRGSFull = linkCheckRequest.status;}
-	
-	alert(linkStatusEXE.toString() + linkStatusRFS.toString() + linkStatusDMGLegacy.toString() + linkStatusDMGNew.toString() + linkStatusRGANoLang.toString() + linkStatusRGALang.toString() + linkStatusRGALegacy.toString() + linkStatusRGATrial.toString() + linkStatusRGAUnlimited.toString() + linkStatusRGSFree.toString() + linkStatusRGSFull);
 }
+*/
 
+/*
 // Get HTTP Request Status
 function getHTTPRequest() {
     var request = false;
@@ -601,6 +622,7 @@ function getHTTPRequest() {
     }
     return request;
 }
+*/
 
 // Clone Element
 function cloneElement(nodeToClone, newID) {
@@ -919,8 +941,10 @@ shrinkMargin("callToAction", "0px");// Shrink Extra Margin Space Between Descrip
 buildNewButtons();
 
 // Set Button Properties
-setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
+var w = "Default Stub Installer  /  " + linkStatusEXE;
+var z = "New AM Package  /  " + linkStatusEXE;
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", w, "#00ccFF", "#FFFFFF");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", z, "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
