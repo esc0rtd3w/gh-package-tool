@@ -520,14 +520,14 @@ function createLinksEXE() {
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=8a1c173c8e00ac970f70a78261a15469-incredibledraculachasinglovepe.rfs&offering=incredibledraculachasinglovepe&channel=z_syn_gh_g12
 	// http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=78bc525aad6016925de40f4d2804c036-solitairebeachseason.rfs&offering=solitairebeachseason&channel=z_syn_gh_g12
 	linkEXE = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
-	checkLink(linkEXE);
+	//checkLink(linkEXE);
 }
 
 function createLinksRFS() {
 	// Samples
 	// igtslotsendoftherainbowcollection >> igtslotsendoftherainbowcollect
 	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
-	checkLink(linkRFS);
+	//checkLink(linkRFS);
 }
 
 function createLinksRGA() {
@@ -941,10 +941,8 @@ shrinkMargin("callToAction", "0px");// Shrink Extra Margin Space Between Descrip
 buildNewButtons();
 
 // Set Button Properties
-var w = "Default Stub Installer  /  " + linkStatusEXE;
-var z = "New AM Package  /  " + linkStatusEXE;
-setButtonProperties(btnHijackEXE, linkEXE, "EXE File", w, "#00ccFF", "#FFFFFF");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", z, "#FF4433", "#FFFFFF");
+setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
