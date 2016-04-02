@@ -73,9 +73,9 @@
 // START DEFAULTS ---------------------------------------------------------------------/
 
 // Basic Info and Text
-var scriptVer = "0.3.0";
-var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
-var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
+//var scriptVer = "0.3.0";
+//var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
+//var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
 
 // Set URL Values For Different Game Types
@@ -679,23 +679,23 @@ function createDropdownBox() {
 	//a.innerHTML = dropdown;
 }
 
-function createTextBox() {
+function createTextBox(elem) {
+	var elementNextTo = document.getElementById(elem);
 	var txtBox = document.createElement('input'); 
 	txtBox.type = "text";
-	container.appendChild(txtBox);
+	elementNextTo.appendChild(txtBox);
 }
 
 function createAdvancedOptions() {
-	//var dropdownServer = "<select id=" + "dropdownServer" + "><option value=" + "1" + ">" + server[0] + "</option><option value=" + "2" + ">" + server[1] + "</option><option value=" + "3" + ">" + server[2] + "</option><option value=" + "4" + ">" + server[3] + "</option><option value=" + "5" + ">" + server[4] + "</option><option value=" + "6" + ">" + server[5] + "</option><option value=" + "7" + ">" + server[6] + "</option><option value=" + "8" + ">" + server[7] + "</option></select>";
-	//var dropdownPath = "<select id=" + "dropdownPath" + "><option value=" + "1" + ">" + path[0] + "</option><option value=" + "2" + ">" + path[1] + "</option><option value=" + "3" + ">" + path[2] + "</option><option value=" + "4" + ">" + path[3] + "</option><option value=" + "5" + ">" + path[4] + "</option><option value=" + "6" + ">" + path[5] + "</option></select>";
+	var dropdownServer = "<select id=" + "dropdownServer" + "><option value=" + "1" + ">" + server[0] + "</option><option value=" + "2" + ">" + server[1] + "</option><option value=" + "3" + ">" + server[2] + "</option><option value=" + "4" + ">" + server[3] + "</option><option value=" + "5" + ">" + server[4] + "</option><option value=" + "6" + ">" + server[5] + "</option><option value=" + "7" + ">" + server[6] + "</option><option value=" + "8" + ">" + server[7] + "</option></select>";
+	var dropdownPath = "<select id=" + "dropdownPath" + "><option value=" + "1" + ">" + path[0] + "</option><option value=" + "2" + ">" + path[1] + "</option><option value=" + "3" + ">" + path[2] + "</option><option value=" + "4" + ">" + path[3] + "</option><option value=" + "5" + ">" + path[4] + "</option><option value=" + "6" + ">" + path[5] + "</option></select>";
 	var dropdownChannel = "<select id=" + "dropdownChannel" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
 	var dropdownLanguage = "<select id=" + "dropdownLanguage" + "><option value=" + "1" + ">" + language[0] + "</option><option value=" + "2" + ">" + language[1] + "</option><option value=" + "3" + ">" + language[2] + "</option><option value=" + "4" + ">" + language[3] + "</option></select>";
 	var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + distributor[0] + "</option></select>";
 	var dropdownFileType = "<select id=" + "dropdownFileType" + "><option value=" + "1" + ">" + ext[0] + "</option><option value=" + "2" + ">" + ext[1] + "</option><option value=" + "3" + ">" + ext[2] + "</option><option value=" + "4" + ">" + ext[3] + "</option><option value=" + "5" + ">" + ext[4] + "</option><option value=" + "6" + ">" + ext[5] + "</option><option value=" + "7" + ">" + ext[6] + "</option><option value=" + "8" + ">" + ext[7] + "</option></select>";
 	var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + developer[0] + "</option><option value=" + "2" + ">" + developer[1] + "</option><option value=" + "3" + ">" + developer[2] + "</option><option value=" + "4" + ">" + developer[3] + "</option><option value=" + "5" + ">" + developer[4] + "</option><option value=" + "6" + ">" + developer[5] + "</option></select>";
 	var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option><option value=" + "2" + ">" + gameNamePackage + "</option></select>";
-	//var comboFirstRow = "<b>Server: </b>" + dropdownServer + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
-	//var comboSecondRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
+	
 	var comboFirstRow = "<b>Type: </b>" + dropdownFileType + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 	var comboSecondRow = "<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 
@@ -705,6 +705,7 @@ function createAdvancedOptions() {
 
 	//var comboDropdown = formPre + comboFirstRow + "<br>" + txtBox + "<br>" + comboSecondRow + formPost;
 	var comboDropdown = comboFirstRow + "<br><br>" + comboSecondRow;
+	
 	hijackGameDescription(comboDropdown, "#FFFFFF");
 }
 
