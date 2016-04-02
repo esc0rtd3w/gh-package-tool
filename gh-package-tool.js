@@ -699,12 +699,12 @@ function createAdvancedOptions() {
 	var comboFirstRow = "<b>Type: </b>" + dropdownFileType + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 	var comboSecondRow = "<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 
-	var formPre = "<form>";
-	var formPost = "</form>";
+	//var formPre = "<form>";
+	//var formPost = "</form>";
+	//var txtBox = "<input type=\"text\" name=\"txtBox\">";
 
-	var txtBox = "<input type=\"text\" name=\"txtBox\">";
-
-	var comboDropdown = formPre + comboFirstRow + "<br>" + txtBox + "<br>" + comboSecondRow + formPost;
+	//var comboDropdown = formPre + comboFirstRow + "<br>" + txtBox + "<br>" + comboSecondRow + formPost;
+	var comboDropdown = comboFirstRow + "<br><br>" + comboSecondRow;
 	hijackGameDescription(comboDropdown, "#FFFFFF");
 }
 
