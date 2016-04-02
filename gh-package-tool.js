@@ -196,7 +196,7 @@ var btnDiscontinued = "discontinued";
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
-var btnHijackAdvanced = "dl_now_button_hijack";
+var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
 var btnHijackRGALang = "dl_now_button_rga_lang";
@@ -770,6 +770,7 @@ function buildNewButtons() {
 	removeElement(btnPlayNow);// Remove Original "Play Now" Button
 	
 	// Create New Buttons From Hijack Clone
+	cloneElement(btnHijack, btnHijackAdvanced);// Create a Button Based On Advanced Settings From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
