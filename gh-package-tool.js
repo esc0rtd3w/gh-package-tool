@@ -163,6 +163,7 @@ var iid = "00000000000000000000000000000000";// Installation ID
 var gameTitle = "";
 var gameInfo = "";
 
+var advancedOptions = 0;
 
 // Set Default Link Variables
 var linkHijack = "";
@@ -509,6 +510,7 @@ function buildNewLinks(){
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
 	
+	createLinksAdvanced();
 	createLinksEXE();
 	createLinksRFS();
 	createLinksRGA();
@@ -770,7 +772,6 @@ function buildNewButtons() {
 	removeElement(btnPlayNow);// Remove Original "Play Now" Button
 	
 	// Create New Buttons From Hijack Clone
-	cloneElement(btnHijack, btnHijackAdvanced);// Create a Button Based On Advanced Settings From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
@@ -783,6 +784,10 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
+	
+	if(advancedOptions == 1) {
+		cloneElement(btnHijack, btnHijackAdvanced);// Create a Button Based On Advanced Settings From Hijack Clone
+	}
 	
 	// Remove Original Hijack Clone
 	removeElement(btnHijack);
@@ -963,6 +968,6 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
-setButtonProperties(btnHijackAdvanced, linkAdvanced, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
+setButtonProperties(btnHijackAdvanced, linkAdvanced, "Custom&nbsp&nbsp", "Advanced Options", "#22BB77", "#FFFFFF");
 
 // END MAIN TOOL ----------------------------------------------------------------------/
