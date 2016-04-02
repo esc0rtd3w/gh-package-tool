@@ -166,6 +166,7 @@ var gameInfo = "";
 
 // Set Default Link Variables
 var linkHijack = "";
+var linkAdvanced = "";
 var linkEXE = "";
 var linkRGALang = "";
 var linkRGANoLang = "";
@@ -195,6 +196,7 @@ var btnDiscontinued = "discontinued";
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
+var btnHijackAdvanced = "dl_now_button_hijack";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
 var btnHijackRGALang = "dl_now_button_rga_lang";
@@ -210,6 +212,7 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 
 // Link Statuses
 var linkCheckRequest;
+var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
 var linkStatusRGALang;
@@ -512,6 +515,11 @@ function buildNewLinks(){
 	createLinksRGS();
 	createLinksDMG();
 	
+}
+
+function createLinksAdvanced() {
+	linkAdvanced = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	//checkLink(linkAdvanced);
 }
 
 function createLinksEXE() {
@@ -954,5 +962,6 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
+setButtonProperties(btnHijackAdvanced, linkAdvanced, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
 
 // END MAIN TOOL ----------------------------------------------------------------------/
