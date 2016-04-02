@@ -7,7 +7,7 @@
 // @include     http://www.gamehouse.com/top-100-games*
 // @include     http://www.gamehouse.com/platinum-games*
 // @include     http://www.gamehouse.com/free-games*
-// @version     0.3.0
+// @version     0.3.1
 // @grant       none
 // ==/UserScript==
 
@@ -73,7 +73,7 @@
 // START DEFAULTS ---------------------------------------------------------------------/
 
 // Basic Info and Text
-//var scriptVer = "0.3.0";
+//var scriptVer = "0.3.1";
 //var scriptTitle = "GH Package Download Tool " + "v" + scriptVer + "\n\n\n";
 //var scriptCredits = "\n\n\nesc0rtd3w / cRypTiCwaRe 2016";
 
