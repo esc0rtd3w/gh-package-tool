@@ -968,6 +968,10 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
-setButtonProperties(btnHijackAdvanced, linkAdvanced, "Custom&nbsp&nbsp", "Advanced Options", "#22BB77", "#FFFFFF");
+
+// Custom Advanced Button
+var advMainText = "Custom" + "&nbsp&nbsp";// Must be 8 Characters To Line Up With Defaults
+var advSubText = "Advanced Options";
+setButtonProperties(btnHijackAdvanced, linkAdvanced, advMainText, advSubText, "#22BB77", "#FFFFFF");
 
 // END MAIN TOOL ----------------------------------------------------------------------/
