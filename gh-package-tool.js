@@ -163,9 +163,11 @@ var iid = "00000000000000000000000000000000";// Installation ID
 var gameTitle = "";
 var gameInfo = "";
 
+var advancedOptions = 0;
 
 // Set Default Link Variables
 var linkHijack = "";
+var linkAdvanced = "";
 var linkEXE = "";
 var linkRGALang = "";
 var linkRGANoLang = "";
@@ -195,6 +197,7 @@ var btnDiscontinued = "discontinued";
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
+var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
 var btnHijackRGALang = "dl_now_button_rga_lang";
@@ -210,6 +213,7 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 
 // Link Statuses
 var linkCheckRequest;
+var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
 var linkStatusRGALang;
@@ -506,12 +510,18 @@ function buildNewLinks(){
 	// Post Download Page
 	// http://www.gamehouse.com/pc/postdownload/
 	
+	createLinksAdvanced();
 	createLinksEXE();
 	createLinksRFS();
 	createLinksRGA();
 	createLinksRGS();
 	createLinksDMG();
 	
+}
+
+function createLinksAdvanced() {
+	linkAdvanced = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
+	//checkLink(linkAdvanced);
 }
 
 function createLinksEXE() {
@@ -775,6 +785,10 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
+	if(advancedOptions == 1) {
+		cloneElement(btnHijack, btnHijackAdvanced);// Create a Button Based On Advanced Settings From Hijack Clone
+	}
+	
 	// Remove Original Hijack Clone
 	removeElement(btnHijack);
 }
@@ -905,11 +919,12 @@ removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 var dropdownChannel = "<select id=" + "dropdownChannel" + "><option value=" + "1" + ">" + channel[0] + "</option></select>";
 var dropdownLanguage = "<select id=" + "dropdownLanguage" + "><option value=" + "1" + ">" + language[0] + "</option><option value=" + "2" + ">" + language[1] + "</option><option value=" + "3" + ">" + language[2] + "</option><option value=" + "4" + ">" + language[3] + "</option></select>";
 var dropdownDistributor = "<select id=" + "dropdownDistributor" + "><option value=" + "1" + ">" + distributor[0] + "</option></select>";
+var dropdownFileType = "<select id=" + "dropdownFileType" + "><option value=" + "1" + ">" + ext[0] + "</option><option value=" + "2" + ">" + ext[1] + "</option><option value=" + "3" + ">" + ext[2] + "</option><option value=" + "4" + ">" + ext[3] + "</option><option value=" + "5" + ">" + ext[4] + "</option><option value=" + "6" + ">" + ext[5] + "</option><option value=" + "7" + ">" + ext[6] + "</option><option value=" + "8" + ">" + ext[7] + "</option></select>";
 var dropdownDeveloper = "<select id=" + "dropdownDeveloper" + "><option value=" + "1" + ">" + developer[0] + "</option><option value=" + "2" + ">" + developer[1] + "</option><option value=" + "3" + ">" + developer[2] + "</option><option value=" + "4" + ">" + developer[3] + "</option><option value=" + "5" + ">" + developer[4] + "</option><option value=" + "6" + ">" + developer[5] + "</option></select>";
 var dropdownOffering = "<select id=" + "dropdownOffering" + "><option value=" + "1" + ">" + offering[0] + "</option><option value=" + "2" + ">" + gameNamePackage + "</option></select>";
 //var comboFirstRow = "<b>Server: </b>" + dropdownServer + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 //var comboSecondRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
-var comboFirstRow = "<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
+var comboFirstRow = "<b>Type: </b>" + dropdownFileType + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Distributor: </b>" + dropdownDistributor + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Developer:&nbsp</b>" + dropdownDeveloper + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Language:&nbsp</b>" + dropdownLanguage;
 var comboSecondRow = "<b>Channel:&nbsp</b>" + dropdownChannel + "&nbsp&nbsp&nbsp&nbsp&nbsp<b>Offering:&nbsp</b>" + dropdownOffering;
 
 var comboDropdown = comboFirstRow + "<br><br>" + comboSecondRow;
@@ -953,5 +968,10 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
+
+// Custom Advanced Button
+var advMainText = "Custom" + "&nbsp&nbsp";// Must be 8 Characters To Line Up With Defaults
+var advSubText = "Advanced Options";
+setButtonProperties(btnHijackAdvanced, linkAdvanced, advMainText, advSubText, "#22BB77", "#FFFFFF");
 
 // END MAIN TOOL ----------------------------------------------------------------------/
