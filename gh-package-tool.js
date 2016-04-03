@@ -553,7 +553,8 @@ function createLinksRGA() {
 	//checkLink(linkRGALang);
 	linkRGALangOffering = server[0] + "/" + distributor[0] + "/" + developer[2] + "/" + offering[0] + "/" + gameNamePackage + language[1] + "." + ext[1];
 	//checkLink(linkRGALangOffering);
-	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + "." + ext[1];
+	//linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[3] + "/" + gameNamePackage + "." + ext[1];
+	linkRGANoLang = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + gameNamePackage + "." + ext[1];
 	//checkLink(linkRGANoLang);
 	linkRGALegacy = server[1] + path[4] + gameNamePackage + "/" + "am-" + gameNamePackage + "." + ext[1];
 	//checkLink(linkRGALegacy);
