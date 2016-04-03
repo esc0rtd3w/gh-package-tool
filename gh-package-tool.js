@@ -81,6 +81,9 @@
 // Set URL Values For Different Game Types
 // Example URL: $server/$distributor/$developer/$offering
 
+// Mobile: http://m.gamehouse.com/games/collapse!-blast
+// Mobile Play: http://cdn.ghstatic.com/mobile-archives/collapse-blast/index.html
+
 // Server Base URLs
 var server = [];
 server.push("http://games-dl.gamehouse.com");// Default GameHouse Download Server
@@ -91,6 +94,8 @@ server.push("http://games-dl2.real.com");// Legacy RealArcade Download Server
 server.push("http://install.real.com");// Legacy RealArcade Package Generator Server
 server.push("http://switchboard.real.com");// Alternate Legacy RealArcade Package Generator Server
 server.push("http://downloads.gamehouse.com");// Default Mac Download Server
+server.push("http://m.gamehouse.com");// Default Mobile Download Server
+server.push("http://cdn.ghstatic.com");// Default Content Server
 
 // Game Paths On Server
 var path = [];
