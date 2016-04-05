@@ -24,17 +24,18 @@ for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 
 set /p iid=<%outputText%
 
 :: Cleanup Temp File
-notepad %outputText%
+start "" notepad.exe %outputText%
+ping google.com -n 2 >nul
 if exist %outputText% del /f /q %outputText%
 
-cls
-echo Installation ID: %iid%
-echo.
-echo.
-echo.
-echo.
-echo Press any key to exit....
-pause>nul
+::cls
+::echo Installation ID: %iid%
+::echo.
+::echo.
+::echo.
+::echo.
+::echo Press any key to exit....
+::pause>nul
 
 :end
 
