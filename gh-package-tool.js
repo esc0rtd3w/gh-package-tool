@@ -246,6 +246,7 @@ var isRegTrademark = 0;
 // Special Webpage Situations
 var isDiscontinued = 0;
 var isMembersOnly = 0;
+var isLoggedIn = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -918,6 +919,36 @@ function shrinkMargin(elem, size) {
 	a.style.marginTop = size;
 }
 
+function checkLogin() {
+	var checkFull = 0;
+	var checkEmpty = 0;
+	var checkTemp = 0;
+	
+	var full = document.getElementById("fav_button_full");
+	var empty = document.getElementById("fav_button_empty");
+	
+	if (full == "undefined"){
+		checkFull = 0;
+		}
+		else {
+			checkFull = 0;
+		}
+	if (empty == "undefined"){
+		checkEmpty = 0;
+		}
+		else {
+			checkEmpty = 0;
+		}
+	
+	checkTemp = checkFull + checkEmpty;
+	
+	if (checkTemp == 2) {
+		isLoggedIn = 1;
+	}
+	
+	alert(isLoggedIn);
+}
+
 // END FUNCTIONS ----------------------------------------------------------------------/
 
 
@@ -937,10 +968,15 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
+// Check if User is Logged In
+checkLogin();
+
 // Remove Unwanted Stuff From Webpage
 //removeElement(btnPlayNow);// This is removed during the hijacked button building
 removeElement(btnFunpass);// Remove The Orange Funpass Button
 //removeElement(btnFreePlay);// Remove The Freeplay Button
+
+
 //removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 //removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
