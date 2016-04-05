@@ -172,6 +172,7 @@ var advancedOptions = 0;
 
 // Set Default Link Variables
 var linkHijack = "";
+var linkAcid = "";
 var linkAdvanced = "";
 var linkEXE = "";
 var linkRGALang = "";
@@ -202,6 +203,7 @@ var btnDiscontinued = "discontinued";
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
+var btnHijackAcid = "dl_now_button_acid";
 var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
@@ -218,6 +220,7 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 
 // Link Statuses
 var linkCheckRequest;
+var linkStatusAcid;
 var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
@@ -523,9 +526,19 @@ function buildNewLinks(){
 	createLinksRGA();
 	createLinksRGS();
 	createLinksDMG();
-	
+	createLinksAcid();
 }
 
+// Create Acid Links
+// These are the links that are used during the stub install process for config info
+// The Installation ID can be extracted from any stub at hex offset 0x949CE - 0x949DD (16 Bytes)
+// Stub version tested 1.20.128.0
+function createLinksAcid() {
+	linkAcid = baseAcidConfig + iid + postAcidConfig;
+	//checkLink(linkAcid);
+}
+
+// Create the text and dropdown boxes for advanced options
 function createLinksAdvanced() {
 	linkAdvanced = server[2] + path[7] + cid + "-" + gameNamePackage + "." + ext[2] + "&offering=" + gameNamePackage + "&channel=" + channel[0];
 	//checkLink(linkAdvanced);
@@ -821,6 +834,8 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGAUnlimited);// Create an RGA v2.6 Unlimited File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
+	//cloneElement(btnHijack, btnHijackAdvanced);// Create an Advanced Settings Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
 	if(advancedOptions == 1) {
@@ -1056,6 +1071,8 @@ setButtonProperties(btnHijackRGATrial, linkRGATrial, "RGA File", "AM v2.6 Trial"
 setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.6 Unlimited", "#FF88AA", "#FFFFFF");
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
+//setButtonProperties(btnHijackAdvanced, linkAdvanced, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
+setButtonProperties(btnHijackAcid, linkAcid, "Acid File", "Configuration File", "#99ffFF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
 
 // Custom Advanced Button
