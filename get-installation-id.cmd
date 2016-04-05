@@ -11,31 +11,52 @@
 
 :: Requirements: sfk.exe (included with RealArcade Wrapper Killer)
 
+:: TODO: Get Game Names from Auto stub download and create a list of all Installation IDs to Text file
+
 set iid=0
 set inputStub=%1
 set outputText="%temp%\ura-install-id-temp.txt"
 
 set readID="%~dp0bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
 
+set gameName=0
+
+
+:readIID
 %readID% "%inputStub%">%outputText%
 
 for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 2 echo %%b>%outputText%
 
 set /p iid=<%outputText%
 
-:: Cleanup Temp File
-start "" notepad.exe %outputText%
-ping google.com -n 2 >nul
-if exist %outputText% del /f /q %outputText%
+goto stubName
 
-::cls
-::echo Installation ID: %iid%
-::echo.
-::echo.
-::echo.
-::echo.
-::echo Press any key to exit....
-::pause>nul
+
+:stubName
+
+for %%a in ("%inputStub%") do (
+    set gameName=%%~nxa
+)
+
+goto outText
+
+
+:outText
+
+setlocal enableextensions enabledelayedexpansion
+set gameName=!gameName:~10,-4!
+echo >!gameName!-%iid%.txt
+endlocal
+
+goto end
+
+
+:readMulti
+
+
+
+goto end
+
 
 :end
 
