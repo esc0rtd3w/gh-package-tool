@@ -924,6 +924,7 @@ function checkLogin() {
 	var checkEmpty = 0;
 	var checkTemp = 0;
 	
+	/*
 	var full = document.getElementById("fav_button_full");
 	var empty = document.getElementById("fav_button_empty");
 	
@@ -931,13 +932,13 @@ function checkLogin() {
 		checkFull = 0;
 		}
 		else {
-			checkFull = 0;
+			checkFull = 1;
 		}
 	if (empty == "undefined"){
 		checkEmpty = 0;
 		}
 		else {
-			checkEmpty = 0;
+			checkEmpty = 1;
 		}
 	
 	checkTemp = checkFull + checkEmpty;
@@ -945,7 +946,17 @@ function checkLogin() {
 	if (checkTemp == 2) {
 		isLoggedIn = 1;
 	}
+	*/
 	
+	var signInLink = document.getElementById("signInLink");
+	var signInText = signInLink.innerHTML;
+	if (signInText == "Sign In"){
+		isLoggedIn = 0;
+		}
+		else {
+			isLoggedIn = 1;
+		}
+		
 	alert(isLoggedIn);
 }
 
