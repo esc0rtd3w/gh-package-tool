@@ -997,6 +997,17 @@ function cleanElements() {
 	}
 }
 
+function downloadFile(file, fullPath) {
+	var dl = document.createElement('a');
+	dl.download = file;
+	dl.href = fullPath;
+
+	var clickEvent = document.createEvent("MouseEvent");
+	clickEvent.initEvent("click", true, true);
+
+	dl.dispatchEvent(clickEvent);
+}
+
 // END FUNCTIONS ----------------------------------------------------------------------/
 
 
