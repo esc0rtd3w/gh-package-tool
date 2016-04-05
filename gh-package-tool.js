@@ -246,6 +246,8 @@ var isRegTrademark = 0;
 // Special Webpage Situations
 var isDiscontinued = 0;
 var isMembersOnly = 0;
+var isLoggedIn = 0;
+var isFavHeart = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -918,6 +920,68 @@ function shrinkMargin(elem, size) {
 	a.style.marginTop = size;
 }
 
+function checkLogin() {
+	var signInLink = document.getElementById("signInLink");
+	
+	if (document.contains(signInLink)) {
+	var signInText = signInLink.innerHTML;
+	/*
+	if (signInText == "Sign In"){
+		isLoggedIn = 0;
+		}
+		else {
+			isLoggedIn = 1;
+		}
+		*/
+		
+		isLoggedIn = 0;
+	}
+	else {
+		isLoggedIn = 1;
+	}
+}
+
+function checkFavorites() {
+	var checkFull = 0;
+	var checkEmpty = 0;
+	var checkTemp = 0;
+	
+	var full = document.getElementById("fav_button_full");
+	var empty = document.getElementById("fav_button_empty");
+	
+	if (full == "undefined"){
+		checkFull = 0;
+		}
+		else {
+			checkFull = 1;
+		}
+	if (empty == "undefined"){
+		checkEmpty = 0;
+		}
+		else {
+			checkEmpty = 1;
+		}
+	
+	checkTemp = checkFull + checkEmpty;
+	
+	if (checkTemp > 0) {
+		isFavHeart = 1;
+	}
+	else {
+		isFavHeart = 0;
+	}
+}
+
+function cleanElements() {
+	//removeElement(btnPlayNow);// This is removed during the hijacked button building
+	removeElement(btnFunpass);// Remove The Orange Funpass Button
+	//removeElement(btnFreePlay);// Remove The Freeplay Button
+	if (isFavHeart == 1) {
+		removeElement("fav_button_full");// Remove Favorite Heart Image FULL
+		removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+	}
+}
+
 // END FUNCTIONS ----------------------------------------------------------------------/
 
 
@@ -937,12 +1001,14 @@ getGameName();
 // Build All Available New Links Based on Content ID and Game Name
 buildNewLinks();
 
+// Check if User is Logged In
+checkLogin();
+
+// Check For Favorite Hearts (Shows only if logged in)
+checkFavorites();
+
 // Remove Unwanted Stuff From Webpage
-//removeElement(btnPlayNow);// This is removed during the hijacked button building
-removeElement(btnFunpass);// Remove The Orange Funpass Button
-//removeElement(btnFreePlay);// Remove The Freeplay Button
-//removeElement("fav_button_full");// Remove Favorite Heart Image FULL
-//removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+cleanElements();
 
 // Remove "Funpass Playable" Image
 // Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
