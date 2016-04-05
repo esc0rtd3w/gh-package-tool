@@ -13,17 +13,17 @@
 
 set iid=0
 set inputStub=%1
-set outputText="%~dp0output.txt"
+set outputText="%temp%\ura-install-id-temp.txt"
 
 set readID="%~dp0bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
 
-echo %readID% "%inputStub%"
 %readID% "%inputStub%">%outputText%
 
 for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 2 echo %%b>%outputText%
 
 set /p iid=<%outputText%
 
+:: Cleanup Temp File
 if exist %outputText% del /f /q %outputText%
 
 cls
