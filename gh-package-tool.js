@@ -247,6 +247,7 @@ var isRegTrademark = 0;
 var isDiscontinued = 0;
 var isMembersOnly = 0;
 var isLoggedIn = 0;
+var isFavHeart = 0;
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -920,11 +921,24 @@ function shrinkMargin(elem, size) {
 }
 
 function checkLogin() {
+	var signInLink = document.getElementById("signInLink");
+	var signInText = signInLink.innerHTML;
+	
+	if (signInText == "Sign In"){
+		isLoggedIn = 0;
+		}
+		else {
+			isLoggedIn = 1;
+		}
+		
+	alert(isLoggedIn);
+}
+
+function checkFavorites() {
 	var checkFull = 0;
 	var checkEmpty = 0;
 	var checkTemp = 0;
 	
-	/*
 	var full = document.getElementById("fav_button_full");
 	var empty = document.getElementById("fav_button_empty");
 	
@@ -944,20 +958,18 @@ function checkLogin() {
 	checkTemp = checkFull + checkEmpty;
 	
 	if (checkTemp == 2) {
-		isLoggedIn = 1;
+		isFavHeart = 1;
 	}
-	*/
-	
-	var signInLink = document.getElementById("signInLink");
-	var signInText = signInLink.innerHTML;
-	if (signInText == "Sign In"){
-		isLoggedIn = 0;
-		}
-		else {
-			isLoggedIn = 1;
-		}
-		
-	alert(isLoggedIn);
+}
+
+function cleanElements() {
+	//removeElement(btnPlayNow);// This is removed during the hijacked button building
+	removeElement(btnFunpass);// Remove The Orange Funpass Button
+	//removeElement(btnFreePlay);// Remove The Freeplay Button
+	if (isFavHeart == 1) {
+		removeElement("fav_button_full");// Remove Favorite Heart Image FULL
+		removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+	}
 }
 
 // END FUNCTIONS ----------------------------------------------------------------------/
@@ -983,13 +995,7 @@ buildNewLinks();
 checkLogin();
 
 // Remove Unwanted Stuff From Webpage
-//removeElement(btnPlayNow);// This is removed during the hijacked button building
-removeElement(btnFunpass);// Remove The Orange Funpass Button
-//removeElement(btnFreePlay);// Remove The Freeplay Button
-
-
-//removeElement("fav_button_full");// Remove Favorite Heart Image FULL
-//removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+cleanElements();
 
 // Remove "Funpass Playable" Image
 // Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
