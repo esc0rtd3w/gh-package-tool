@@ -11,21 +11,28 @@
 
 :: Requirements: sfk.exe (included with RealArcade Wrapper Killer)
 
+set iid=0
 set inputStub=%1
-set outputText="%cd%\output.txt"
-set outputTextTemp="%cd%\output_temp.txt"
+set outputText="%~dp0output.txt"
 
-set readID="%cd%\bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
+set readID="%~dp0bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
 
-::%readID% "%inputStub%">%outputText%
-%readID% "%inputStub%"
+echo %readID% "%inputStub%"
+%readID% "%inputStub%">%outputText%
 
-::for /f "skip=1 delims=*" %%a in (%outputText%) do (
-::echo %%a >%outputTextTemp%   
-::)
-::xcopy %outputTextTemp% %outputText% /y
-::del %outputTextTemp% /f /q
+for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 2 echo %%b>%outputText%
 
+set /p iid=<%outputText%
+
+if exist %outputText% del /f /q %outputText%
+
+cls
+echo Installation ID: %iid%
+echo.
+echo.
+echo.
+echo.
+echo Press any key to exit....
 pause>nul
 
 :end
