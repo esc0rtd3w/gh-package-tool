@@ -922,16 +922,23 @@ function shrinkMargin(elem, size) {
 
 function checkLogin() {
 	var signInLink = document.getElementById("signInLink");
-	var signInText = signInLink.innerHTML;
 	
+	if (document.contains(signInLink)) {
+	var signInText = signInLink.innerHTML;
+	/*
 	if (signInText == "Sign In"){
 		isLoggedIn = 0;
 		}
 		else {
 			isLoggedIn = 1;
 		}
+		*/
 		
-	alert(isLoggedIn);
+		isLoggedIn = 0;
+	}
+	else {
+		isLoggedIn = 1;
+	}
 }
 
 function checkFavorites() {
@@ -957,8 +964,11 @@ function checkFavorites() {
 	
 	checkTemp = checkFull + checkEmpty;
 	
-	if (checkTemp == 2) {
+	if (checkTemp > 0) {
 		isFavHeart = 1;
+	}
+	else {
+		isFavHeart = 0;
 	}
 }
 
@@ -993,6 +1003,9 @@ buildNewLinks();
 
 // Check if User is Logged In
 checkLogin();
+
+// Check For Favorite Hearts (Shows only if logged in)
+checkFavorites();
 
 // Remove Unwanted Stuff From Webpage
 cleanElements();
