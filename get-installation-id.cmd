@@ -38,15 +38,29 @@ for %%a in ("%inputStub%") do (
     set gameName=%%~nxa
 )
 
+goto gameNameTemp
+
+
+:gameNameTemp
+
+setlocal enableextensions enabledelayedexpansion
+set gameName=!gameName:~10,-4!
+echo %gameName%>"%temp%\gameName.txt"
+endlocal
+
+goto readGameName
+
+
+:readGameName
+
+set /p gameName=<"%temp%\gameName.txt"
+
 goto outText
 
 
 :outText
 
-setlocal enableextensions enabledelayedexpansion
-set gameName=!gameName:~10,-4!
-echo >!gameName!-%iid%.txt
-endlocal
+echo %gameName%>%~dp0%gameName%-%iid%.txt
 
 goto end
 
@@ -59,4 +73,3 @@ goto end
 
 
 :end
-
