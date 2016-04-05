@@ -24,6 +24,7 @@ for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 
 set /p iid=<%outputText%
 
 :: Cleanup Temp File
+notepad %outputText%
 if exist %outputText% del /f /q %outputText%
 
 cls
