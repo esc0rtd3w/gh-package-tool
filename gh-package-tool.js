@@ -941,8 +941,8 @@ buildNewLinks();
 //removeElement(btnPlayNow);// This is removed during the hijacked button building
 removeElement(btnFunpass);// Remove The Orange Funpass Button
 //removeElement(btnFreePlay);// Remove The Freeplay Button
-removeElement("fav_button_full");// Remove Favorite Heart Image FULL
-removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
+//removeElement("fav_button_full");// Remove Favorite Heart Image FULL
+//removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 
 // Remove "Funpass Playable" Image
 // Sample Element: <img src="//cdn.ghstatic.com/gamehouse/images/GH_funpass_Playable.png?20160314.132.1" class="playable">
