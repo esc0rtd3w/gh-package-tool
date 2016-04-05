@@ -12,18 +12,21 @@
 :: Requirements: sfk.exe (included with RealArcade Wrapper Killer)
 
 set inputStub=%1
+set outputText="%cd%\output.txt"
+set outputTextTemp="%cd%\output_temp.txt"
 
-set readID="%cd%\bin\sfk.exe" hexdump -pure -offlen 0x949CE 16
+set readID="%cd%\bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
 
-
-cls
-echo %inputStub%
-echo.
-echo.
-pause>nul
-
+::%readID% "%inputStub%">%outputText%
 %readID% "%inputStub%"
 
+::for /f "skip=1 delims=*" %%a in (%outputText%) do (
+::echo %%a >%outputTextTemp%   
+::)
+::xcopy %outputTextTemp% %outputText% /y
+::del %outputTextTemp% /f /q
+
+pause>nul
 
 :end
 
