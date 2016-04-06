@@ -1,5 +1,7 @@
 @echo off
 
+title GameHouse Stub Installation ID Extractor                   cRypTiC / esc0rtd3w 2016
+
 :: Part of the GameHouse Package Tool (Javascript)
 
 :: Parent Project: RealArcade Wrapper Killer
@@ -38,7 +40,8 @@ if %inputStub% neq 0 set dragged=1
 if %inputStub% neq 0 goto readIID
 
 cls
-echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
+::echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
+echo Drag A Stub Into This Window and Press ENTER:
 echo.
 echo.
 
