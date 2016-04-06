@@ -31,6 +31,9 @@ set return=outText
 :: If launched directly, the input will be empty here
 if not defined inputStub set inputStub=0
 
+::If a stub was dragged onto script
+if defined inputStub goto readIID 
+
 cls
 echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
 echo.

@@ -314,6 +314,24 @@ function getGameName(){
 	gameNamePackage = gameNamePackage.replace("!", "");
 	gameNamePackage = gameNamePackage.replace("&", "");
 }
+
+// Get Installation ID From Stub
+function getInstallationID(stub) {
+	// Source: http://stackoverflow.com/questions/23144647/file-api-hex-conversion-javascript
+	var x = new Blob([stub]);
+
+	var fr = new FileReader();
+	fr.addEventListener('load', function () {
+		var u = new Uint8Array(this.result),
+			a = new Array(u.length),
+			i = u.length;
+		while (i--) // map to hex
+			a[i] = (u[i] < 16 ? '0' : '') + u[i].toString(16);
+		u = null; // free memory
+		console.log(a); // work with this
+	});
+	fr.readAsArrayBuffer(x);
+}
 	
 
 // Check For Platinum Edition
@@ -835,7 +853,10 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackAdvanced);// Create an Advanced Settings Button From Hijack Clone
-	cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
+	
+	if (iid != "00000000000000000000000000000000") {
+		cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
+	}
 	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
 	if(advancedOptions == 1) {
@@ -991,7 +1012,7 @@ function cleanElements() {
 	//removeElement(btnPlayNow);// This is removed during the hijacked button building
 	removeElement(btnFunpass);// Remove The Orange Funpass Button
 	//removeElement(btnFreePlay);// Remove The Freeplay Button
-	if (isFavHeart == 1) {
+	if (isFavHeart == 1 && isLoggedIn == 1) {
 		removeElement("fav_button_full");// Remove Favorite Heart Image FULL
 		removeElement("fav_button_empty");// Remove Favorite Heart Image EMPTY
 	}
