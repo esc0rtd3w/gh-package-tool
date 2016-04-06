@@ -28,6 +28,8 @@ set stubRoot=0
 :: Set default Navigation Return Label
 set return=outText
 
+:: If launched directly, the input will be empty here
+if not defined inputStub set inputStub=0
 
 cls
 echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
@@ -36,6 +38,7 @@ echo.
 
 set /p inputStub=
 
+if %inputStub%==0 goto reset
 
 
 :readIID
