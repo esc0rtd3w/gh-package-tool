@@ -25,6 +25,8 @@ set gameName=0
 
 set stubRoot=0
 
+set dragged=0
+
 :: Set default Navigation Return Label
 set return=outText
 
@@ -32,7 +34,8 @@ set return=outText
 if not defined inputStub set inputStub=0
 
 ::If a stub was dragged onto script
-if defined inputStub goto readIID 
+if %inputStub% neq 0 set dragged=1
+if %inputStub% neq 0 goto readIID
 
 cls
 echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
@@ -71,7 +74,9 @@ set return=outText
 
 echo %gameName%>%~dp0%gameName%-%iid%.txt
 
-goto reset
+if %dragged%==0 goto reset
+
+goto end
 
 
 :readMulti
