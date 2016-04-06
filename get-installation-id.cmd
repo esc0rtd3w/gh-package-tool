@@ -13,6 +13,8 @@
 
 :: TODO: Get Game Names from Auto stub download and create a list of all Installation IDs to Text file
 
+:reset
+
 set iid=0
 set inputStub=%1
 set outputText="%temp%\ura-install-id-temp.txt"
@@ -21,55 +23,66 @@ set readID="%~dp0bin\sfk.exe" hexdump -quiet -pure -offlen 0x949CE 16
 
 set gameName=0
 
+set stubRoot=0
+
+:: Set default Navigation Return Label
+set return=outText
+
+
+cls
+echo Drag A Stub or Folder of Stubs Into This Window and Press ENTER:
+echo.
+echo.
+
+set /p inputStub=
+
+
 
 :readIID
+
 %readID% "%inputStub%">%outputText%
 
 for /f "tokens=1*delims=:" %%a in ('findstr /n "^" %outputText%') do if %%a equ 2 echo %%b>%outputText%
 
 set /p iid=<%outputText%
 
-goto stubName
-
-
-:stubName
-
 for %%a in ("%inputStub%") do (
     set gameName=%%~nxa
 )
-
-goto gameNameTemp
-
-
-:gameNameTemp
 
 setlocal enableextensions enabledelayedexpansion
 set gameName=!gameName:~10,-4!
 echo %gameName%>"%temp%\gameName.txt"
 endlocal
 
-goto readGameName
-
-
-:readGameName
-
 set /p gameName=<"%temp%\gameName.txt"
 
-goto outText
+goto %return%
 
 
 :outText
+set return=outText
 
 echo %gameName%>%~dp0%gameName%-%iid%.txt
 
-goto end
+goto reset
 
 
 :readMulti
+set return=readMulti
+
+cls
+echo Drag or type the path that contains the GameHouse Stubs:
+echo.
+echo.
+
+set /p stubRoot=
 
 
+echo %gameName%-%iid%>>%~dp0stubIDList.txt
 
-goto end
+
+goto reset
 
 
 :end
