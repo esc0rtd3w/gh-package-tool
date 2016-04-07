@@ -96,6 +96,7 @@ server.push("http://switchboard.real.com");// Alternate Legacy RealArcade Packag
 server.push("http://downloads.gamehouse.com");// Default Mac Download Server
 server.push("http://m.gamehouse.com");// Default Mobile Download Server
 server.push("http://cdn.ghstatic.com");// Default Content Server
+server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
 
 // Game Paths On Server
 var path = [];
@@ -605,9 +606,9 @@ function createLinksRGS() {
 }
 
 function createLinksDMG() {
-	linkDMGLegacy = server[7] + path[6] + gameNamePackage +  "." + ext[3];
+	linkDMGLegacy = server[10] + path[6] + gameNamePackage +  "." + ext[3];
 	//checkLink(linkDMGLegacy);
-	linkDMGNew = server[7] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	linkDMGNew = server[10] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
 	//checkLink(linkDMGNew);
 }
 
