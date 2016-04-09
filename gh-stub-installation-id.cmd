@@ -28,6 +28,7 @@ set gameName=0
 set stubRoot=0
 
 set dragged=0
+set multiMode=1
 
 :: Set default Navigation Return Label
 set return=outText
@@ -44,10 +45,16 @@ cls
 echo Drag A Stub Into This Window and Press ENTER:
 echo.
 echo.
+echo For Multi Mode Press M and ENTER
+echo.
+echo.
 
 set /p inputStub=
 
 if %inputStub%==0 goto reset
+
+if %inputStub%==m goto readMulti
+if %inputStub%==M goto readMulti
 
 
 :readIID
@@ -84,19 +91,37 @@ goto end
 
 :readMulti
 set return=readMulti
+set multiMode=1
 
-cls
-echo Drag or type the path that contains the GameHouse Stubs:
-echo.
-echo.
+for %%a in (%~dp0test\*.exe) do (
+%readID% "%%a">%outputText%
+set inputStub=%%a
+)
+pause
+for /f "tokens=1*delims=:" %%b in ('findstr /n "^" %outputText%') do if %%b equ 2 echo %%c>%outputText%
 
-set /p stubRoot=
+set /p iid=<%outputText%
+
+echo Installation ID: %iid%
+pause
 
 
+for %%a in ("%inputStub%") do (
+    set gameName=%%~nxa
+)
+
+setlocal enableextensions enabledelayedexpansion
+set gameName=!gameName:~10,-4!
+echo %gameName%>"%temp%\gameName.txt"
+endlocal
+
+set /p gameName=<"%temp%\gameName.txt"
+echo Game Name: %gameName%
+pause
 echo %gameName%-%iid%>>%~dp0stubIDList.txt
 
 
-goto reset
+goto %return%
 
 
 :end
