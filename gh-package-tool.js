@@ -7,6 +7,7 @@
 // @include     http://www.gamehouse.com/top-100-games*
 // @include     http://www.gamehouse.com/platinum-games*
 // @include     http://www.gamehouse.com/free-games*
+// @include     http://www.gamehouse.com/mac-games*
 // @version     0.3.1
 // @grant       none
 // ==/UserScript==
@@ -606,9 +607,13 @@ function createLinksRGS() {
 }
 
 function createLinksDMG() {
+	// Sample URLs
+	// From Webpage: http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=amac-fabulousangelasfashionfeverpe.dmg&offering=amac-fabulousangelasfashionfeverpe&channel=z_syn_gh_g12
+	// Direct: http://games-dl.gamehouse.com/gamehouse/macstatic/amac-fabulousangelasfashionfeverpe.dmg
 	linkDMGLegacy = server[10] + path[6] + gameNamePackage +  "." + ext[3];
 	//checkLink(linkDMGLegacy);
-	linkDMGNew = server[10] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	//linkDMGNew = server[10] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
+	linkDMGNew = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=" + "amac-" + gameNamePackage +  "." + ext[3] + "&offering=amac-" + gameNamePackage + "&channel=z_syn_gh_g12";
 	//checkLink(linkDMGNew);
 }
 
