@@ -109,6 +109,7 @@ path.push("/gameconsole/realarcadev21/games/am-");// Legacy Activemark (Trial Ga
 path.push("/gameconsole/realarcadev21/games/amg-");// Legacy Activemark (Free Game) GameHouse and RealArcade RGA Path
 path.push("/pub/");// Default Mac OSX DMG Path (amac-)
 path.push("/InstallerManager/getinstaller?filename=");// Default EXE Stub Path (2015/2016)
+path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
 
 // Distributor List
 var distributor = [];
@@ -612,8 +613,8 @@ function createLinksDMG() {
 	// Direct: http://games-dl.gamehouse.com/gamehouse/macstatic/amac-fabulousangelasfashionfeverpe.dmg
 	linkDMGLegacy = server[10] + path[6] + gameNamePackage +  "." + ext[3];
 	//checkLink(linkDMGLegacy);
-	//linkDMGNew = server[10] + path[6] + "amac-" + gameNamePackage +  "." + ext[3];
-	linkDMGNew = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=" + "amac-" + gameNamePackage +  "." + ext[3] + "&offering=amac-" + gameNamePackage + "&channel=z_syn_gh_g12";
+	linkDMGNew = server[0] + path[8] + "amac-" + gameNamePackage +  "." + ext[3];
+	//linkDMGNew = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=" + "amac-" + gameNamePackage +  "." + ext[3] + "&offering=amac-" + gameNamePackage + "&channel=z_syn_gh_g12";
 	//checkLink(linkDMGNew);
 }
 
