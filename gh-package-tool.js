@@ -90,7 +90,8 @@
 
 
 // Set URL Values For Different Game Types
-// Example URL: $server/$distributor/$developer/$offering
+// Example GameHouse URL: $server/$distributor/$developer/$offering
+// Example Trymedia URL: $server/$distributor/$offering/$channel
 
 // Mobile: http://m.gamehouse.com/games/collapse!-blast
 // Mobile Play: http://cdn.ghstatic.com/mobile-archives/collapse-blast/index.html
@@ -108,6 +109,7 @@ server.push("http://downloads.gamehouse.com");// Default Mac Download Server
 server.push("http://m.gamehouse.com");// Default Mobile Download Server
 server.push("http://cdn.ghstatic.com");// Default Content Server
 server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
+server.push("http://d.trymedia.com");// TryMedia Download Server
 
 // Game Paths On Server
 var path = [];
@@ -124,6 +126,12 @@ path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
 // Distributor List
 var distributor = [];
 distributor.push("zylom");// Default Distributor After Migration
+distributor.push("selectsoft");// TryMedia Related
+distributor.push("playfirst");// TryMedia Related
+distributor.push("nickelodeon");// TryMedia Related
+distributor.push("alawent");// TryMedia Related
+distributor.push("isioux");// TryMedia Related
+distributor.push("rumbic");// TryMedia Related
 
 // Developer List
 var developer = [];
@@ -137,10 +145,14 @@ developer.push("terminalstudio");
 // Offering List
 var offering = [];
 offering.push("dip_nt_zy_en");// Default Offering (RGA Links Only??)
+offering.push("dip_60m_en");// TryMedia Related
+offering.push("30m_pkg542");// TryMedia Related
+offering.push("60m_d");// TryMedia Related
 
 // Channel List
 var channel = [];
 channel.push("z_syn_gh_g12");// Default Zylom/GameHouse Channel
+channel.push("t_14tn");// TryMedia Related
 
 // Language List
 var language = [];
