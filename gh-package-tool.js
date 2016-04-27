@@ -68,6 +68,15 @@
 // Stub Installer
 // http://amlocalhost.trymedia.com/offline/00edd86c60350000/_build.js?_=1459237405310
 
+
+// TryMedia Examples
+// http://d.trymedia.com/dd/selectsoft/30m_pkg542/t_14tn/ChampionshipChessSetup.exe
+// http://d.trymedia.com/dd/playfirst/dip_nt_en/t_14tn/AvenueFloTMSpecialDelivery.rga
+// http://d.trymedia.com/dd/nickelodeon/60m_d/t_14tn/CandyLand_Dora.exe
+// http://d.trymedia.com/dd/alawent/dip_60m_en/t_14tn/SmashFrenzy4.rga
+// http://d.trymedia.com/dd/isioux/dip_nt_en/t_14tn/GovernorofPoker2PremiumEd.rga
+// http://d.trymedia.com/dd/rumbic/dip_nt_en/t_14tn/WoodvilleChronicles.rga
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
