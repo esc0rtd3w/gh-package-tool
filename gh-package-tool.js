@@ -122,6 +122,7 @@ path.push("/gameconsole/realarcadev21/games/amg-");// Legacy Activemark (Free Ga
 path.push("/pub/");// Default Mac OSX DMG Path (amac-)
 path.push("/InstallerManager/getinstaller?filename=");// Default EXE Stub Path (2015/2016)
 path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
+path.push("/dd/"); // TryMedia Download Server Path
 
 // Distributor List
 var distributor = [];
