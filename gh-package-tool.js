@@ -76,6 +76,7 @@
 // http://d.trymedia.com/dd/alawent/dip_60m_en/t_14tn/SmashFrenzy4.rga
 // http://d.trymedia.com/dd/isioux/dip_nt_en/t_14tn/GovernorofPoker2PremiumEd.rga
 // http://d.trymedia.com/dd/rumbic/dip_nt_en/t_14tn/WoodvilleChronicles.rga
+// http://d.trymedia.com/dd/vivendi/static/trygames/Scarface.001
 
 // END SAMPLE URLS --------------------------------------------------------------------/
 
@@ -110,6 +111,7 @@ server.push("http://m.gamehouse.com");// Default Mobile Download Server
 server.push("http://cdn.ghstatic.com");// Default Content Server
 server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
 server.push("http://d.trymedia.com");// TryMedia Download Server
+server.push("http://ftp.gamehouse.com");// GameHouse FTP Server
 
 // Game Paths On Server
 var path = [];
@@ -133,6 +135,10 @@ distributor.push("nickelodeon");// TryMedia Related
 distributor.push("alawent");// TryMedia Related
 distributor.push("isioux");// TryMedia Related
 distributor.push("rumbic");// TryMedia Related
+distributor.push("valusoft");// TryMedia Related
+distributor.push("iplay");// TryMedia Related
+distributor.push("2kgame");// TryMedia Related
+distributor.push("vivendi");// TryMedia Related
 
 // Developer List
 var developer = [];
@@ -147,13 +153,26 @@ developer.push("terminalstudio");
 var offering = [];
 offering.push("dip_nt_zy_en");// Default Offering (RGA Links Only??)
 offering.push("dip_60m_en");// TryMedia Related
+offering.push("30m_pkg");// TryMedia Related
 offering.push("30m_pkg542");// TryMedia Related
+offering.push("60m_c");// TryMedia Related
+offering.push("60m_c3");// TryMedia Related
+offering.push("60m_c3_v101");// TryMedia Related
+offering.push("60m_c_1");// TryMedia Related
+offering.push("60m_c_v11");// TryMedia Related
 offering.push("60m_d");// TryMedia Related
+offering.push("60m_i_1f");// TryMedia Related
+offering.push("60m_d_am542");// TryMedia Related
+offering.push("static");// TryMedia Related
 
 // Channel List
 var channel = [];
 channel.push("z_syn_gh_g12");// Default Zylom/GameHouse Channel
+channel.push("t_19cs");// TryMedia Related
 channel.push("t_14tn");// TryMedia Related
+channel.push("trygames");// TryMedia Related
+channel.push("t_07da_bgd");// TryMedia Related
+channel.push("t_07of");// TryMedia Related
 
 // Language List
 var language = [];
