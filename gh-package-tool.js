@@ -78,6 +78,24 @@
 // http://d.trymedia.com/dd/rumbic/dip_nt_en/t_14tn/WoodvilleChronicles.rga
 // http://d.trymedia.com/dd/vivendi/static/trygames/Scarface.001
 
+// http://itm.trymedia.com/itm/installer/initializeInstaller?gameid=b6d996de41893bf1f3034c877caeda12&channel=t_01xi&otp=&tracking=21e50a6c54efb11b1a6aa3778f734414&currency=USD&price=6.99&installerversion=&lang=
+// http://itm.trymedia.com/itm/installer/initializeInstaller?gameid=009e2c8c79895d1d1c49917701c0d293&channel=t_12em&otp=&tracking=22c13f9fb243908541200d4ef5d2493c&currency=USD&price=6.99&installerversion=&lang=
+
+// Zylom Examples
+
+// Stub Initialize (Redirects To installer-manager.gamehouse.com)
+// A value of 0 for "g" or "s" variables will trigger a "HTTP Status 500 - java.lang.NullPointerException"
+// Changing the "g" variable value does not seem to affect current stub downloaded
+// The "s" variable controls the actual game stub to be downloaded
+// The value "s=1" and "g=91" is the lowest both can go before triggering an error
+// Example URL (Lowest Values): http://main.zylom.com/servlet/DownloadDownloadable?g=1&s=91
+// The first game triggered is "alchemy" and there are multiple languages of the same name from different numbers
+// alchemy is again the stub for "134", italian.
+// Example URL (Highest?): http://main.zylom.com/servlet/DownloadDownloadable?g=1&s=14797
+// Languages seem to be this order: en, nl, de, fr
+
+//http://main.zylom.com/servlet/DownloadDownloadable?g=44&s=20847
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
