@@ -96,6 +96,9 @@
 
 //http://main.zylom.com/servlet/DownloadDownloadable?g=44&s=20847
 
+
+//http://media.zylom.com/gamebits/gamehouse/macstatic/
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
@@ -130,6 +133,7 @@ server.push("http://cdn.ghstatic.com");// Default Content Server
 server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
 server.push("http://d.trymedia.com");// TryMedia Download Server
 server.push("http://ftp.gamehouse.com");// GameHouse FTP Server
+server.push("http://media.zylom.com");// Zylom Download Server
 
 // Game Paths On Server
 var path = [];
@@ -143,6 +147,8 @@ path.push("/pub/");// Default Mac OSX DMG Path (amac-)
 path.push("/InstallerManager/getinstaller?filename=");// Default EXE Stub Path (2015/2016)
 path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
 path.push("/dd/"); // TryMedia Download Server Path
+path.push("/gamebits/gamehouse/"); // Zylom Download Server Path
+path.push("/gamebits/gamehouse/macstatic"); // Zylom Mac OSX DMG Download Server Path
 
 // Distributor List
 var distributor = [];
