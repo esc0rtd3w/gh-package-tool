@@ -139,6 +139,11 @@ distributor.push("valusoft");// TryMedia Related
 distributor.push("iplay");// TryMedia Related
 distributor.push("2kgame");// TryMedia Related
 distributor.push("vivendi");// TryMedia Related
+distributor.push("ubisoft");// TryMedia Related
+distributor.push("thq");// TryMedia Related
+distributor.push("sg");// TryMedia Related
+distributor.push("segaus");// TryMedia Related
+distributor.push("sarbakan_inc");// TryMedia Related
 
 // Developer List
 var developer = [];
