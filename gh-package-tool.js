@@ -9,7 +9,7 @@
 // @include     http://www.gamehouse.com/free-games*
 // @include     http://www.gamehouse.com/mac-games*
 // @include     http://www.gamehouse.com/member/*
-// @version     0.3.1
+// @version     0.3.2
 // @grant       none
 // ==/UserScript==
 
