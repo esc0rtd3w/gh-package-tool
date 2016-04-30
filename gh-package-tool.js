@@ -103,6 +103,11 @@
 
 //http://media.zylom.com/gamebits/gamehouse/macstatic/
 
+
+// ActiveMark Licensing
+// Example URL With Minimum Parameters Required:
+// http://activemark.gamehouse.com/autounlock/gettoken?gamesetid=6000&contentid=448b83ca6a792ea2be05fcbe301d5976&licensetype=2&callback=
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
@@ -141,6 +146,7 @@ server.push("http://media.zylom.com");// Zylom Download Server
 server.push("http://b.gamehouse.com");// GameHouse Download Server
 server.push("http://d.gamehouse.com");// GameHouse Download Server
 server.push("http://p.gamehouse.com");// GameHouse Download Server
+server.push("http://activemark.gamehouse.com");// GameHouse ActiveMark Server
 
 // Game Paths On Server
 var path = [];
@@ -156,6 +162,7 @@ path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
 path.push("/dd/"); // TryMedia Download Server Path
 path.push("/gamebits/gamehouse/"); // Zylom Download Server Path
 path.push("/gamebits/gamehouse/macstatic"); // Zylom Mac OSX DMG Download Server Path
+path.push("/autounlock/gettoken?gamesetid=6000&contentid="); // GameHouse ActiveMark Licensing
 
 // Distributor List
 var distributor = [];
@@ -246,6 +253,8 @@ var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";// Content ID
 var iid = "00000000000000000000000000000000";// Installation ID
 
+var licenseType = 0; // ActiveMark License Type
+
 var gameTitle = "";
 var gameInfo = "";
 
@@ -253,6 +262,7 @@ var advancedOptions = 0;
 
 // Set Default Link Variables
 var linkHijack = "";
+var linkLicense = "";
 var linkAcid = "";
 var linkAdvanced = "";
 var linkEXE = "";
@@ -284,6 +294,7 @@ var btnDiscontinued = "discontinued";
 
 // Default Hijacked/Cloned Button Elements
 var btnHijack = "dl_now_button_hijack";
+var btnHijackLicense = "dl_now_button_license";
 var btnHijackAcid = "dl_now_button_acid";
 var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
@@ -302,6 +313,7 @@ var btnHijackDMGNew = "dl_now_button_dmg_new";
 // Link Statuses
 var linkCheckRequest;
 var linkStatusAcid;
+var linkStatusLicense;
 var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
@@ -332,6 +344,13 @@ var isDiscontinued = 0;
 var isMembersOnly = 0;
 var isLoggedIn = 0;
 var isFavHeart = 0;
+
+
+// ActiveMark Licensing Info
+// Usage: amUnlockBase + + cid + amUnlockType + licenseType + amUnlockPost
+var amUnlockBase = server[17] + path[12];// First part before Content ID
+var amUnlockType = "&licensetype=";// License Type
+var amUnlockPost = "&callback=";// Last part after Content ID
 
 // END DEFAULTS -----------------------------------------------------------------------/
 
@@ -626,6 +645,7 @@ function buildNewLinks(){
 	createLinksRGS();
 	createLinksDMG();
 	createLinksAcid();
+	createLinksLicense();
 }
 
 // Create Acid Links
@@ -694,6 +714,12 @@ function createLinksDMG() {
 	linkDMGNew = server[0] + path[8] + "amac-" + gameNamePackage +  "." + ext[3];
 	//linkDMGNew = "http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=" + "amac-" + gameNamePackage +  "." + ext[3] + "&offering=amac-" + gameNamePackage + "&channel=z_syn_gh_g12";
 	//checkLink(linkDMGNew);
+}
+
+function createLinksLicense() {
+	linkLicense = amUnlockBase + cid + amUnlockType + "2" + amUnlockPost;
+	//alert(linkLicense);
+	//checkLink(linkLicense);
 }
 
 function checkLink(linkToCheck){
@@ -945,6 +971,7 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGSFree);// Create an RGS Free File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackAdvanced);// Create an Advanced Settings Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackLicense);// Create a Button For License From Hijack Clone
 	
 	if (iid != "00000000000000000000000000000000") {
 		cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
@@ -1196,7 +1223,8 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackAdvanced, linkAdvanced, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
-setButtonProperties(btnHijackAcid, linkAcid, "Acid File", "Configuration File", "#99ffFF", "#FFFFFF");
+//setButtonProperties(btnHijackAcid, linkAcid, "Acid File", "Configuration File", "#99ffFF", "#FFFFFF");
+setButtonProperties(btnHijackLicense, linkLicense, "License&nbsp&nbsp", "Get New AM Token", "#99ffFF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
 
 // Custom Advanced Button
