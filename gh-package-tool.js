@@ -42,6 +42,10 @@
 // EXE Stub (RGA No Lang)
 // http://installer-manager.gamehouse.com/InstallerManager/getinstaller?filename=MONOPOLY.rga&offering=dip_nt_zy_en&channel=z_syn_gh_g12
 
+// Alternate Stub Servers
+// http://b.gamehouse.com/b/ghmigration/jewellegendsmagicalkingdom/z_syn_gh_g12/jewellegendsmagicalkingdom.rga
+// http://d.gamehouse.com/d/ghmigration/jewellegendsmagicalkingdom/z_syn_gh_g12/jewellegendsmagicalkingdom.rga
+// http://p.gamehouse.com/p/ghmigration/jewellegendsmagicalkingdom/z_syn_gh_g12/jewellegendsmagicalkingdom.rga
 
 // RFS
 // http://games-dl.gamehouse.com/zylom/ghmigration/supergloveshero/f86bc49a788ace0058a420899e086139-supergloveshero.rfs
@@ -134,6 +138,9 @@ server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
 server.push("http://d.trymedia.com");// TryMedia Download Server
 server.push("http://ftp.gamehouse.com");// GameHouse FTP Server
 server.push("http://media.zylom.com");// Zylom Download Server
+server.push("http://b.gamehouse.com");// GameHouse Download Server
+server.push("http://d.gamehouse.com");// GameHouse Download Server
+server.push("http://p.gamehouse.com");// GameHouse Download Server
 
 // Game Paths On Server
 var path = [];
