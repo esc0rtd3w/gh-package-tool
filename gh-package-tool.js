@@ -253,7 +253,7 @@ var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";// Content ID
 var iid = "00000000000000000000000000000000";// Installation ID
 
-var licenseType = 0; // ActiveMark License Type
+var licenseType = 2; // ActiveMark License Type (Accepted Values are 1 or 2)
 
 var gameTitle = "";
 var gameInfo = "";
@@ -717,7 +717,7 @@ function createLinksDMG() {
 }
 
 function createLinksLicense() {
-	linkLicense = amUnlockBase + cid + amUnlockType + "2" + amUnlockPost;
+	linkLicense = amUnlockBase + cid + amUnlockType + licenseType + amUnlockPost;
 	//alert(linkLicense);
 	//checkLink(linkLicense);
 }
