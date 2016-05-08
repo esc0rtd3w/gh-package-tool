@@ -108,6 +108,18 @@
 // Example URL With Minimum Parameters Required:
 // http://activemark.gamehouse.com/autounlock/gettoken?gamesetid=6000&contentid=448b83ca6a792ea2be05fcbe301d5976&licensetype=2&callback=
 
+
+// New AM Instant Links (05/2016)
+
+// Install
+// http://games-dl.gamehouse.com/gamehouse/pc/j/jet-set-go/jet-set-go.rfs
+// http://games-dl.gamehouse.com/gamehouse/pc/s/sweetest-thing/sweetest-thing.rfs
+// http://games-dl.gamehouse.com/gamehouse/pc/h/hoyle-official-card-games-collection/hoyle-official-card-games-collection.rfs
+
+// Download
+// http://profiler-cdn.am.gamehouse.com/gamehouse/pc/j/jet-set-go/jet-set-go.rfs.0.rfsindex
+// http://profiler-cdn.am.gamehouse.com/gamehouse/pc/s/sweetest-thing/sweetest-thing.rfs.0.rfsindex
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
@@ -251,7 +263,11 @@ var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
 var cid = "00000000000000000000000000000000";// Content ID
+//var cid = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";// Content ID
+
+// Installation ID is also known as "gameid"
 var iid = "00000000000000000000000000000000";// Installation ID
+//var iid = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";// Installation ID
 
 var licenseType = 2; // ActiveMark License Type (Accepted Values are 1 or 2)
 
@@ -449,6 +465,9 @@ function checkPlatinum(){
 	
 	// Game Links Tested OK (1st Letter Only)
 	// 12-labours-of-hercules-iv-mother-nature-platinum-edition >> 12laboursofherculesivmnpe
+	
+	// 2Check
+	// http://games-dl.gamehouse.com/zylom/ghmigration/redemptioncemeterysotlpe/1ed705a76fd6c4c49bf1cdff78d61649-redemptioncemeterysotlpe.rfs
 	
 	if (gameNameTitle.search("platinumedition") != "platinumedition") {
 	   isPlatinum = 1;
