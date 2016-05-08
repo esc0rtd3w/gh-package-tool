@@ -115,10 +115,27 @@
 // http://games-dl.gamehouse.com/gamehouse/pc/j/jet-set-go/jet-set-go.rfs
 // http://games-dl.gamehouse.com/gamehouse/pc/s/sweetest-thing/sweetest-thing.rfs
 // http://games-dl.gamehouse.com/gamehouse/pc/h/hoyle-official-card-games-collection/hoyle-official-card-games-collection.rfs
+// http://games-dl.gamehouse.com/gamehouse/pc/g/gutterball-2/gutterball-2.rfs
 
 // Download
 // http://profiler-cdn.am.gamehouse.com/gamehouse/pc/j/jet-set-go/jet-set-go.rfs.0.rfsindex
 // http://profiler-cdn.am.gamehouse.com/gamehouse/pc/s/sweetest-thing/sweetest-thing.rfs.0.rfsindex
+
+// Stub: http://games-dl.gamehouse.com/gamehouse/activemark/aminstantservice/GameHouse_GamePlayer.exe
+// JSON: http://www.gamehouse.com/member/api/games/downloaddetails.json?amcontentid=e945fbad3cb2cd9c2531b4c9794bb81d
+// http://www.gamehouse.com/gathering/insertwrd
+
+
+// Other Misc
+
+// Game List Builder?? (Show response in BurpSuite)
+// http://www.gamehouse.com/member/api/games/new-select.json?start=0&count=2895
+
+// Download Details
+// http://www.gamehouse.com/member/api/games/downloaddetails.json?amcontentid=e945fbad3cb2cd9c2531b4c9794bb81d
+
+// New Games??
+// http://www.gamehouse.com/member/api/categories/all.json?type=categorybox
 
 // END SAMPLE URLS --------------------------------------------------------------------/
 
@@ -175,6 +192,7 @@ path.push("/dd/"); // TryMedia Download Server Path
 path.push("/gamebits/gamehouse/"); // Zylom Download Server Path
 path.push("/gamebits/gamehouse/macstatic"); // Zylom Mac OSX DMG Download Server Path
 path.push("/autounlock/gettoken?gamesetid=6000&contentid="); // GameHouse ActiveMark Licensing
+server.push("/gamehouse/activemark/");// New 2016 Gamehouse ActiveMark Path (using http://games-dl.gamehouse.com)
 
 // Distributor List
 var distributor = [];
