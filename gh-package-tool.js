@@ -1019,10 +1019,12 @@ function buildNewButtons() {
 	cloneElement(btnHijack, btnHijackRGSFull);// Create an RGS Full File Button From Hijack Clone
 	//cloneElement(btnHijack, btnHijackAdvanced);// Create an Advanced Settings Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackLicense);// Create a Button For License From Hijack Clone
+	cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
+	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
-	if (iid != "00000000000000000000000000000000") {
-		cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
-	}
+	//if (iid != "00000000000000000000000000000000") {
+	//	cloneElement(btnHijack, btnHijackAcid);// Create an Acid Config File Button From Hijack Clone
+	//}
 	//cloneElement(btnHijack, btnHijackOriginVuln);// Create a Button That redirects to a vulnerable GH server From Hijack Clone
 	
 	if(advancedOptions == 1) {
@@ -1271,7 +1273,7 @@ setButtonProperties(btnHijackRGAUnlimited, linkRGAUnlimited, "RGA File", "AM v2.
 setButtonProperties(btnHijackRGSFree, linkRGSFree, "RGS File", "RealArcade Free", "#9900FF", "#FFFFFF");
 setButtonProperties(btnHijackRGSFull, linkRGSFull, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
 //setButtonProperties(btnHijackAdvanced, linkAdvanced, "RGS File", "RealArcade Full", "#9900FF", "#FFFFFF");
-//setButtonProperties(btnHijackAcid, linkAcid, "Acid File", "Configuration File", "#99ffFF", "#FFFFFF");
+setButtonProperties(btnHijackAcid, linkAcid, "Acid File", "Configuration File", "#99ffFF", "#FFFFFF");
 setButtonProperties(btnHijackLicense, linkLicense, "License&nbsp&nbsp", "Get New AM Token", "#99ffFF", "#FFFFFF");
 //setButtonProperties(btnHijackOriginVuln, linkOriginVuln, "Surprise!", "GH Origin Server", "#22BB77", "#FFFFFF");
 
