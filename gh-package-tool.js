@@ -455,6 +455,10 @@ function getGameName(){
 	gameNamePackage = gameNamePackage.replace("!", "");
 	gameNamePackage = gameNamePackage.replace("&", "");
 	
+	gameNameWebpage = gameNamePackage.replace("#", "");
+	gameNameWebpage = gameNamePackage.replace("!", "");
+	gameNameWebpage = gameNamePackage.replace("&", "");
+	
 	// Get First Letter of Game Name
 	firstLetter = gameNameWebpage.charAt(0);
 }
@@ -1272,7 +1276,7 @@ buildNewButtons();
 setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
 setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "GH AM Package", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackRFSAmInstant, linkRFSAmInstant, "RFS File", "AM Instant PKG", "#CC4433", "#FFFFFF");
-setButtonProperties(btnHijackRFSIndex, linkRFSIndex, "RFS Index", "RFS Index", "#CC4433", "#FFFFFF");
+setButtonProperties(btnHijackRFSIndex, linkRFSIndex, "RFS File", "RFS Index", "#CC4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
