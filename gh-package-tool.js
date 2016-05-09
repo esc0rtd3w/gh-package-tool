@@ -1259,7 +1259,7 @@ buildNewButtons();
 
 // Set Button Properties
 setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
-setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
+setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "GH AM Package", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackRFSAmInstant, linkRFSAmInstant, "RFS File", "AM Instant PKG", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
