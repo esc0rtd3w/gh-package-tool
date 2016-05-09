@@ -165,7 +165,7 @@ server.push("http://switchboard.real.com");// Alternate Legacy RealArcade Packag
 server.push("http://downloads.gamehouse.com");// Default Mac Download Server
 server.push("http://m.gamehouse.com");// Default Mobile Download Server
 server.push("http://cdn.ghstatic.com");// Default Content Server
-server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server
+server.push("http://gameh0use.com");// cRypTiCwaRe GH Spoof Server (SERVER 10)
 server.push("http://d.trymedia.com");// TryMedia Download Server
 server.push("http://ftp.gamehouse.com");// GameHouse FTP Server
 server.push("http://media.zylom.com");// Zylom Download Server
@@ -728,7 +728,7 @@ function createLinksRFS() {
 	linkRFSAmInstant = server[0] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[2];
 	
 	// AM Instant RFS Index Files
-	linkRFSIndex = server[13] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[8];
+	linkRFSIndex = server[18] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[8];
 	
 	//checkLink(linkRFS);
 }
