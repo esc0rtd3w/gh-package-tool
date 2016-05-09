@@ -173,6 +173,7 @@ server.push("http://b.gamehouse.com");// GameHouse Download Server
 server.push("http://d.gamehouse.com");// GameHouse Download Server
 server.push("http://p.gamehouse.com");// GameHouse Download Server
 server.push("http://activemark.gamehouse.com");// GameHouse ActiveMark Server
+server.push("http://profiler-cdn.am.gamehouse.com");// New 2016 AM PC Server
 
 // Game Paths On Server
 var path = [];
@@ -262,6 +263,7 @@ ext.push("rgs");// Legacy RealArcade RGS Game Installer (XZIP 2.0)
 ext.push("rgi");// Legacy RealArcade RGS XML Game Info
 ext.push("rgp");// Legacy RealArcade RGS XML Structured Install Info
 ext.push("mez");// Legacy RealArcade RGS XZip 2.0 Header Stub??
+ext.push("rfs.0.rfsindex");// New GH AM Instant RFS Index Files
 
 // Bases URL (EXE Stub)
 var baseExeStub = server[2] + "/InstallerManager/getinstaller?filename=";
@@ -307,6 +309,7 @@ var linkRGAUnlimited = "";
 var linkRGSFree = "";
 var linkRGSFull = "";
 var linkRFS = "";
+var linkRFSIndex = "";
 var linkRFSAmInstant = "";
 var linkDMGLegacy = "";
 var linkDMGNew = "";
@@ -333,6 +336,7 @@ var btnHijackAcid = "dl_now_button_acid";
 var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
+var btnHijackRFSIndex = "dl_now_button_rfs_index";
 var btnHijackRFSAmInstant = "dl_now_button_rfs_am_instant";
 var btnHijackRGALang = "dl_now_button_rga_lang";
 var btnHijackRGANoLang = "dl_now_button_rga_no_lang";
@@ -352,6 +356,7 @@ var linkStatusLicense;
 var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
+var linkStatusRFSIndex;
 var linkStatusRFSAmInstant;
 var linkStatusRGALang;
 var linkStatusRGANoLang;
@@ -722,6 +727,9 @@ function createLinksRFS() {
 	// AM Instant
 	linkRFSAmInstant = server[0] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[2];
 	
+	// AM Instant RFS Index Files
+	linkRFSIndex = server[13] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[8];
+	
 	//checkLink(linkRFS);
 }
 
@@ -1007,6 +1015,7 @@ function buildNewButtons() {
 	// Create New Buttons From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRFSIndex);// Create an RFS Index File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFSAmInstant);// Create an AM Instant RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGNew);// Create an DMG AMAC File Button From Hijack Clone
@@ -1262,7 +1271,8 @@ buildNewButtons();
 // Set Button Properties
 setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
 setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "GH AM Package", "#FF4433", "#FFFFFF");
-setButtonProperties(btnHijackRFSAmInstant, linkRFSAmInstant, "RFS File", "AM Instant PKG", "#FF4433", "#FFFFFF");
+setButtonProperties(btnHijackRFSAmInstant, linkRFSAmInstant, "RFS File", "AM Instant PKG", "#CC4433", "#FFFFFF");
+setButtonProperties(btnHijackRFSIndex, linkRFSIndex, "RFS Index", "RFS Index", "#CC4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
