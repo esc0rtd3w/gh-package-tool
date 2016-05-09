@@ -131,10 +131,7 @@
 // Game List Builder?? (Show response in BurpSuite)
 // http://www.gamehouse.com/member/api/games/new-select.json?start=0&count=2895
 
-// Download Details
 // http://www.gamehouse.com/member/api/games/downloaddetails.json?amcontentid=e945fbad3cb2cd9c2531b4c9794bb81d
-
-// New Games??
 // http://www.gamehouse.com/member/api/categories/all.json?type=categorybox
 
 // END SAMPLE URLS --------------------------------------------------------------------/
@@ -192,7 +189,8 @@ path.push("/dd/"); // TryMedia Download Server Path
 path.push("/gamebits/gamehouse/"); // Zylom Download Server Path
 path.push("/gamebits/gamehouse/macstatic"); // Zylom Mac OSX DMG Download Server Path
 path.push("/autounlock/gettoken?gamesetid=6000&contentid="); // GameHouse ActiveMark Licensing
-server.push("/gamehouse/activemark/");// New 2016 Gamehouse ActiveMark Path (using http://games-dl.gamehouse.com)
+path.push("/gamehouse/activemark/");// New 2016 Gamehouse ActiveMark Path (using http://games-dl.gamehouse.com)
+path.push("/gamehouse/pc/");// New 2016 Gamehouse PC Path (using http://games-dl.gamehouse.com)
 
 // Distributor List
 var distributor = [];
@@ -280,6 +278,7 @@ var base = server[0] + "/" + distributor[0] + "/" + developer[0] + "/";
 var gameNameTitle = "Game Name Title Here";
 var gameNameWebpage = "game-name-here";
 var gameNamePackage = "gamenamehere";
+var firstLetter = "";// Used for AM Instant Links (/pc/s/sample-game/sample-game.rfs)
 var cid = "00000000000000000000000000000000";// Content ID
 //var cid = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";// Content ID
 
@@ -308,6 +307,7 @@ var linkRGAUnlimited = "";
 var linkRGSFree = "";
 var linkRGSFull = "";
 var linkRFS = "";
+var linkRFSAmInstant = "";
 var linkDMGLegacy = "";
 var linkDMGNew = "";
 var linkOriginVuln = "http://origin.gamehouse.com/gameconsole/";
@@ -333,6 +333,7 @@ var btnHijackAcid = "dl_now_button_acid";
 var btnHijackAdvanced = "dl_now_button_advanced";
 var btnHijackEXE = "dl_now_button_exe";
 var btnHijackRFS = "dl_now_button_rfs";
+var btnHijackRFSAmInstant = "dl_now_button_rfs_am_instant";
 var btnHijackRGALang = "dl_now_button_rga_lang";
 var btnHijackRGANoLang = "dl_now_button_rga_no_lang";
 var btnHijackRGALegacy = "dl_now_button_rga_legacy";
@@ -351,6 +352,7 @@ var linkStatusLicense;
 var linkStatusAdvanced;
 var linkStatusEXE;
 var linkStatusRFS;
+var linkStatusRFSAmInstant;
 var linkStatusRGALang;
 var linkStatusRGANoLang;
 var linkStatusRGALegacy;
@@ -447,6 +449,9 @@ function getGameName(){
 	gameNamePackage = gameNamePackage.replace("#", "");
 	gameNamePackage = gameNamePackage.replace("!", "");
 	gameNamePackage = gameNamePackage.replace("&", "");
+	
+	// Get First Letter of Game Name
+	firstLetter = gameNameWebpage.charAt(0);
 }
 
 // Get Installation ID From Stub
@@ -713,6 +718,10 @@ function createLinksRFS() {
 	// Samples
 	// igtslotsendoftherainbowcollection >> igtslotsendoftherainbowcollect
 	linkRFS = server[0] + "/" + distributor[0] + "/" + developer[0] + "/" + gameNamePackage + "/" + cid + "-" + gameNamePackage + "." + ext[2];
+	
+	// AM Instant
+	linkRFSAmInstant = server[0] + path[14] + firstLetter + "/" + gameNameWebpage + "/" + gameNameWebpage + "." + ext[2];
+	
 	//checkLink(linkRFS);
 }
 
@@ -998,6 +1007,7 @@ function buildNewButtons() {
 	// Create New Buttons From Hijack Clone
 	cloneElement(btnHijack, btnHijackEXE);// Create an EXE File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRFS);// Create an RFS File Button From Hijack Clone
+	cloneElement(btnHijack, btnHijackRFSAmInstant);// Create an AM Instant RFS File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGLegacy);// Create an DMG Legacy File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackDMGNew);// Create an DMG AMAC File Button From Hijack Clone
 	cloneElement(btnHijack, btnHijackRGANoLang);// Create an RGA v4.x Without Language File Button From Hijack Clone
@@ -1250,6 +1260,7 @@ buildNewButtons();
 // Set Button Properties
 setButtonProperties(btnHijackEXE, linkEXE, "EXE File", "Default Stub Installer", "#00ccFF", "#FFFFFF");
 setButtonProperties(btnHijackRFS, linkRFS, "RFS File", "New AM Package", "#FF4433", "#FFFFFF");
+setButtonProperties(btnHijackRFSAmInstant, linkRFSAmInstant, "RFS File", "AM Instant PKG", "#FF4433", "#FFFFFF");
 setButtonProperties(btnHijackDMGLegacy, linkDMGLegacy, "DMG File", "Mac Legacy", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackDMGNew, linkDMGNew, "DMG File", "Mac ActiveMark", "#FFFF00", "#FFFFFF");
 setButtonProperties(btnHijackRGALang, linkRGALang, "RGA File", "AM v4.x + Language", "#FF88AA", "#FFFFFF");
