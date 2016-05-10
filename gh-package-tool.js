@@ -201,11 +201,12 @@ path.push("/pub/");// Default Mac OSX DMG Path (amac-)
 path.push("/InstallerManager/getinstaller?filename=");// Default EXE Stub Path (2015/2016)
 path.push("/gamehouse/macstatic/"); // New Mac OSX DMG Path (2016)
 path.push("/dd/"); // TryMedia Download Server Path
-path.push("/gamebits/gamehouse/"); // Zylom Download Server Path
+path.push("/gamebits/gamehouse/"); // Zylom Download Server Path (SERVER 10)
 path.push("/gamebits/gamehouse/macstatic"); // Zylom Mac OSX DMG Download Server Path
 path.push("/autounlock/gettoken?gamesetid=6000&contentid="); // GameHouse ActiveMark Licensing
 path.push("/gamehouse/activemark/");// New 2016 Gamehouse ActiveMark Path (using http://games-dl.gamehouse.com)
 path.push("/gamehouse/pc/");// New 2016 Gamehouse PC Path (using http://games-dl.gamehouse.com)
+path.push("/gameconsole/games/full/");// Legacy RealArcade Full RGS Game Path
 
 // Distributor List
 var distributor = [];
@@ -774,7 +775,7 @@ function createLinksRGA() {
 function createLinksRGS() {
 	linkRGSFree = server[1] + path[1] + gameNamePackage +  "_free." + ext[4];
 	//checkLink(linkRGSFree);
-	linkRGSFull = server[1] + path[1] + gameNamePackage +  "_full." + ext[4];
+	linkRGSFull = server[15] + path[1] + gameNamePackage +  "_full." + ext[4];
 	//checkLink(linkRGSFull);
 }
 
