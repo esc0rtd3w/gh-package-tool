@@ -147,6 +147,14 @@
 // Pulled From AM Instant EXE
 // http://gamehousebeta.com
 
+
+// AM Licensing
+// Returns weird error page with STATUS=405
+// http://gamehouse.com/amlicense
+
+// Same as above but returns STATUS=999
+// http://gamehouse.com/amlicense/error
+
 // END SAMPLE URLS --------------------------------------------------------------------/
 
 
