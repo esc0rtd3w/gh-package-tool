@@ -775,7 +775,7 @@ function createLinksRGA() {
 function createLinksRGS() {
 	linkRGSFree = server[1] + path[1] + gameNamePackage +  "_free." + ext[4];
 	//checkLink(linkRGSFree);
-	linkRGSFull = server[15] + path[1] + gameNamePackage +  "_full." + ext[4];
+	linkRGSFull = server[1] + path[15] + gameNamePackage +  "_full." + ext[4];
 	//checkLink(linkRGSFull);
 }
 
