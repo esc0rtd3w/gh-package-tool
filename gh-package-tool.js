@@ -479,9 +479,9 @@ function getGameName(){
 	gameNamePackage = gameNamePackage.replace("!", "");
 	gameNamePackage = gameNamePackage.replace("&", "");
 	
-	gameNameWebpage = gameNamePackage.replace("#", "");
-	gameNameWebpage = gameNamePackage.replace("!", "");
-	gameNameWebpage = gameNamePackage.replace("&", "");
+	//gameNameWebpage = gameNamePackage.replace("#", "");
+	//gameNameWebpage = gameNamePackage.replace("!", "");
+	//gameNameWebpage = gameNamePackage.replace("&", "");
 	
 	// Get First Letter of Game Name
 	firstLetter = gameNameWebpage.charAt(0);
