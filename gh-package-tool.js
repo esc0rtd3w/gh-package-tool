@@ -170,6 +170,10 @@ Sample From AM Instant "member" page using aminstantservice.exe
 // http://localhost:12072/v1/listGames.json?include_uninstalled=true&query_id=1463297610930
 // http://www.gamehouse.com/member/api/games/downloaddetails.json?amcontentid=83e49dc08c18ebc8cf311a9345404be2
 // http://www.gamehouse.com/member/api/player/getsessionid.json
+// http://localhost:12072/v1/play.json?content_id=e945fbad3cb2cd9c2531b4c9794bb81d&auth_token=670a4b659a2de7d70d0c891382c65fdd55df7676&player_id=233455&game_id=1672&is_trial=true&query_id=1463297651235
+
+// Launch Game
+// http://localhost:12072/v1/play.json?content_id=11361ddbbf3f5a60d2cdac2f6220cb3c&auth_token=670a4b659a2de7d70d0c891382c65fdd55df7676&player_id=233455&game_id=1478&is_trial=true&query_id=1463308591685
 
 // http://main.zylom.com/js/deluxedownload.js
 
